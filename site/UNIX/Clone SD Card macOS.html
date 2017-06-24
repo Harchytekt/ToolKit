@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Homebrew</title>
+<title>Clone SD Card macOS</title>
 <!-- CSS -->
 <link rel="stylesheet" href="../style.css">
 
@@ -171,479 +171,44 @@ div.prism-show-language > div.prism-show-language-label {
 
 <body>
 
-<h1 id="toc_0">Homebrew (macOS)</h1>
+<h1 id="toc_0">Clone SD Card on macOS</h1>
 
 <p><center><a href="../index.html">Home</a></center></p>
 
 <ul class="toc">
 <li>
-<a href="#toc_0">Homebrew (macOS)</a>
-<ul>
-<li>
-<a href="#toc_1">Installation of Homebrew</a>
-<ul>
-<li>
-<a href="#toc_2">1. Install Xcode</a>
-</li>
-<li>
-<a href="#toc_3">2. Install Homebrew</a>
-</li>
-<li>
-<a href="#toc_4">3. Debug it</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_5">If you aren&#39;t admin</a>
-<ul>
-<li>
-<a href="#toc_6">1. Log in as admin</a>
-</li>
-<li>
-<a href="#toc_7">2. Launch Terminal and type:</a>
-</li>
-<li>
-<a href="#toc_8">3. Navigate down to the “#User privilege specification” section</a>
-</li>
-<li>
-<a href="#toc_9">4. Insert the username you want add to the sudoers file</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_10">Usefull commands</a>
-<ul>
-<li>
-<a href="#toc_11">Before anything</a>
-</li>
-<li>
-<a href="#toc_12">Cleanup</a>
-<ul>
-<li>
-<a href="#toc_13">To remove the old version(s) of a certain package</a>
-</li>
-<li>
-<a href="#toc_14">To see what could be cleaned up</a>
-</li>
-<li>
-<a href="#toc_15">To clean up everything at once</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_16">Doctor</a>
-</li>
-<li>
-<a href="#toc_17">Install package</a>
-</li>
-<li>
-<a href="#toc_18">Leaves</a>
-</li>
-<li>
-<a href="#toc_19">Missing</a>
-</li>
-<li>
-<a href="#toc_20">Outdated</a>
-</li>
-<li>
-<a href="#toc_21">Remove software</a>
-</li>
-<li>
-<a href="#toc_22">Search</a>
-<ul>
-<li>
-<a href="#toc_23">In Cask</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_24">Upgrade</a>
-<ul>
-<li>
-<a href="#toc_25">All</a>
-</li>
-<li>
-<a href="#toc_26">A certain package</a>
-</li>
-<li>
-<a href="#toc_27">Stop a package from being updated</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_28">And now ? Install stuff !</a>
-<ul>
-<li>
-<a href="#toc_29">Ant</a>
-</li>
-<li>
-<a href="#toc_30">Cask</a>
-<ul>
-<li>
-<a href="#toc_31">QuickLook plugins (with Cask)</a>
-<ul>
-<li>
-<a href="#toc_32">QLColorCode</a>
-</li>
-<li>
-<a href="#toc_33">QLStephen</a>
-</li>
-<li>
-<a href="#toc_34">QLMarkdown</a>
-</li>
-<li>
-<a href="#toc_35">ProvisionQL</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_36">Clisp</a>
-</li>
-<li>
-<a href="#toc_37">ExifTool by Phil Harvey</a>
-</li>
-<li>
-<a href="#toc_38">go</a>
-<ul>
-<li>
-<a href="#toc_39">Licence (through go)</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_40">Mackup</a>
-</li>
-<li>
-<a href="#toc_41">Support to BPG</a>
-<ul>
-<li>
-<a href="#toc_42">QuickLook plugin for BPG</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_43">Others</a>
-<ul>
-<li>
-<a href="#toc_44"> m-cli</a>
-</li>
-<li>
-<a href="#toc_45">Mac CLI</a>
-</li>
-<li>
-<a href="#toc_46">Awesome OS X Command Line</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<a href="#toc_0">Clone SD Card on macOS</a>
 </li>
 </ul>
 
 
-<h2 id="toc_1">Installation of Homebrew</h2>
+<ol>
+<li><p>Insert Your SD Card<br>
+Ensure that you have inserted the SD Card, that you wish to clone, into the SD Card reader of your Mac. If your Mac does not have an internal SD Card reader, you will need to plug in an external SD Card reader via a USB socket.</p></li>
+<li><p>Locate Your SD Card<br>
+Open Terminal and enter the following command to locate your SD Card:</p></li>
+</ol>
 
-<p><a href="http://docs.brew.sh">For more informations</a></p>
+<div><pre><code class="language-bash">diskutil list</code></pre></div>
 
-<h3 id="toc_2">1. Install Xcode</h3>
+<p><img src="List.png" alt="List" title="List"></p>
 
-<h3 id="toc_3">2. Install Homebrew</h3>
+<ol>
+<li>Cloning Your SD Card
+Whether your RPi SD Card is all set up as you want it, or you just want to make an incremental clone before installing some software, backing up your SD Card could save you time in the long run.</li>
+</ol>
 
-<div><pre><code class="language-bash">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></pre></div>
+<p>In my example, my SD Card is /dev/disk3. Amend this as necessary for yours. In Terminal, enter the following command to create a disc image (.dmg) of your SD Card on the Desktop.</p>
 
-<h3 id="toc_4">3. Debug it</h3>
+<div><pre><code class="language-bash">sudo dd if=/dev/disk3 of=~/Desktop/raspberrypi.dmg</code></pre></div>
 
-<div><pre><code class="language-bash">brew doctor</code></pre></div>
+<ol>
+<li>The process to clone the SD Card may take some time and you will not be shown any progress, in Terminal, whilst the SD Card is being copied. You will, however, be shown a message when the process is complete.</li>
+</ol>
 
-<h2 id="toc_5">If you aren&#39;t admin</h2>
+<p>The copying process may take some time and will take longer for larger capacity SD Cards. To give you an idea the process to backup an 16GB SD Card took 36 minutes 32.</p>
 
-<blockquote>
-<p>You can add a basic user to the <strong>sudoers</strong> file as admin.<br>
-<a href="http://osxdaily.com/2014/02/06/add-user-sudoers-file-mac/">source</a></p>
-</blockquote>
-
-<h3 id="toc_6">1. Log in as admin</h3>
-
-<h3 id="toc_7">2. Launch Terminal and type:</h3>
-
-<div><pre><code class="language-bash">sudo visudo</code></pre></div>
-
-<h3 id="toc_8">3. Navigate down to the “#User privilege specification” section</h3>
-
-<p>It should look like this:</p>
-
-<div><pre><code class="language-bash"># User privilege specification
-root    ALL=(ALL) ALL
-%admin  ALL=(ALL) ALL</code></pre></div>
-
-<h3 id="toc_9">4. Insert the username you want add to the sudoers file</h3>
-
-<p>Type <strong>i</strong> to enter the <em>Insertion Mode</em>.</p>
-
-<div><pre><code class="language-bash">username ALL=(ALL) ALL</code></pre></div>
-
-<p>Type <strong>esc</strong> to quit  <em>Insertion Mode</em>, then type <strong>:wq</strong> to quit <em>Vi</em>.</p>
-
-<h2 id="toc_10">Usefull commands</h2>
-
-<h3 id="toc_11">Before anything</h3>
-
-<blockquote>
-<p>You should update the local data base of brew before any operation.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew update</code></pre></div>
-
-<h3 id="toc_12">Cleanup</h3>
-
-<blockquote>
-<p>This command is used to remove/uninstall old versions of packages.</p>
-</blockquote>
-
-<h4 id="toc_13">To remove the old version(s) of a certain package</h4>
-
-<div><pre><code class="language-bash">brew cleanup package</code></pre></div>
-
-<h4 id="toc_14">To see what could be cleaned up</h4>
-
-<div><pre><code class="language-bash">brew cleanup -n</code></pre></div>
-
-<h4 id="toc_15">To clean up everything at once</h4>
-
-<div><pre><code class="language-bash">brew cleanup</code></pre></div>
-
-<h3 id="toc_16">Doctor</h3>
-
-<blockquote>
-<p>To fix all the warnings (outdated Xcode/CLT and unbrewed dylibs are very likely to cause problems).</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew doctor</code></pre></div>
-
-<h3 id="toc_17">Install package</h3>
-
-<div><pre><code class="language-bash">brew install package</code></pre></div>
-
-<h3 id="toc_18">Leaves</h3>
-
-<blockquote>
-<p>List of the packages which can be removed without problem.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew leaves</code></pre></div>
-
-<h3 id="toc_19">Missing</h3>
-
-<blockquote>
-<p>List of the missing packages, that means the recipes that are a dependency of another installed package but are not installed.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew missing</code></pre></div>
-
-<h3 id="toc_20">Outdated</h3>
-
-<blockquote>
-<p>To find out which packages are outdated.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew outdated</code></pre></div>
-
-<h3 id="toc_21">Remove software</h3>
-
-<blockquote>
-<p><strong>uninstall</strong> and <strong>rm</strong> are also available.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew remove softwareName</code></pre></div>
-
-<h3 id="toc_22">Search</h3>
-
-<blockquote>
-<p>Before installing a package, you can search it to choose the version (Pyhton 2 or 3), to have the right name,…</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew search package</code></pre></div>
-
-<h4 id="toc_23">In Cask</h4>
-
-<blockquote>
-<p>Go to this page: <a href="https://github.com/caskroom/homebrew-cask/find/master">Cask</a><br>
-and type the wanted sofware.<br><br>
-This <a href="https://caskroom.github.io/search">site</a> is also available.</p>
-</blockquote>
-
-<h3 id="toc_24">Upgrade</h3>
-
-<blockquote>
-<p>This command will upgrade the outdated packages.</p>
-</blockquote>
-
-<h4 id="toc_25">All</h4>
-
-<div><pre><code class="language-bash">brew upgrade</code></pre></div>
-
-<h4 id="toc_26">A certain package</h4>
-
-<div><pre><code class="language-bash">brew upgrade package</code></pre></div>
-
-<h4 id="toc_27">Stop a package from being updated</h4>
-
-<div><pre><code class="language-bash">brew pin package</code></pre></div>
-
-<p><strong>Remarque:</strong> <em>The unstop it, replace <strong>pin</strong> with <strong>unpin</strong>.</em></p>
-
-<h2 id="toc_28">And now ? Install stuff !</h2>
-
-<h3 id="toc_29">Ant</h3>
-
-<blockquote>
-<p>Apache Ant is a Java library and command-line tool whose mission is to drive processes described in build files as targets and extension points dependent upon each other. The main known usage of Ant is the build of Java applications. Ant supplies a number of built-in tasks allowing to compile, assemble, test and run Java applications.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew install ant</code></pre></div>
-
-<h3 id="toc_30"><a href="https://caskroom.github.io">Cask</a></h3>
-
-<blockquote>
-<p>Homebrew Cask extends Homebrew and brings its elegance, simplicity, and speed to macOS applications and large binaries alike.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew tap caskroom/cask</code></pre></div>
-
-<p><strong>Remarque:</strong> <em>When you install stuff with Cask (not as admin), you have to give the right to <strong>write</strong> to the &#39;<strong>Staff</strong>&#39; group on &#39;<strong>/Users/alexandre/Library/QuickLook</strong>&#39; (through the GUI).</em></p>
-
-<h4 id="toc_31"><a href="https://github.com/sindresorhus/quick-look-plugins/blob/master/readme.md">QuickLook plugins (with Cask)</a></h4>
-
-<h5 id="toc_32">QLColorCode</h5>
-
-<blockquote>
-<p>Preview source code files with syntax highlighting</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew cask install qlcolorcode</code></pre></div>
-
-<h5 id="toc_33">QLStephen</h5>
-
-<blockquote>
-<p>Preview plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew cask install qlstephen</code></pre></div>
-
-<h5 id="toc_34">QLMarkdown</h5>
-
-<blockquote>
-<p>Preview Markdown files</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew cask install qlmarkdown</code></pre></div>
-
-<h5 id="toc_35">ProvisionQL</h5>
-
-<blockquote>
-<p>Preview iOS / macOS app and provision information</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew cask install provisionql</code></pre></div>
-
-<h3 id="toc_36">Clisp</h3>
-
-<blockquote>
-<p>Common Lisp is a high-level, general-purpose, object-oriented, dynamic, functional programming language.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew install clisp</code></pre></div>
-
-<h3 id="toc_37"><a href="http://www.sno.phy.queensu.ca/%7Ephil/exiftool/">ExifTool by Phil Harvey</a></h3>
-
-<blockquote>
-<p>ExifTool is a platform-independent Perl library plus a command-line application for reading, writing and editing meta information in a wide variety of files.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew install exiftool</code></pre></div>
-
-<h3 id="toc_38">go</h3>
-
-<blockquote>
-<p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew install go</code></pre></div>
-
-<p><strong>Remarque:</strong> <em>You have to add this to the PATH:</em></p>
-
-<div><pre><code class="language-bash"># go path
-export GOPATH=/Users/alexandre/go/
-export PATH=$GOPATH/bin:$PATH</code></pre></div>
-
-<h4 id="toc_39"><a href="https://github.com/nishanths/license">Licence (through go)</a></h4>
-
-<blockquote>
-<p>Create licenses from the command-line.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">go get -u github.com/nishanths/license</code></pre></div>
-
-<h3 id="toc_40"><a href="https://github.com/lra/mackup">Mackup</a></h3>
-
-<blockquote>
-<p>Keep your application settings in sync (OS X/Linux)</p>
-</blockquote>
-
-<div><pre><code class="language-bash"># Install Mackup
-brew install mackup
-
-# Launch it and back up your files
-mackup backup
-
-# Or
-
-# Launch it and restore your files
-mackup restore</code></pre></div>
-
-<h3 id="toc_41"><a href="http://bellard.org/bpg/">Support to BPG</a></h3>
-
-<blockquote>
-<p>BPG(Better Portable Graphics) is a new image format. Its purpose is to replace the JPEG image format when quality or file size is an issue.</p>
-</blockquote>
-
-<div><pre><code class="language-bash">brew install libbpg</code></pre></div>
-
-<h4 id="toc_42"><a href="https://github.com/Nyx0uf/qlImageSize">QuickLook plugin for BPG</a></h4>
-
-<blockquote>
-<p>This is a QuickLook plugin for OS X 10.11+ to display the dimensions of an image and its file size in the title bar. It can also preview and generate Finder thumbnails for unsupported images formats like bpg and WebP.</p>
-</blockquote>
-
-<h3 id="toc_43">Others</h3>
-
-<h4 id="toc_44"><a href="https://github.com/rgcr/m-cli"> m-cli</a></h4>
-
-<blockquote>
-<p>💥 Swiss Army Knife for macOS ! </p>
-</blockquote>
-
-<h4 id="toc_45"><a href="https://github.com/guarinogabriel/Mac-CLI">Mac CLI</a></h4>
-
-<blockquote>
-<p> macOS command line tools for developers – The ultimate tool to manage your Mac. It provides a huge set of command line commands that automatize the usage of your OS X system.</p>
-</blockquote>
-
-<h4 id="toc_46"><a href="https://github.com/herrbischoff/awesome-osx-command-line">Awesome OS X Command Line</a></h4>
-
-<blockquote>
-<p>Use your OS X terminal shell to do awesome things.</p>
-</blockquote>
-
-<hr>
-
-<p><center>ToolKit © 2017</center><br>
-<center><a href="http://alexandre-ducobu.esy.es/indexEn.html">About</a> </center></p>
+<p><a href="https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911">Source</a></p>
 
 
 
