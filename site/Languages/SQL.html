@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>SQL</title>
+<!-- For old IEs -->
+<link rel="shortcut icon" href="../img/favicons/favicon.ico" />
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../img/favicons/favicon.ico">
+<!-- For Safari's Pinned Tab -->
+<link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#F0893D">
+<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/favicons/favicon-152.png">
+<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/favicons/favicon-144.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/favicons/favicon-120.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/favicons/favicon-114.png">
+<!-- For iPhone 6+ -->
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="../img/favicons/favicon-180.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/favicons/favicon-72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="../img/favicons/favicon-57.png">
+<!-- For Old Chrome -->
+<link rel="icon" href="../img/favicons/favicon-32.png" sizes="32x32">
+<!-- For IE10 Metro -->
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="../img/favicons/favicon-144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- Chrome for Android -->
+<link rel="manifest" href="../img/favicons/manifest.json">
+<link rel="icon" sizes="192x192" href="../img/favicons/favicon-192.png">
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+</style>
+
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">SQL</h1>
+
+<p><center><a href="../index.html">Home</a></center></p>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">SQL</a>
+<ul>
+<li>
+<a href="#toc_1">Syntax</a>
+<ul>
+<li>
+<a href="#toc_2">Comment</a>
+</li>
+<li>
+<a href="#toc_3">Naming Convention</a>
+<ul>
+<li>
+<a href="#toc_4">Column</a>
+</li>
+<li>
+<a href="#toc_5">Table</a>
+</li>
+<li>
+<a href="#toc_6">Primary key</a>
+</li>
+<li>
+<a href="#toc_7">Foreign key</a>
+</li>
+<li>
+<a href="#toc_8">Check</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_9">Create Database</a>
+<ul>
+<li>
+<a href="#toc_10">Format</a>
+</li>
+<li>
+<a href="#toc_11">Example</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_12">Create Table</a>
+<ul>
+<li>
+<a href="#toc_13">Format</a>
+</li>
+<li>
+<a href="#toc_14">Example</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_15">Queries</a>
+<ul>
+<li>
+<a href="#toc_16">Simple</a>
+<ul>
+<li>
+<a href="#toc_17">Format</a>
+</li>
+<li>
+<a href="#toc_18">Examples</a>
+<ul>
+<li>
+<a href="#toc_19">Display one or several column_names</a>
+</li>
+<li>
+<a href="#toc_20">Display all column_names</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_21">Conditions</a>
+<ul>
+<li>
+<a href="#toc_22">First - equality</a>
+</li>
+<li>
+<a href="#toc_23">IN</a>
+</li>
+<li>
+<a href="#toc_24">BETWEEN</a>
+</li>
+<li>
+<a href="#toc_25">LIKE</a>
+<ul>
+<li>
+<a href="#toc_26">Search for one and only char after the input</a>
+</li>
+<li>
+<a href="#toc_27">Search for a string containing the input</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_28">DISTINCT keyword</a>
+<ul>
+<li>
+<a href="#toc_29">Format</a>
+</li>
+<li>
+<a href="#toc_30">Examples</a>
+<ul>
+<li>
+<a href="#toc_31">Without DISTINCT</a>
+</li>
+<li>
+<a href="#toc_32">With DISTINCT</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_33">Alias - <em>AS</em></a>
+</li>
+<li>
+<a href="#toc_34">GROUP BY</a>
+</li>
+<li>
+<a href="#toc_35">ORDER BY</a>
+</li>
+<li>
+<a href="#toc_36">HAVING</a>
+</li>
+<li>
+<a href="#toc_37">WHERE VS HAVING</a>
+</li>
+<li>
+<a href="#toc_38">Reading order</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_39">Joins</a>
+</li>
+<li>
+<a href="#toc_40">Set operations</a>
+<ul>
+<li>
+<a href="#toc_41">Union</a>
+</li>
+<li>
+<a href="#toc_42">Intersection</a>
+</li>
+<li>
+<a href="#toc_43">Difference</a>
+</li>
+<li>
+<a href="#toc_44">Cartesian product</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_45">Subqueries</a>
+<ul>
+<li>
+<a href="#toc_46">Format of a simple subquery</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_47">Functions</a>
+<ul>
+<li>
+<a href="#toc_48">Aggregation functions</a>
+</li>
+<li>
+<a href="#toc_49">Functions on strings</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_50">Stored procedures</a>
+<ul>
+<li>
+<a href="#toc_51">Create a stored procedure</a>
+</li>
+<li>
+<a href="#toc_52">Call a stored procedure</a>
+</li>
+<li>
+<a href="#toc_53">Delete a prodecure</a>
+</li>
+<li>
+<a href="#toc_54">Modify a procedure</a>
+</li>
+<li>
+<a href="#toc_55">DELIMITER</a>
+</li>
+<li>
+<a href="#toc_56">BEGIN - END</a>
+</li>
+<li>
+<a href="#toc_57">Parameters</a>
+<ul>
+<li>
+<a href="#toc_58">Format</a>
+</li>
+<li>
+<a href="#toc_59">IN</a>
+</li>
+<li>
+<a href="#toc_60">OUT</a>
+</li>
+<li>
+<a href="#toc_61">INOUT</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_62">Example of stored procedure</a>
+<ul>
+<li>
+<a href="#toc_63">Procedure</a>
+</li>
+<li>
+<a href="#toc_64">Call</a>
+</li>
+<li>
+<a href="#toc_65">Result</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_66">Trigger</a>
+<ul>
+<li>
+<a href="#toc_67">Create a trigger</a>
+</li>
+<li>
+<a href="#toc_68">Body</a>
+</li>
+<li>
+<a href="#toc_69">Events</a>
+</li>
+<li>
+<a href="#toc_70">Execution time</a>
+</li>
+<li>
+<a href="#toc_71">Convention</a>
+<ul>
+<li>
+<a href="#toc_72">Rule on the number of triggers</a>
+</li>
+<li>
+<a href="#toc_73">Naming convention</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_74">OLD &amp; NEW</a>
+</li>
+<li>
+<a href="#toc_75">Example</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_76">Database</a>
+<ul>
+<li>
+<a href="#toc_77">Clients</a>
+</li>
+<li>
+<a href="#toc_78">Commandes</a>
+</li>
+<li>
+<a href="#toc_79">Produits</a>
+</li>
+<li>
+<a href="#toc_80">Details</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_81">Additional source</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="toc_1">Syntax</h2>
+
+<ul>
+<li><strong>[] :</strong> <em>Désigne une option</em><br></li>
+<li><strong>| :</strong> <em>Désigne un choix (ou)</em><br></li>
+<li><strong>{} :</strong> <em>Désigne une liste d&#39;éléments à choisir</em></li>
+</ul>
+
+<h3 id="toc_2">Comment</h3>
+
+<p><em>Insert a comment line is easy: you only have to add <strong>--</strong> before your comment.</em></p>
+
+<div><pre><code class="language-sql">-- This is a comment line</code></pre></div>
+
+<h3 id="toc_3">Naming Convention</h3>
+
+<p><em>**From **</em></p>
+
+<blockquote>
+<p>When having logical noun/verb <strong>language separations</strong>, component names will<br>
+be separated by the <strong>underscore</strong> character to indicate the separation.</p>
+</blockquote>
+
+<h4 id="toc_4">Column</h4>
+
+<blockquote>
+<p><strong>e.g.</strong> <em>A column storing a user’s date of birth would be named <strong>date_of_birth</strong> and<br><br>
+a column storing time elapsed in seconds would be named <strong>time_elapsed_in_seconds</strong>.</em></p>
+</blockquote>
+
+<h4 id="toc_5">Table</h4>
+
+<blockquote>
+<p>Table names will be defined in the plural. This is because a table is itself<br>
+a collection of <strong>1 or more row entities</strong> (plural), and this naming convention<br>
+is also better understood in the object oriented world.</p>
+
+<p><strong>e.g.</strong> <em>A table storing records of customer location addresses<br>
+would be named <strong>customer_location_addresses</strong> (rather than <strong>customer_location_address</strong>).</em></p>
+</blockquote>
+
+<p><strong>RQ:</strong> <em>The name of a table can begin with a <strong>capital letter</strong>.</em></p>
+
+<h4 id="toc_6">Primary key</h4>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">CONSTRAINT pk_table_name PRIMARY KEY (column_name)</code></pre></div>
+
+<p><strong>Example:</strong></p>
+
+<div><pre><code class="language-sql">CREATE TABLE IF NOT EXISTS Clients (
+...,
+CONSTRAINT pk_Clients PRIMARY KEY (numéro_client),
+...
+);</code></pre></div>
+
+<h4 id="toc_7">Foreign key</h4>
+
+<p><strong>Format</strong></p>
+
+<p><em>The <strong>source</strong> is the source table, <strong>column</strong> is the column which will be the <strong>fk</strong> and <strong>target</strong> is the target table.</em></p>
+
+<div><pre><code class="language-sql">CONSTRAINT fk_source_column_target FOREIGN KEY (column_name) REFERENCES target_table(column_name)</code></pre></div>
+
+<p><strong>Example:</strong></p>
+
+<div><pre><code class="language-sql">CREATE TABLE IF NOT EXISTS Commandes (
+...,
+CONSTRAINT fk_commandes_numéro_client_clients FOREIGN KEY (numéro_client) REFERENCES Clients(numéro_client),
+...
+);</code></pre></div>
+
+<h4 id="toc_8">Check</h4>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">CONSTRAINT ck_column_name CHECK(column_name condition)</code></pre></div>
+
+<p><strong>Example:</strong></p>
+
+<div><pre><code class="language-sql">CREATE TABLE IF NOT EXISTS Produits (
+...,
+CONSTRAINT ck_quantité_stock CHECK(quantité_stock &gt;= 0),
+...
+);</code></pre></div>
+
+<h2 id="toc_9">Create Database</h2>
+
+<h3 id="toc_10">Format</h3>
+
+<div><pre><code class="language-sql">CREATE DATABASE [IF NOT EXISTS] db_name
+[DEFAULT] CHARACTER SET [=] charset
+[DEFAULT] COLLATE [=] collation;</code></pre></div>
+
+<h3 id="toc_11">Example</h3>
+
+<div><pre><code class="language-sql">CREATE DATABASE IF NOT EXISTS Parc
+CHARACTER SET utf8
+COLLATE utf8_general_ci;</code></pre></div>
+
+<h2 id="toc_12">Create Table</h2>
+
+<h3 id="toc_13">Format</h3>
+
+<div><pre><code class="language-sql">CREATE TABLE [IF NOT EXISTS] tbl_name (
+    create definition…
+) [table_options] [partition_options];</code></pre></div>
+
+<h3 id="toc_14">Example</h3>
+
+<div><pre><code class="language-sql">CREATE TABLE IF NOT EXISTS Clients (
+    numéro_client VARCHAR(4),
+    nom VARCHAR(15),
+    localité VARCHAR(15),
+    catégorie VARCHAR(2),
+    compte INT(7),
+    CONSTRAINT pk_Clients PRIMARY KEY(numéro_client)
+)
+ENGINE = INNODB;</code></pre></div>
+
+<h2 id="toc_15">Queries</h2>
+
+<h3 id="toc_16">Simple</h3>
+
+<h4 id="toc_17">Format</h4>
+
+<div><pre><code class="language-sql">SELECT column_name, function(column_name)
+FROM table_name
+WHERE condition;</code></pre></div>
+
+<h4 id="toc_18">Examples</h4>
+
+<h5 id="toc_19">Display one or several column_names</h5>
+
+<div><pre><code class="language-sql">SELECT numéro_client, nom
+FROM Clients
+WHERE localité &lt;=&gt; &#39;TOULOUSE&#39;;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>numéro_client</th>
+<th>nom</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>B512</td>
+<td>GILLET</td>
+</tr>
+<tr>
+<td>C003</td>
+<td>AVRON</td>
+</tr>
+<tr>
+<td>D063</td>
+<td>MERCIER</td>
+</tr>
+<tr>
+<td>F011</td>
+<td>PONCELET</td>
+</tr>
+<tr>
+<td>K729</td>
+<td>NEUMAN</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="toc_20">Display all column_names</h5>
+
+<!-- **RQ:** _On peut utiliser **=**, mais ce n'est pas fonctionnel avec **NULL** au contraire de **<=>**._ -->
+
+<div><pre><code class="language-sql">SELECT *
+FROM Clients
+WHERE localité &lt;=&gt; &#39;TOULOUSE&#39;;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>numéro_client</th>
+<th>nom</th>
+<th>localité</th>
+<th>catégorie</th>
+<th>compte</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>B512</td>
+<td>GILLET</td>
+<td>Toulouse</td>
+<td>B1</td>
+<td>-8700.00</td>
+</tr>
+<tr>
+<td>C003</td>
+<td>AVRON</td>
+<td>Toulouse</td>
+<td>B1</td>
+<td>-1700.00</td>
+</tr>
+<tr>
+<td>D063</td>
+<td>MERCIER</td>
+<td>Toulouse</td>
+<td>NULL</td>
+<td>-2250.00</td>
+</tr>
+<tr>
+<td>F011</td>
+<td>PONCELET</td>
+<td>Toulouse</td>
+<td>B2</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>K729</td>
+<td>NEUMAN</td>
+<td>Toulouse</td>
+<td>NULL</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_21">Conditions</h3>
+
+<h4 id="toc_22">First - equality</h4>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Use</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>=</strong></td>
+<td>Equal <em>(can&#39;t be used with <strong>NULL</strong>)</em></td>
+</tr>
+<tr>
+<td><strong>&lt;=&gt;</strong> or <strong>is</strong></td>
+<td>Equal <em>(also with <strong>NULL</strong>)</em></td>
+</tr>
+<tr>
+<td><strong>!=</strong></td>
+<td>Different <em>(can&#39;t be used with <strong>NULL</strong>)</em></td>
+</tr>
+<tr>
+<td><strong>&lt;&gt;</strong> or <strong>is not</strong></td>
+<td>Different <em>(also with <strong>NULL</strong>)</em></td>
+</tr>
+<tr>
+<td><strong>&lt;</strong></td>
+<td>Smaller</td>
+</tr>
+<tr>
+<td><strong>&lt;=</strong></td>
+<td>Smaller or equal</td>
+</tr>
+<tr>
+<td><strong>&gt;</strong></td>
+<td>Greater</td>
+</tr>
+<tr>
+<td><strong>&gt;=</strong></td>
+<td>Greater or equal</td>
+</tr>
+<tr>
+<td><strong>AND</strong></td>
+<td>AND</td>
+</tr>
+<tr>
+<td><strong>OR</strong></td>
+<td>OR</td>
+</tr>
+<tr>
+<td><strong>NOT</strong></td>
+<td>Opposite</td>
+</tr>
+</tbody>
+</table>
+
+<p>⇒ We&#39;ll use <strong>&lt;=&gt;</strong> instead of <strong>=</strong>.</p>
+
+<h4 id="toc_23">IN</h4>
+
+<blockquote>
+<p>This condition is used for a search into a list.<br><br>
+<strong>RQ:</strong> <em>When the search item isn&#39;t in the list, week-end can use <strong>NOT IN</strong>.</em></p>
+</blockquote>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">SELECT numéro_client
+FROM Clients
+WHERE catégorie IN (&#39;C1&#39;,  &#39;C2&#39;, &#39;C3&#39;);</code></pre></div>
+
+<h4 id="toc_24">BETWEEN</h4>
+
+<blockquote>
+<p>This condition is used for a search in a range, instead of using <strong>&lt;=</strong> and <strong>&gt;=</strong>.<br><br>
+<strong>RQ:</strong> <em>To exclude a range, use <strong>NOT BETWEEN</strong>.</em></p>
+</blockquote>
+
+<div><pre><code class="language-sql">SELECT numéro_client
+FROM Clients
+WHERE compte BETWEEN 1000 AND 4000;</code></pre></div>
+
+<h4 id="toc_25">LIKE</h4>
+
+<p>How to search for strings ?<br><br>
+Using <strong>LIKE</strong> is the solution, there are two <em>jokers</em>:  </p>
+
+<ul>
+<li><strong>%</strong>: any string of any length<br></li>
+<li><strong>_</strong>: an only character</li>
+</ul>
+
+<blockquote>
+<p><em><strong>As always</strong>, you can exclude a string with <strong>NOT LIKE</strong>.</em></p>
+</blockquote>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">SELECT column_name
+FROM table_name
+WHERE column_name LIKE &#39;name%&#39;;</code></pre></div>
+
+<p><strong>EXAMPLES</strong></p>
+
+<h5 id="toc_26">Search for one and only char after the input</h5>
+
+<div><pre><code class="language-sql">SELECT numéro_client
+FROM Clients
+WHERE catégorie LIKE &#39;B_&#39;;</code></pre></div>
+
+<p>The results could be: <strong>B1</strong> or <strong>Bd</strong>.<br><br>
+They couldn&#39;t be: <strong>xB</strong>, <strong>B</strong> or <strong>B12</strong>.</p>
+
+<h5 id="toc_27">Search for a string containing the input</h5>
+
+<div><pre><code class="language-sql">SELECT numéro_produit
+FROM Produits
+WHERE Libelle LIKE &#39;%SAPIN%&#39;;</code></pre></div>
+
+<p>The results could be: <strong>Boite en SAPIN</strong> or <strong>SAPIN verni</strong>.<br><br>
+They couldn&#39;t be: <strong>Boite en Sapin</strong> or <strong>S A P I N verni</strong>.</p>
+
+<h3 id="toc_28">DISTINCT keyword</h3>
+
+<h4 id="toc_29">Format</h4>
+
+<p><strong>RQ:</strong> <em>Le mot clé doit se trouver à l&#39;<strong>intérieur</strong> de la fonction.</em></p>
+
+<div><pre><code class="language-sql">SELECT DISTINCT column_name, function(DISTINCT  column_name)
+FROM table_name
+WHERE condition;</code></pre></div>
+
+<h4 id="toc_30">Examples</h4>
+
+<h5 id="toc_31">Without DISTINCT</h5>
+
+<div><pre><code class="language-sql">SELECT localité
+FROM Clients
+WHERE catégorie &lt;=&gt; &#39;C1&#39;;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>localité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Poitiers</td>
+</tr>
+<tr>
+<td>Namur</td>
+</tr>
+<tr>
+<td>Poitiers</td>
+</tr>
+<tr>
+<td>Namur</td>
+</tr>
+<tr>
+<td>Namur</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="toc_32">With DISTINCT</h5>
+
+<div><pre><code class="language-sql">SELECT DISTINCT localité
+FROM Clients
+WHERE catégorie &lt;=&gt; &#39;C1&#39;;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>localité</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Namur</td>
+</tr>
+<tr>
+<td>Poitiers</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_33">Alias - <em>AS</em></h3>
+
+<p><strong>Example</strong></p>
+
+<div><pre><code class="language-sql">SELECT numéro_produit AS Produit, 0.21*prix*quantité_stock AS Valeur_TVA
+FROM Produits
+WHERE quantité_stock &gt; 50000; </code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Produit</th>
+<th>Valeur_TVA</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>CS264</td>
+<td>67788</td>
+</tr>
+<tr>
+<td>PH222</td>
+<td>37770.6</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_34">GROUP BY</h3>
+
+<blockquote>
+<p>To group several results from a same column and use it with an aggregation function.<br><br>
+An advantage of using <strong>GROUP BY</strong> is the <strong>automatic sorting</strong> of the values.</p>
+</blockquote>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">SELECT column_name, func(column_name)
+FROM table_name
+GROUP BY column_name;</code></pre></div>
+
+<p><strong>Example:</strong></p>
+
+<ul>
+<li>Without GROUP BY</li>
+</ul>
+
+<div><pre><code class="language-sql">SELECT localité, COUNT(*) AS nombre_clients
+FROM Clients;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>localité</th>
+<th>nombreClients</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Bruxelles</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>Displays the first alpha-numerical value and count all values.</em></p>
+
+<ul>
+<li>With GROUP BY</li>
+</ul>
+
+<div><pre><code class="language-sql">SELECT localité, COUNT(*) AS nombre_clients
+FROM Clients
+GROUP BY localité;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>localité</th>
+<th>nombreClients</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Bruxelles</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Geneve</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Lille</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Namur</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Paris</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Poitiers</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Toulouse</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>Displays the sorted grouped values and the linked count values.</em></p>
+
+<h3 id="toc_35">ORDER BY</h3>
+
+<!-- **WARNiNG**  
+_This command has to be used on **grouped** column(s) or on an **aggregation function** as **alias**._  
+**WARNING** -->  
+
+<blockquote>
+<p>To sort the result table after <strong>one or several</strong> columns in ascending (<strong>ASC</strong>) or descending (<strong>DESC</strong>) order.<br><br>
+<strong>RQ:</strong> The <strong>default order</strong> is ascending but it&#39;s better to use it.</p>
+</blockquote>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">SELECT column_name
+FROM table_name
+ORDER BY column_name;</code></pre></div>
+
+<p><strong>Example:</strong></p>
+
+<div><pre><code class="language-sql">SELECT *
+FROM Produits
+ORDER BY prix;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>numéro_produit</th>
+<th>prix</th>
+<th>quantité_stock</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>CS262</td>
+<td>75</td>
+<td>45</td>
+</tr>
+<tr>
+<td>PA60</td>
+<td>95</td>
+<td>134</td>
+</tr>
+<tr>
+<td>PA45</td>
+<td>105</td>
+<td>580</td>
+</tr>
+<tr>
+<td>CS264</td>
+<td>120</td>
+<td>2690</td>
+</tr>
+<tr>
+<td>PS222</td>
+<td>185</td>
+<td>1220</td>
+</tr>
+<tr>
+<td>CS464</td>
+<td>220</td>
+<td>450</td>
+</tr>
+<tr>
+<td>PH222</td>
+<td>230</td>
+<td>782</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_36">HAVING</h3>
+
+<blockquote>
+<p><strong>HAVING</strong> is like <strong>WHERE</strong> but it filters using functions like <strong>SUM, COUNT, AVG,…</strong>.<br><br>
+It allows to select the chosen column, by <strong>grouping</strong> the identical values of the column, and to respect the <strong>condition</strong>.</p>
+
+<p><em>Because the command <strong>groups</strong> the values, it isn&#39;t necessary to use <strong>GROUP BY</strong> whith it.</em></p>
+</blockquote>
+
+<p><strong>Format</strong></p>
+
+<div><pre><code class="language-sql">SELECT column_name, func(column_name)
+FROM table_name
+GROUP BY column_name
+HAVING condition;</code></pre></div>
+
+<p><strong>Example:</strong> <em>See the <strong>GROUP BY</strong> example</em></p>
+
+<div><pre><code class="language-sql">SELECT localité, COUNT(*) AS nombre_clients
+FROM Clients
+GROUP BY localité
+HAVING COUNT(*) &gt;= 3;</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>localité</th>
+<th>nombreClients</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Namur</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Poitiers</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Toulouse</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_37">WHERE VS HAVING</h3>
+
+<p><em>In addition to working with functions, there is another difference between <strong>WHERE</strong> and <strong>HAVING</strong>:</em>  </p>
+
+<ul>
+<li><em><strong>WHERE</strong> makes a selection on the rows</em><br></li>
+<li><em><strong>Having</strong> makes it on the groups</em></li>
+</ul>
+
+<h3 id="toc_38">Reading order</h3>
+
+<p>This is an example of the reading order of a more complex query:</p>
+
+<div><pre><code class="language-sql">7: SELECT column_name
+1: FROM table_name
+2: WHERE condition
+3: AND otherCondition
+4: GROUP BY column_name
+5: HAVING condition
+6: ORDER BY column_name</code></pre></div>
+
+<h2 id="toc_39">Joins</h2>
+
+<blockquote>
+<p>An SQL JOIN clause is used to combine rows from two or more tables, based on a common field between them.  </p>
+
+<p>The most common type of join is: <strong>SQL INNER JOIN (simple join)</strong>. An SQL INNER JOIN returns all rows from multiple tables where the join condition is met.</p>
+</blockquote>
+
+<h2 id="toc_40">Set operations</h2>
+
+<p>Imagine you have 2 tables (<strong>T1</strong> and <strong>T2</strong>):</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center">T1</th>
+<th></th>
+<th style="text-align: center">T2</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center">Num</td>
+<td></td>
+<td style="text-align: center">Num</td>
+</tr>
+<tr>
+<td style="text-align: center">12</td>
+<td></td>
+<td style="text-align: center">93</td>
+</tr>
+<tr>
+<td style="text-align: center">34</td>
+<td></td>
+<td style="text-align: center">12</td>
+</tr>
+<tr>
+<td style="text-align: center">27</td>
+<td></td>
+<td style="text-align: center">34</td>
+</tr>
+<tr>
+<td style="text-align: center">12</td>
+<td></td>
+<td style="text-align: center">12</td>
+</tr>
+<tr>
+<td style="text-align: center">12</td>
+<td></td>
+<td style="text-align: center">49</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_41">Union</h3>
+
+<blockquote>
+<p>The UNION operator is used to combine the result-set of two or more SELECT statements.  </p>
+
+<p>Notice that each SELECT statement within the UNION must have the same number of columns. The columns must also have similar data types.  </p>
+
+<p>The mathematical notation is: <strong>T1 ∪ T2</strong></p>
+</blockquote>
+
+<p><img src="../img/Union.svg" alt="The union" title="The union"></p>
+
+<p>The MySQL code will be:  </p>
+
+<div><pre><code class="language-sql">SELECT Num FROM T1
+UNION
+SELECT Num FROM T2;</code></pre></div>
+
+<p>The result is:  </p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center"><strong>T1 ∪ T2</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center">12</td>
+</tr>
+<tr>
+<td style="text-align: center">34</td>
+</tr>
+<tr>
+<td style="text-align: center">27</td>
+</tr>
+<tr>
+<td style="text-align: center">93</td>
+</tr>
+<tr>
+<td style="text-align: center">49</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_42">Intersection</h3>
+
+<blockquote>
+<p>The intersection is used to return the results of two or more SELECT statements.  </p>
+
+<p>Each SQL statement must have the same number of fields in the result sets with similar data types.  </p>
+
+<p>The mathematical notation is: <strong>T1 ∩ T2</strong></p>
+</blockquote>
+
+<p><img src="../img/Intersection.svg" alt="The Intersection" title="The Intersection"></p>
+
+<p>The MySQL code will be:  </p>
+
+<div><pre><code class="language-sql">SELECT DISTINCT Num
+FROM T1
+WHERE T1.Num IN
+    (SELECT T2.Num
+     FROM T2);</code></pre></div>
+
+<p>The result is:  </p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center"><strong>T1 ∩ T2</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center">12</td>
+</tr>
+<tr>
+<td style="text-align: center">34</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_43">Difference</h3>
+
+<blockquote>
+<p>The difference is used to return all rows in the first SELECT statement that are not returned by the second SELECT statement.  </p>
+
+<p>Each SELECT statement must have the same number of fields in the result sets with similar data types.  </p>
+
+<p>The mathematical notation is: <strong>T1 − T2</strong></p>
+</blockquote>
+
+<p><img src="../img/Difference.svg" alt="The Difference" title="The Difference"></p>
+
+<p>The MySQL code will be: </p>
+
+<div><pre><code class="language-sql">SELECT DISTINCT Num
+FROM T1
+WHERE T1.Num NOT IN
+    (SELECT T2.Num
+     FROM T2);</code></pre></div>
+
+<p>The result is:  </p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center"><strong>T1 − T2</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center">27</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_44">Cartesian product</h3>
+
+<blockquote>
+<p>Returns the Cartesian product of the sets of records from the two or more joined tables.<br><br>
+Thus, it equates to an inner join where the join-condition always evaluates to True or where the join-condition is absent from the statement.  </p>
+
+<p>The mathematical notation is: <strong>T1 × T2</strong></p>
+</blockquote>
+
+<p><img src="../img/CartesianProduct.png" alt="The Cartesian product" title="The Cartesian product"></p>
+
+<p>The MySQL code will be:  </p>
+
+<div><pre><code class="language-sql">SELECT T1.Num, T2.Num
+FROM T1, T2;</code></pre></div>
+
+<p>The result is:  </p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center"><strong>T1 × T2</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center">12 ⏤ 93</td>
+</tr>
+<tr>
+<td style="text-align: center">12 ⏤ 12</td>
+</tr>
+<tr>
+<td style="text-align: center">12 ⏤ 34</td>
+</tr>
+<tr>
+<td style="text-align: center">12 ⏤ 12</td>
+</tr>
+<tr>
+<td style="text-align: center">12 ⏤ 49</td>
+</tr>
+<tr>
+<td style="text-align: center">34 ⏤ 93</td>
+</tr>
+<tr>
+<td style="text-align: center">34 ⏤ 12</td>
+</tr>
+<tr>
+<td style="text-align: center">…</td>
+</tr>
+<tr>
+<td style="text-align: center">12 ⏤ 49</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_45">Subqueries</h2>
+
+<blockquote>
+<p>We use <strong>subqueries</strong> when we want a response from several tables.<br><br>
+For instance, we want the <strong>numéro_commande</strong> from the <strong>Client</strong>s living in <strong>Namur</strong>.<br><br>
+⇒ <strong>numéro_commande</strong> is from <em>Commande</em> and <strong>Namur</strong> is from <em>Client</em>.  </p>
+</blockquote>
+
+<h3 id="toc_46">Format of a simple subquery</h3>
+
+<p><em>The query will be:</em></p>
+
+<div><pre><code class="language-sql">SELECT numéro_commande, date_commande
+FROM Commandes
+WHERE numéro_client in (SELECT numéro_client
+                FROM Clients
+                WHERE localité &lt;=&gt; &#39;Namur&#39;);</code></pre></div>
+
+<p><em>Where the <strong>inner</strong> query is named <strong>subquery</strong>.</em></p>
+
+<p><strong>RQ:</strong> <em>The reading direction is <strong>bottom-up</strong>.</em></p>
+
+<h2 id="toc_47">Functions</h2>
+
+<h3 id="toc_48">Aggregation functions</h3>
+
+<p>There a five functions:  </p>
+
+<ul>
+<li><p><strong>AVG()</strong>: calculates the average of a set of records</p></li>
+<li><p><strong>COUNT()</strong>: the number of records on a table or column </p></li>
+<li><p><strong>MAX()</strong>: the maximum value (numeric or alphanumeric) of a column</p></li>
+<li><p><strong>MIN()</strong>: the minimum value (numeric or alphanumeric) of a column</p></li>
+<li><p><strong>SUM()</strong>: calculates the sum of a set of records</p></li>
+</ul>
+
+<h3 id="toc_49">Functions on strings</h3>
+
+<p><strong>RQ:</strong> _The strings can be values from a column as **catégorie</p>
+
+<ul>
+<li><strong>CONCAT(string1, string2)</strong>: concatenate several strings<br>
+<strong>Example:</strong> CONCAT(&#39;192.168.1&#39;, &#39;.&#39;, &#39;10&#39;) → &#39;192.168.1.10&#39;</li>
+<li><strong>SUBSTRING(string FROM position FOR length)</strong>: the opposite of CONCAT(), it&#39;s used to truncate a string
+<strong>Example:</strong> SUBSTRING(&#39;A1&#39; FROM 1 TO 1) → &#39;A&#39;</li>
+</ul>
+
+<h2 id="toc_50">Stored procedures</h2>
+
+<blockquote>
+<p>A stored procedure is actually <strong>a series of SQL statements</strong> identified by a <strong>name</strong>.<br><br>
+When a stored procedure is created, it is stored in the database that is being used, in the same way as a table for example.  </p>
+
+<p>Once the procedure is created, it can be <strong>called</strong> by name. The instructions of the procedure are then executed.</p>
+</blockquote>
+
+<h3 id="toc_51">Create a stored procedure</h3>
+
+<div><pre><code class="language-sql">DELIMITER |
+CREATE PROCEDURE my_procedure([parameter1 [, parameter2,…]])
+BEGIN
+    SELECT column_name, function(column_name)
+    FROM table_name
+    WHERE condition;
+END|
+DELIMITER ;</code></pre></div>
+
+<h3 id="toc_52">Call a stored procedure</h3>
+
+<div><pre><code class="language-sql">CALL my_procedure([parameter1 [, parameter2,…]);</code></pre></div>
+
+<h3 id="toc_53">Delete a prodecure</h3>
+
+<div><pre><code class="language-sql">DROP PROCEDURE IF EXISTS my_procedure;</code></pre></div>
+
+<h3 id="toc_54">Modify a procedure</h3>
+
+<div><pre><code class="language-sql">ALTER PROCEDURE IF EXISTS my_procedure;</code></pre></div>
+
+<h3 id="toc_55">DELIMITER</h3>
+
+<blockquote>
+<p>The delimiter has to be change by the <strong>DELIMITER</strong> command.  </p>
+
+<p>Indeed, the default delimiter is <strong>;</strong> but, in the stored procedure, the delimiter has to be <strong>;</strong>.<br><br>
+In that case, there&#39;ll be an error when arriving to the inside <strong>;</strong>.<br><br>
+Thus the delimiter is replaced by <strong>|</strong>, <strong>//</strong> or <strong>$</strong> for the stored procedure.</p>
+</blockquote>
+
+<div><pre><code class="language-sql">DELIMITER |</code></pre></div>
+
+<p><em>In this case, the delimiter is now <strong>|</strong>. That means that <strong>;</strong> has no meaning anymore.</em></p>
+
+<h3 id="toc_56">BEGIN - END</h3>
+
+<blockquote>
+<p>These two keywords are used to <strong>delimit one instruction block</strong> which can contain more than one instruction.</p>
+</blockquote>
+
+<div><pre><code class="language-sql">DELIMITER |
+CREATE PROCEDURE name()
+BEGIN
+    instructions;
+END|</code></pre></div>
+
+<h3 id="toc_57">Parameters</h3>
+
+<p><strong>RQ:</strong> <em>The name of a parameter has to begin by <strong>p_</strong>.<br><br>
+Example: <strong>p_client</strong>.</em></p>
+
+<h4 id="toc_58">Format</h4>
+
+<div><pre><code class="language-sql">CREATE PROCEDURE my_procedure(SENSE p_param_name TYPE)
+...</code></pre></div>
+
+<p><em>There&#39;re three senses of parameters:</em>  </p>
+
+<h4 id="toc_59">IN</h4>
+
+<blockquote>
+<p>It is an <strong>incoming</strong> parameter.<br><br>
+That is to say that it is a parameter whose <strong>value is supplied to the stored procedure</strong>. This value will be used during the procedure (for a calculation or a selection for example).   </p>
+
+<p><strong>RQ:</strong> <em>It is the <strong>default sense</strong>. That means that if no sense is given, it&#39;ll be this one who will be used.</em></p>
+</blockquote>
+
+<h4 id="toc_60">OUT</h4>
+
+<blockquote>
+<p>It is an <strong>outgoing</strong> parameter whose <strong>value will be established during the procedure</strong> and which can then be used outside of this procedure.</p>
+</blockquote>
+
+<h4 id="toc_61">INOUT</h4>
+
+<blockquote>
+<p>Such a parameter will be used during the procedure, may see its value changed by it, and will then be usable outside.</p>
+</blockquote>
+
+<h3 id="toc_62">Example of stored procedure</h3>
+
+<h4 id="toc_63">Procedure</h4>
+
+<div><pre><code class="language-sql">DELIMITER |
+CREATE PROCEDURE get_nb_clients_by_location (IN p_nb_min_clients INT)
+BEGIN
+    SELECT localité, COUNT(*) AS nombre_clients
+    FROM Clients
+    GROUP BY localité
+    HAVING COUNT(*) &gt;= p_nb_min_clients;
+END |
+DELIMITER ;</code></pre></div>
+
+<h4 id="toc_64">Call</h4>
+
+<div><pre><code class="language-sql">CALL get_nb_clients_by_location (3);</code></pre></div>
+
+<h4 id="toc_65">Result</h4>
+
+<table>
+<thead>
+<tr>
+<th>localité</th>
+<th>nombreClients</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Namur</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Poitiers</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Toulouse</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_66">Trigger</h2>
+
+<h3 id="toc_67">Create a trigger</h3>
+
+<div><pre><code class="language-sql">CREATE TRIGGER trigger_name {BEFORE|AFTER} {INSERT|UPDATE|DELETE}
+ON table_name FOR EACH ROW
+trigger_body;</code></pre></div>
+
+<h3 id="toc_68">Body</h3>
+
+<blockquote>
+<p>The body of a trigger has the <strong>same format</strong> as a <strong>stored procedure</strong>.</p>
+</blockquote>
+
+<h3 id="toc_69">Events</h3>
+
+<p><em>There are <strong>three</strong> different events which can trigger the execution of the instructions of a trigger:</em>  </p>
+
+<ul>
+<li><strong>INSERT</strong>: <em>The insertion of rows in the table is linked to the trigger.</em></li>
+<li><strong>UPDATE</strong>: <em>The modification of rows in the table is linked to the trigger</em></li>
+<li><strong>DELETE</strong>: <em>The deletion of rows in the table is linked to the trigger</em></li>
+</ul>
+
+<blockquote>
+<p>A trigger is activated by <strong>only one of the three</strong> events.<br><br>
+But there can be <strong>several different</strong> triggers (one for each event).</p>
+</blockquote>
+
+<h3 id="toc_70">Execution time</h3>
+
+<p><em>When a trigger is activated, its instructions can be executed at <strong>two different times</strong>:</em></p>
+
+<ul>
+<li><em>Either just before the trigger event occurs:</em> <strong>BEFORE</strong><em>;</em></li>
+<li><em>or just after:</em> <strong>AFTER</strong>.</li>
+</ul>
+
+<h3 id="toc_71">Convention</h3>
+
+<h4 id="toc_72">Rule on the number of triggers</h4>
+
+<blockquote>
+<p><strong>There can be only one trigger per combination.</strong><br><br>
+<em>That means that it can be only one <strong>BEFORE UPDATE</strong> per table.</em></p>
+
+<p><strong>RQ:</strong> <em>Since there are <strong>two</strong> possibilities for the <strong>execution time</strong>, and <strong>three</strong> for the trigger <strong>event</strong>, we have a maximum of <strong>six triggers per table</strong>.</em></p>
+</blockquote>
+
+<h4 id="toc_73">Naming convention</h4>
+
+<p><em>A trigger has an <strong>execution time</strong>, an <strong>event</strong> and a <strong>table name</strong>.<br><br>
+Thus, a trigger is unique and it can have an unique name:</em></p>
+
+<p>trigger_name = <strong>time_event_table_name</strong></p>
+
+<h3 id="toc_74">OLD &amp; NEW</h3>
+
+<h3 id="toc_75">Example</h3>
+
+<div><pre><code class="language-sql">DELIMITER |
+CREATE TRIGGER after_insert_clients AFTER INSERT
+ON Clients FOR EACH ROW
+-- BEGIN
+    SET NEW.nom = UPPER(NEW.nom);
+-- END|
+DELIMITER ;</code></pre></div>
+
+<h2 id="toc_76">Database</h2>
+
+<h3 id="toc_77">Clients</h3>
+
+<table>
+<thead>
+<tr>
+<th>numéro_client</th>
+<th>nom</th>
+<th>localité</th>
+<th>catégorie</th>
+<th>compte</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>B062</td>
+<td>GOFFIN</td>
+<td>Namur</td>
+<td>B2</td>
+<td>-3200.00</td>
+</tr>
+<tr>
+<td>B112</td>
+<td>HANSENNE</td>
+<td>Poitiers</td>
+<td>C1</td>
+<td>1250.00</td>
+</tr>
+<tr>
+<td>B332</td>
+<td>MONTI</td>
+<td>Geneve</td>
+<td>B2</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>B512</td>
+<td>GILLET</td>
+<td>Toulouse</td>
+<td>B1</td>
+<td>-8700.00</td>
+</tr>
+<tr>
+<td>C003</td>
+<td>AVRON</td>
+<td>Toulouse</td>
+<td>B1</td>
+<td>-1700.00</td>
+</tr>
+<tr>
+<td>C123</td>
+<td>MERCIER</td>
+<td>Namur</td>
+<td>C1</td>
+<td>-2300.00</td>
+</tr>
+<tr>
+<td>C400</td>
+<td>FERARD</td>
+<td>Poitiers</td>
+<td>B2</td>
+<td>350.00</td>
+</tr>
+<tr>
+<td>D063</td>
+<td>MERCIER</td>
+<td>Toulouse</td>
+<td>NULL</td>
+<td>-2250.00</td>
+</tr>
+<tr>
+<td>F010</td>
+<td>TOUSSAINT</td>
+<td>Poitiers</td>
+<td>C1</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>F011</td>
+<td>PONCELET</td>
+<td>Toulouse</td>
+<td>B2</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>F400</td>
+<td>JACOB</td>
+<td>Bruxelles</td>
+<td>C2</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>K111</td>
+<td>VANBIST</td>
+<td>Lille</td>
+<td>B1</td>
+<td>720.00</td>
+</tr>
+<tr>
+<td>K729</td>
+<td>NEUMAN</td>
+<td>Toulouse</td>
+<td>NULL</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>L422</td>
+<td>FRANCK</td>
+<td>Namur</td>
+<td>C1</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>S127</td>
+<td>VANDERKA</td>
+<td>Namur</td>
+<td>C1</td>
+<td>-4580.00</td>
+</tr>
+<tr>
+<td>S712</td>
+<td>GUILLAUME</td>
+<td>Paris</td>
+<td>B1</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_78">Commandes</h3>
+
+<table>
+<thead>
+<tr>
+<th>numéro_commande</th>
+<th>numéro_client</th>
+<th>date_commande</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>30178</td>
+<td>K111</td>
+<td>2008-08-22</td>
+</tr>
+<tr>
+<td>30179</td>
+<td>C400</td>
+<td>2008-08-22</td>
+</tr>
+<tr>
+<td>30182</td>
+<td>S127</td>
+<td>2008-08-23</td>
+</tr>
+<tr>
+<td>30184</td>
+<td>C400</td>
+<td>2008-08-23</td>
+</tr>
+<tr>
+<td>30185</td>
+<td>F011</td>
+<td>2009-01-02</td>
+</tr>
+<tr>
+<td>30186</td>
+<td>C400</td>
+<td>2009-01-02</td>
+</tr>
+<tr>
+<td>30188</td>
+<td>B512</td>
+<td>2009-01-02</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_79">Produits</h3>
+
+<table>
+<thead>
+<tr>
+<th>numéro_produit</th>
+<th>prix</th>
+<th>quantité_stock</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>CS262</td>
+<td>75</td>
+<td>45</td>
+</tr>
+<tr>
+<td>CS264</td>
+<td>120</td>
+<td>2690</td>
+</tr>
+<tr>
+<td>CS464</td>
+<td>220</td>
+<td>450</td>
+</tr>
+<tr>
+<td>PA45</td>
+<td>105</td>
+<td>580</td>
+</tr>
+<tr>
+<td>PA60</td>
+<td>95</td>
+<td>134</td>
+</tr>
+<tr>
+<td>PH222</td>
+<td>230</td>
+<td>782</td>
+</tr>
+<tr>
+<td>PS222</td>
+<td>185</td>
+<td>1220</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="toc_80">Details</h3>
+
+<table>
+<thead>
+<tr>
+<th>numéro_commande</th>
+<th>numéro_produit</th>
+<th>quantité_commande</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>30178</td>
+<td>CS464</td>
+<td>25</td>
+</tr>
+<tr>
+<td>30179</td>
+<td>CS262</td>
+<td>60</td>
+</tr>
+<tr>
+<td>30179</td>
+<td>PA60</td>
+<td>20</td>
+</tr>
+<tr>
+<td>30182</td>
+<td>PA60</td>
+<td>30</td>
+</tr>
+<tr>
+<td>30184</td>
+<td>CS464</td>
+<td>120</td>
+</tr>
+<tr>
+<td>30184</td>
+<td>PA45</td>
+<td>20</td>
+</tr>
+<tr>
+<td>30185</td>
+<td>CS464</td>
+<td>260</td>
+</tr>
+<tr>
+<td>30185</td>
+<td>PA60</td>
+<td>15</td>
+</tr>
+<tr>
+<td>30185</td>
+<td>PS222</td>
+<td>600</td>
+</tr>
+<tr>
+<td>30186</td>
+<td>PA45</td>
+<td>3</td>
+</tr>
+<tr>
+<td>30188</td>
+<td>CS464</td>
+<td>180</td>
+</tr>
+<tr>
+<td>30188</td>
+<td>PA45</td>
+<td>22</td>
+</tr>
+<tr>
+<td>30188</td>
+<td>PA60</td>
+<td>70</td>
+</tr>
+<tr>
+<td>30188</td>
+<td>PH222</td>
+<td>92</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_81">Additional source</h2>
+
+<ul>
+<li><a href="http://sql.sh/cours">sql.sh</a><br></li>
+<li><a href="http://www.w3schools.com/SQL/default.asp">w3schools.com</a><br></li>
+<li><a href="http://leshazlewood.com/software-engineering/sql-style-guide/">Les Hazlewood</a><br></li>
+<li><a href="https://openclassrooms.com/courses/administrez-vos-bases-de-donnees-avec-mysql/regroupement">OpenClassrooms</a></li>
+</ul>
+
+<hr>
+
+<p><center>ToolKit © 2017</center><br>
+<center><a href="http://alexandre-ducobu.esy.es/indexEn.html">About</a> </center></p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.sql={comment:{pattern:/(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|\/\/|#).*)/,lookbehind:!0},string:{pattern:/(^|[^@\\])("|')(?:\\?[\s\S])*?\2/,lookbehind:!0},variable:/@[\w.$]+|@("|'|`)(?:\\?[\s\S])+?\1/,"function":/\b(?:COUNT|SUM|AVG|MIN|MAX|FIRST|LAST|UCASE|LCASE|MID|LEN|ROUND|NOW|FORMAT)(?=\s*\()/i,keyword:/\b(?:ACTION|ADD|AFTER|ALGORITHM|ALL|ALTER|ANALYZE|ANY|APPLY|AS|ASC|AUTHORIZATION|BACKUP|BDB|BEGIN|BERKELEYDB|BIGINT|BINARY|BIT|BLOB|BOOL|BOOLEAN|BREAK|BROWSE|BTREE|BULK|BY|CALL|CASCADED?|CASE|CHAIN|CHAR VARYING|CHARACTER (?:SET|VARYING)|CHARSET|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLLATE|COLUMN|COLUMNS|COMMENT|COMMIT|COMMITTED|COMPUTE|CONNECT|CONSISTENT|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT(?:_DATE|_TIME|_TIMESTAMP|_USER)?|CURSOR|DATA(?:BASES?)?|DATETIME|DBCC|DEALLOCATE|DEC|DECIMAL|DECLARE|DEFAULT|DEFINER|DELAYED|DELETE|DENY|DESC|DESCRIBE|DETERMINISTIC|DISABLE|DISCARD|DISK|DISTINCT|DISTINCTROW|DISTRIBUTED|DO|DOUBLE(?: PRECISION)?|DROP|DUMMY|DUMP(?:FILE)?|DUPLICATE KEY|ELSE|ENABLE|ENCLOSED BY|END|ENGINE|ENUM|ERRLVL|ERRORS|ESCAPE(?:D BY)?|EXCEPT|EXEC(?:UTE)?|EXISTS|EXIT|EXPLAIN|EXTENDED|FETCH|FIELDS|FILE|FILLFACTOR|FIRST|FIXED|FLOAT|FOLLOWING|FOR(?: EACH ROW)?|FORCE|FOREIGN|FREETEXT(?:TABLE)?|FROM|FULL|FUNCTION|GEOMETRY(?:COLLECTION)?|GLOBAL|GOTO|GRANT|GROUP|HANDLER|HASH|HAVING|HOLDLOCK|IDENTITY(?:_INSERT|COL)?|IF|IGNORE|IMPORT|INDEX|INFILE|INNER|INNODB|INOUT|INSERT|INT|INTEGER|INTERSECT|INTO|INVOKER|ISOLATION LEVEL|JOIN|KEYS?|KILL|LANGUAGE SQL|LAST|LEFT|LIMIT|LINENO|LINES|LINESTRING|LOAD|LOCAL|LOCK|LONG(?:BLOB|TEXT)|MATCH(?:ED)?|MEDIUM(?:BLOB|INT|TEXT)|MERGE|MIDDLEINT|MODIFIES SQL DATA|MODIFY|MULTI(?:LINESTRING|POINT|POLYGON)|NATIONAL(?: CHAR VARYING| CHARACTER(?: VARYING)?| VARCHAR)?|NATURAL|NCHAR(?: VARCHAR)?|NEXT|NO(?: SQL|CHECK|CYCLE)?|NONCLUSTERED|NULLIF|NUMERIC|OFF?|OFFSETS?|ON|OPEN(?:DATASOURCE|QUERY|ROWSET)?|OPTIMIZE|OPTION(?:ALLY)?|ORDER|OUT(?:ER|FILE)?|OVER|PARTIAL|PARTITION|PERCENT|PIVOT|PLAN|POINT|POLYGON|PRECEDING|PRECISION|PREV|PRIMARY|PRINT|PRIVILEGES|PROC(?:EDURE)?|PUBLIC|PURGE|QUICK|RAISERROR|READ(?:S SQL DATA|TEXT)?|REAL|RECONFIGURE|REFERENCES|RELEASE|RENAME|REPEATABLE|REPLICATION|REQUIRE|RESTORE|RESTRICT|RETURNS?|REVOKE|RIGHT|ROLLBACK|ROUTINE|ROW(?:COUNT|GUIDCOL|S)?|RTREE|RULE|SAVE(?:POINT)?|SCHEMA|SELECT|SERIAL(?:IZABLE)?|SESSION(?:_USER)?|SET(?:USER)?|SHARE MODE|SHOW|SHUTDOWN|SIMPLE|SMALLINT|SNAPSHOT|SOME|SONAME|START(?:ING BY)?|STATISTICS|STATUS|STRIPED|SYSTEM_USER|TABLES?|TABLESPACE|TEMP(?:ORARY|TABLE)?|TERMINATED BY|TEXT(?:SIZE)?|THEN|TIMESTAMP|TINY(?:BLOB|INT|TEXT)|TOP?|TRAN(?:SACTIONS?)?|TRIGGER|TRUNCATE|TSEQUAL|TYPES?|UNBOUNDED|UNCOMMITTED|UNDEFINED|UNION|UNIQUE|UNPIVOT|UPDATE(?:TEXT)?|USAGE|USE|USER|USING|VALUES?|VAR(?:BINARY|CHAR|CHARACTER|YING)|VIEW|WAITFOR|WARNINGS|WHEN|WHERE|WHILE|WITH(?: ROLLUP|IN)?|WORK|WRITE(?:TEXT)?)\b/i,"boolean":/\b(?:TRUE|FALSE|NULL)\b/i,number:/\b-?(?:0x)?\d*\.?[\da-f]+\b/,operator:/[-+*\/=%^~]|&&?|\|?\||!=?|<(?:=>?|<|>)?|>[>=]?|\b(?:AND|BETWEEN|IN|LIKE|NOT|OR|IS|DIV|REGEXP|RLIKE|SOUNDS LIKE|XOR)\b/i,punctuation:/[;[\]()`,.]/};
+</script>
+
+<script type="text/javascript">
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e={html:"HTML",xml:"XML",svg:"SVG",mathml:"MathML",css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",asciidoc:"AsciiDoc",aspnet:"ASP.NET (C#)",autoit:"AutoIt",autohotkey:"AutoHotkey",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript","css-extras":"CSS Extras",fsharp:"F#",glsl:"GLSL",http:"HTTP",inform7:"Inform 7",json:"JSON",latex:"LaTeX",lolcode:"LOLCODE",matlab:"MATLAB",mel:"MEL",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",parigp:"PARI/GP",php:"PHP","php-extras":"PHP Extras",powershell:"PowerShell",jsx:"React JSX",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",typescript:"TypeScript",vhdl:"VHDL",vim:"vim",wiki:"Wiki markup",yaml:"YAML"};Prism.hooks.add("before-highlight",function(s){var a=s.element.parentNode;if(a&&/pre/i.test(a.nodeName)){var t,i,r=a.getAttribute("data-language")||e[s.language]||s.language.substring(0,1).toUpperCase()+s.language.substring(1),l=a.previousSibling;l&&/\s*\bprism-show-language\b\s*/.test(l.className)&&l.firstChild&&/\s*\bprism-show-language-label\b\s*/.test(l.firstChild.className)?i=l.firstChild:(t=document.createElement("div"),i=document.createElement("div"),i.className="prism-show-language-label",t.className="prism-show-language",t.appendChild(i),a.parentNode.insertBefore(t,a)),i.innerHTML=r}})}}();
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>

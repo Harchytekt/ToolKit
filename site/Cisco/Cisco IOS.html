@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Cisco IOS</title>
+<!-- For old IEs -->
+<link rel="shortcut icon" href="../img/favicons/favicon.ico" />
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../img/favicons/favicon.ico">
+<!-- For Safari's Pinned Tab -->
+<link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#F0893D">
+<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/favicons/favicon-152.png">
+<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/favicons/favicon-144.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/favicons/favicon-120.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/favicons/favicon-114.png">
+<!-- For iPhone 6+ -->
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="../img/favicons/favicon-180.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/favicons/favicon-72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="../img/favicons/favicon-57.png">
+<!-- For Old Chrome -->
+<link rel="icon" href="../img/favicons/favicon-32.png" sizes="32x32">
+<!-- For IE10 Metro -->
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="../img/favicons/favicon-144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- Chrome for Android -->
+<link rel="manifest" href="../img/favicons/manifest.json">
+<link rel="icon" sizes="192x192" href="../img/favicons/favicon-192.png">
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+<style type="text/css">
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #2d2d2d;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	color: #ccc;
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a;
+}
+
+.token.function-name {
+	color: #6196cc;
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49;
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+.token.inserted {
+	color: green;
+}
+</style>
+
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Cisco IOS</h1>
+
+<p><center><a href="../index.html">Home</a></center></p>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">Cisco IOS</a>
+<ul>
+<li>
+<a href="#toc_1">Execution modes</a>
+<ul>
+<li>
+<a href="#toc_2">User Mode</a>
+</li>
+<li>
+<a href="#toc_3">Privileged Mode</a>
+</li>
+<li>
+<a href="#toc_4">Global Configuration Mode</a>
+</li>
+<li>
+<a href="#toc_5">Other Configuration Mode</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_6">General commands</a>
+<ul>
+<li>
+<a href="#toc_7">Get help</a>
+</li>
+<li>
+<a href="#toc_8">Restart the device</a>
+</li>
+<li>
+<a href="#toc_9">Save config from running config (RAM) to starting config (NVRAM)</a>
+</li>
+<li>
+<a href="#toc_10">Reset the config</a>
+</li>
+<li>
+<a href="#toc_11">Details the running configuration file (RAM)</a>
+</li>
+<li>
+<a href="#toc_12">Show history of executed commands</a>
+</li>
+<li>
+<a href="#toc_13">Display the MAC address table</a>
+</li>
+<li>
+<a href="#toc_14">Execute configuration commands from the terminal</a>
+</li>
+<li>
+<a href="#toc_15">Erase all the config files</a>
+</li>
+<li>
+<a href="#toc_16">Get the current boot settings of IOS</a>
+</li>
+<li>
+<a href="#toc_17">Copy and restoration</a>
+<ul>
+<li>
+<a href="#toc_18">Copy</a>
+<ul>
+<li>
+<a href="#toc_19">Save the running configuration on a tftp.</a>
+</li>
+<li>
+<a href="#toc_20">Save the IOS <em>(file.bin)</em> on a tftp.</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_21">Restore</a>
+<ul>
+<li>
+<a href="#toc_22">Download IOS from a server <em>(for an update or a reset)</em></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_23">Use another IOS file from the flash</a>
+</li>
+<li>
+<a href="#toc_24">Show Cisco IOS version</a>
+</li>
+<li>
+<a href="#toc_25">List the content of the flash (or a directory)</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_26">Additional source</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<!-- #Descriptions + IPv6 -->
+
+<h2 id="toc_1">Execution modes</h2>
+
+<p><em>To quit the current mode, use <strong>exit</strong>. You&#39;ll enter into the previous mode.</em></p>
+
+<h3 id="toc_2">User Mode</h3>
+
+<p><em>Also known as <strong>User EXEC Mode</strong></em></p>
+
+<ul>
+<li>Default mode</li>
+<li>Limited access to the configuration</li>
+<li>Remote access<br></li>
+</ul>
+
+<div><pre><code class="language-none">Switch&gt; </code></pre></div>
+
+<h3 id="toc_3">Privileged Mode</h3>
+
+<p><em>Also known as <strong>Privileged EXEC Mode</strong></em></p>
+
+<ul>
+<li>Access through <strong>enable</strong></li>
+<li>Device configuration</li>
+<li>Debugging and test<br>
+<strong>RQ:</strong> <em>to access the User Mode, you can use the <strong>disable</strong> command</em></li>
+</ul>
+
+<div><pre><code class="language-none">Switch&gt; enable
+Switch# 
+Switch# disable
+Switch&gt; </code></pre></div>
+
+<h3 id="toc_4">Global Configuration Mode</h3>
+
+<ul>
+<li>Access through <strong>configure terminal</strong> <em>(or <strong>conf t</strong>)</em></li>
+<li>Access to the configuration</li>
+<li>Starting point for the other modes</li>
+</ul>
+
+<div><pre><code class="language-none">Switch# configure terminal
+Switch(config)#
+Switch(config)# exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+Switch#</code></pre></div>
+
+<h3 id="toc_5">Other Configuration Mode</h3>
+
+<p><em>As <strong>interface</strong> or <strong>subinterface</strong> Configuration Mode</em></p>
+
+<ul>
+<li>Depend on the requested mode</li>
+<li>Configuration of a service or a specific interface<br>
+<strong>RQ:</strong> <em>to exit the current mode, use <strong>exit</strong>. To return to the privileged mode, use <strong>end</strong>.</em></li>
+</ul>
+
+<div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/1
+Switch(config-if)# exit
+Switch(config)# line console 0
+Switch(config-line)# end
+Switch#</code></pre></div>
+
+<h2 id="toc_6">General commands</h2>
+
+<h3 id="toc_7">Get help</h3>
+
+<p><em>Enter <strong>?</strong> into the CLI</em></p>
+
+<div><pre><code class="language-none">Switch&gt; ?
+Exec commands:
+    connect     Open a terminal connection
+    disable     Turn off privileged commands
+    disconnect  Disconnect an existing network connection
+    enable      Turn on privileged commands
+    exit        Exit from the EXEC
+    logout      Exit from the EXEC
+    ping        Send echo messages
+    resume      Resume an active network connection
+    show        Show running system information
+    ssh         Open a secure shell client connection
+    telnet      Open a telnet connection
+    terminal    Set terminal line parameters
+    traceroute  Trace route to destination
+Switch&gt;</code></pre></div>
+
+<h3 id="toc_8">Restart the device</h3>
+
+<p><em>For instance, to verify the new config</em></p>
+
+<div><pre><code class="language-none">Switch# reload
+Proceed with reload? [confirm]</code></pre></div>
+
+<h3 id="toc_9">Save config from running config (RAM) to starting config (NVRAM)</h3>
+
+<div><pre><code class="language-none">Switch# copy running-config starting-config
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+Switch#</code></pre></div>
+
+<h3 id="toc_10">Reset the config</h3>
+
+<div><pre><code class="language-none">Switch# copy starting-config running-config</code></pre></div>
+
+<h3 id="toc_11">Details the running configuration file (RAM)</h3>
+
+<p><em>The same goes for the <strong>starting-config</strong></em></p>
+
+<div><pre><code class="language-none">Switch# show running-config</code></pre></div>
+
+<h3 id="toc_12">Show history of executed commands</h3>
+
+<div><pre><code class="language-none">Switch# show history</code></pre></div>
+
+<h3 id="toc_13">Display the MAC address table</h3>
+
+<div><pre><code class="language-none">Switch# show ip mac-addres-table</code></pre></div>
+
+<p><strong>or</strong></p>
+
+<div><pre><code class="language-none">Switch# show ip mac addres-table</code></pre></div>
+
+<h3 id="toc_14">Execute configuration commands from the terminal</h3>
+
+<div><pre><code class="language-none">Switch# configure terminal</code></pre></div>
+
+<h3 id="toc_15">Erase all the config files</h3>
+
+<div><pre><code class="language-none">Switch# write erase
+Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]
+[OK]
+Erase of nvram: complete
+%SYS-7-NV_BLOCK_INIT: Initialized the geometry of nvram
+Switch# reload</code></pre></div>
+
+<h3 id="toc_16">Get the current boot settings of IOS</h3>
+
+<p><strong>RQ:</strong> <em>For IOS 15, the command is <strong>show bootvar</strong>.</em></p>
+
+<div><pre><code class="language-none">Switch# show boot
+BOOT path-list      : c2960-lanbasek9-mz.150-2.SE4.bin
+Config file         : flash:/config.text
+Private Config file : flash:/private-config.text
+Enable Break        : no
+Manual Boot         : no
+HELPER path-list    : 
+Auto upgrade        : yes
+NVRAM/Config file
+      buffer size:   65536</code></pre></div>
+
+<h3 id="toc_17">Copy and restoration</h3>
+
+<h4 id="toc_18">Copy</h4>
+
+<div><pre><code class="language-none">Switch# copy flash: tftp:
+Switch# !* Used to copy files from flash to tftp server</code></pre></div>
+
+<p><strong>Examples:</strong></p>
+
+<h5 id="toc_19">Save the running configuration on a tftp.</h5>
+
+<div><pre><code class="language-none">Switch# copy run tftp:
+Address or name of remote host []? 192.168.10.2
+Destination filename [Switch-confg]? 
+
+Writing running-config....!!
+[OK - 623 bytes]
+
+623 bytes copied in 3.001 secs (207 bytes/sec)
+Switch#</code></pre></div>
+
+<h5 id="toc_20">Save the IOS <em>(file.bin)</em> on a tftp.</h5>
+
+<div><pre><code class="language-none">Switch# copy flash: tftp: 
+Source filename []? c2960-lanbase-mz.122-25.FX.bin
+Address or name of remote host []? 192.168.10.2
+Destination filename [c2960-lanbase-mz.122-25.FX.bin]? 
+
+Writing c2960-lanbase
+mz122-25.FX.bin....!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[OK - 4414921 bytes]
+
+4414921 bytes copied in 3.079 secs (38958 bytes/sec)
+Switch#</code></pre></div>
+
+<h4 id="toc_21">Restore</h4>
+
+<div><pre><code class="language-none">Switch# copy tftp: flash:
+Switch# !* Used to restore file to flash from tftp server
+Switch# copy tftp: run</code></pre></div>
+
+<p><strong>Example:</strong>  </p>
+
+<h5 id="toc_22">Download IOS from a server <em>(for an update or a reset)</em></h5>
+
+<div><pre><code class="language-none">Switch# copy tftp: flash: 
+Address or name of remote host []? 192.168.10.2
+Source filename []? c2960-lanbase-mz.122-25.FX.bin
+Destination filename [c2960-lanbase-mz.122-25.FX.bin]? 
+%Warning:There is a file already existing with this name
+Do you want to over write? [confirm]
+
+Accessing tftp://192.168.10.2/c2960-lanbase-mz.122-25.FX.bin...
+Loading c2960-lanbase-mz.122-25.FX.bin from 192.168.10.2:
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!
+[OK - 4414921 bytes]
+
+4414921 bytes copied in 0.063 secs (1904027 bytes/sec)
+Switch#</code></pre></div>
+
+<h3 id="toc_23">Use another IOS file from the flash</h3>
+
+<div><pre><code class="language-none">Switch(config)# boot system c2960-lanbase-mz.122-25.FX.bin
+Switch(config)# exit
+Switch# copy running-config starting-config
+Switch# reload</code></pre></div>
+
+<h3 id="toc_24">Show Cisco IOS version</h3>
+
+<p><strong>Also shows</strong> <em>uptime of router, how the router started, where system was loaded from, the interfaces the POST found, and the configuration register.</em></p>
+
+<div><pre><code class="language-none">Switch# show version
+Cisco IOS Software, C2960 Software (C2960-LANBASE-M), Version 12.2(25)FX, RELEASE SOFTWARE (fc1)
+Copyright (c) 1986-2005 by Cisco Systems, Inc.
+Compiled Wed 12-Oct-05 22:05 by pt_team
+
+ROM: C2960 Boot Loader (C2960-HBOOT-M) Version 12.2(25r)FX, RELEASE SOFTWARE (fc4)
+
+System returned to ROM by power-on
+
+Cisco WS-C2960-24TT (RC32300) processor (revision C0) with 21039K bytes of memory.
+
+
+24 FastEthernet/IEEE 802.3 interface(s)
+2 Gigabit Ethernet/IEEE 802.3 interface(s)
+
+63488K bytes of flash-simulated non-volatile configuration memory.
+Base ethernet MAC Address       : 0060.702A.D2EB
+Motherboard assembly number     : 73-9832-06
+Power supply part number        : 341-0097-02
+Motherboard serial number       : FOC103248MJ
+Power supply serial number      : DCA102133JA
+Model revision number           : B0
+Motherboard revision number     : C0
+Model number                    : WS-C2960-24TT
+System serial number            : FOC1033Z1EY
+Top Assembly Part Number        : 800-26671-02
+Top Assembly Revision Number    : B0
+Version ID                      : V02
+CLEI Code Number                : COM3K00BRA
+Hardware Board Revision Number  : 0x01
+
+
+Switch   Ports  Model              SW Version              SW Image
+------   -----  -----              ----------              ----------
+*    1   26     WS-C2960-24TT      12.2                    C2960-LANBASE-M
+
+Configuration register is 0xF</code></pre></div>
+
+<ul>
+<li><strong>Version d&#39;IOS:</strong> 12.2(25)FX</li>
+<li><strong>Modèle:</strong> Cisco WS-C2960-24TT (RC32300)</li>
+<li><strong>Mémoire flash:</strong> 63488K bytes <em>(flash-simulated non-volatile)</em></li>
+<li><strong>Mémoire RAM:</strong> 21039K bytes</li>
+</ul>
+
+<h3 id="toc_25">List the content of the flash (or a directory)</h3>
+
+<div><pre><code class="language-none">Switch# dir flash:
+Directory of flash:/
+
+    1  -rw-     4414921          &lt;no date&gt;  c2960-lanbase-mz.122-25.FX.bin
+    4  -rw-     4670455          &lt;no date&gt;  c2960-lanbasek9-mz.150-2.SE4.bin
+    2  -rw-        1622          &lt;no date&gt;  config.text
+    3  -rw-         616          &lt;no date&gt;  vlan.dat
+
+64016384 bytes total (54928770 bytes free)</code></pre></div>
+
+<h2 id="toc_26">Additional source</h2>
+
+<ul>
+<li><a href="http://www.pantz.org/software/ios/ioscommands.html">pantz.org</a><br></li>
+<li><a href="http://www.cisco.com">Cisco.com</a></li>
+</ul>
+
+<hr>
+
+<p><center>ToolKit © 2017</center>
+<center><a href="http://alexandre-ducobu.esy.es/indexEn.html">About</a> </center></p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e={html:"HTML",xml:"XML",svg:"SVG",mathml:"MathML",css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",asciidoc:"AsciiDoc",aspnet:"ASP.NET (C#)",autoit:"AutoIt",autohotkey:"AutoHotkey",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript","css-extras":"CSS Extras",fsharp:"F#",glsl:"GLSL",http:"HTTP",inform7:"Inform 7",json:"JSON",latex:"LaTeX",lolcode:"LOLCODE",matlab:"MATLAB",mel:"MEL",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",parigp:"PARI/GP",php:"PHP","php-extras":"PHP Extras",powershell:"PowerShell",jsx:"React JSX",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",typescript:"TypeScript",vhdl:"VHDL",vim:"vim",wiki:"Wiki markup",yaml:"YAML"};Prism.hooks.add("before-highlight",function(s){var a=s.element.parentNode;if(a&&/pre/i.test(a.nodeName)){var t,i,r=a.getAttribute("data-language")||e[s.language]||s.language.substring(0,1).toUpperCase()+s.language.substring(1),l=a.previousSibling;l&&/\s*\bprism-show-language\b\s*/.test(l.className)&&l.firstChild&&/\s*\bprism-show-language-label\b\s*/.test(l.firstChild.className)?i=l.firstChild:(t=document.createElement("div"),i=document.createElement("div"),i.className="prism-show-language-label",t.className="prism-show-language",t.appendChild(i),a.parentNode.insertBefore(t,a)),i.innerHTML=r}})}}();
+</script>
+
+
+</body>
+
+</html>
