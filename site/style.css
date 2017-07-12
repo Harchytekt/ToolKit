@@ -18,7 +18,7 @@ body > *:last-child {
 
 a {
     /*color: #4183C4;*/
-	color: #2AB77E;
+	color: #3FB790;
 }
 a.absent {
     color: #cc0000;
@@ -183,7 +183,8 @@ dl dd > :last-child {
 }
 
 blockquote {
-    border-left: 4px solid #dddddd;
+    /* border-left: 4px solid #dddddd; */
+	border-left: 4px solid #F8E69C;
     padding: 0 15px;
     color: #777777;
 }

@@ -5,7 +5,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Configure Terminal</title>
+<title>Java</title>
 <!-- CSS -->
 <link rel="stylesheet" href="../style.css">
 <!-- For old IEs -->
@@ -196,273 +196,119 @@ div.prism-show-language > div.prism-show-language-label {
 </style>
 
 
+
 </head>
 
 <body>
 
-<h1 id="toc_0">Configure Terminal (UNIX)</h1>
+<h1 id="toc_0">Java</h1>
 
 <p><center><a href="../index.html">Home</a></center></p>
 
 <ul class="toc">
 <li>
-<a href="#toc_0">Configure Terminal (UNIX)</a>
+<a href="#toc_0">Java</a>
 <ul>
 <li>
-<a href="#toc_1">Use an updated <strong><em>.bash*</em></strong> file</a>
+<a href="#toc_1">Compilation</a>
 <ul>
 <li>
-<a href="#toc_2">First method</a>
+<a href="#toc_2">Create jar (IntelliJ IDEA)</a>
 </li>
 <li>
-<a href="#toc_3">Second method (fastest)</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_4">Aliases</a>
+<a href="#toc_3">With libraries</a>
 <ul>
 <li>
-<a href="#toc_5">Create files</a>
+<a href="#toc_4">For UNIX</a>
 </li>
 <li>
-<a href="#toc_6">Link <em>.bash_aliases</em></a>
+<a href="#toc_5">For Windows</a>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
-<a href="#toc_7">Create an alias</a>
+<a href="#toc_6">Strings</a>
 <ul>
 <li>
-<a href="#toc_8">Create a function to use parameters</a>
+<a href="#toc_7">Interpolation</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_9">List all the aliases</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_10">Custom aliases</a>
-<ul>
-<li>
-<a href="#toc_11">Scripts</a>
-<ul>
-<li>
-<a href="#toc_12">about</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a href="#toc_13">Personnalize terminal</a>
-<ul>
-<li>
-<a href="#toc_14">Personnalize prompt</a>
-<ul>
-<li>
-<a href="#toc_15">Example</a>
-</li>
-<li>
-<a href="#toc_16">Colors</a>
-</li>
-<li>
-<a href="#toc_17">Options</a>
-</li>
-</ul>
-</li>
-</ul>
+<a href="#toc_8">Packages</a>
 </li>
 </ul>
 </li>
 </ul>
 
 
-<h2 id="toc_1">Use an updated <strong><em>.bash*</em></strong> file</h2>
+<h2 id="toc_1">Compilation</h2>
 
-<h3 id="toc_2">First method</h3>
+<h3 id="toc_2">Create jar (IntelliJ IDEA)</h3>
 
-<p>Close and re-open the Terminal.app (or other).</p>
+<p>File | Project Structure | Artifacts then you should press alt+insert or click the plus icon and create new artifact choose --&gt; jar --&gt; From modules with dependencies.</p>
 
-<h3 id="toc_3">Second method (fastest)</h3>
+<p>Next goto Build | Build artifacts --&gt; choose your artifact.</p>
 
-<p>Use this command:</p>
+<h3 id="toc_3">With libraries</h3>
+
+<h4 id="toc_4">For UNIX</h4>
+
+<p>If you have these 3 libraries :</p>
 
 <ul>
-<li>Format</li>
+<li><p>lib1.jar</p></li>
+<li><p>lib2.jar</p></li>
+<li><p>lib3.jar</p></li>
 </ul>
 
-<div><pre><code class="language-bash">source ~/.bash_file</code></pre></div>
+<p>You have to type this: </p>
 
-<ul>
-<li>Example</li>
-</ul>
+<div><pre><code class="language-bash">javac -cp &quot;.:lib1.jar;lib2.jar;lib3.jar&quot; sourcefile.jar
+java -cp &quot;.:lib1.jar;lib2.jar;lib3.jar&quot; sourcefile.jar</code></pre></div>
 
-<div><pre><code class="language-bash">source ~/.bash_profile</code></pre></div>
+<div><pre><code class="language-bash">javac -cp &quot;.:lib1.jar:lib2.jar:lib3.jar&quot; sourcefile.jar
+java -cp &quot;.:lib1.jar:lib2.jar:lib3.jar&quot; sourcefile.jar</code></pre></div>
 
-<h2 id="toc_4">Aliases</h2>
+<h4 id="toc_5">For Windows</h4>
 
-<p><a href="https://doc.ubuntu-fr.org/alias">Source</a></p>
+<p>You just have to replace <strong>:</strong> by <strong>;</strong>.</p>
 
-<h3 id="toc_5">Create files</h3>
+<div><pre><code class="language-bash">javac -cp &quot;.;lib1.jar;lib2.jar;lib3.jar&quot; sourcefile.jar
+java -cp &quot;.;lib1.jar;lib2.jar;lib3.jar&quot; sourcefile.jar</code></pre></div>
 
-<p>Create <strong><em>.bash_aliases</em></strong> in <strong>~</strong>.</p>
+<p>Example :</p>
 
-<h3 id="toc_6">Link <em>.bash_aliases</em></h3>
+<div><pre><code class="language-bash">javac -cp &quot;.;.\be\isims\coo\tp5\ex2\lib\libClock.jar&quot; .\be\isims\coo\tp5\ex2\ClockTest.java
+java -cp &quot;.;.\be\isims\coo\tp5\ex2\lib\libClock.jar&quot; be.isims.coo.tp5.ex2.ClockTest</code></pre></div>
 
-<p>Open <strong><em>.bash_profile</em></strong> and add:</p>
+<h2 id="toc_6">Strings</h2>
 
-<div><pre><code class="language-bash">if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi</code></pre></div>
+<h3 id="toc_7">Interpolation</h3>
 
-<h3 id="toc_7">Create an alias</h3>
+<p>If you&#39;re using Java 5 or higher, you can use <em>String.format</em>:</p>
 
-<p>Open <strong><em>.bash_aliases</em></strong> and add:</p>
-
-<ul>
-<li>Format<br></li>
-</ul>
-
-<div><pre><code class="language-bash">alias my_alias=&#39;myCommand&#39;</code></pre></div>
-
-<ul>
-<li>Example<br></li>
-</ul>
-
-<div><pre><code class="language-bash">alias agu=&#39;sudo apt-get update&#39;</code></pre></div>
-
-<h4 id="toc_8">Create a function to use parameters</h4>
-
-<ul>
-<li>Format:</li>
-</ul>
-
-<div><pre><code class="language-bash">myFunction() {
-    #This function use Two parameters
-    command $1 $2
-}
-alias myAlias=myFunction</code></pre></div>
-
-<ul>
-<li>Example:</li>
-</ul>
-
-<div><pre><code class="language-bash">javaParam() {
-    #use the given param to compile and run Java code
-    if [ &quot;$1&quot; = &quot;*&quot; ]; then
-        javac *.java
-        java Main
-    else
-        javac $1.java
-        java $1
-    fi
-}
-
-alias java=javaParam</code></pre></div>
-
-<h3 id="toc_9">List all the aliases</h3>
-
-<div><pre><code class="language-bash">alias</code></pre></div>
-
-<h2 id="toc_10">Custom aliases</h2>
-
-<h3 id="toc_11">Scripts</h3>
-
-<h4 id="toc_12">about</h4>
-
-<p><strong>This is what the script does:</strong><br><br>
-<img src="../img/about.png" alt="The about script" title="The about script"></p>
+<div><pre><code class="language-java">urlString += String.format(&quot;u1=%s;u2=%s;u3=%s;u4=%s;&quot;, u1, u2, u3, u4);</code></pre></div>
 
 <blockquote>
-<p>It&#39;s located at ~/.MyScripts/about</p>
+<p>See <a href="http://download.oracle.com/javase/6/docs/api/java/util/Formatter.html">Formatter</a> for details.</p>
 </blockquote>
 
-<div><pre><code class="language-bash">alias about=&#39;./.MyScripts/about&#39;</code></pre></div>
+<h2 id="toc_8">Packages</h2>
 
 <blockquote>
-<p><em>The script is available on my <a href="https://github.com/Harchytekt/about">GitHub</a>.</em></p>
+<p>To compile code from a package, for example be.heh.ex, you have to do:</p>
 </blockquote>
 
-<h2 id="toc_13">Personnalize terminal</h2>
+<div><pre><code class="language-bash">javac be/heh/ex/*.java</code></pre></div>
 
-<p><em>The default prompt on macOS is:</em>  </p>
+<blockquote>
+<p>And then, to run it you only have to do:</p>
+</blockquote>
 
-<div><pre><code class="language-bash">PS1=&quot;\h:\W \u$ &quot;;
-export PS1;</code></pre></div>
-
-<p><img src="../img/Default%20prompt.png" alt="Default prompt" title="Default prompt"></p>
-
-<h3 id="toc_14">Personnalize prompt</h3>
-
-<p>Choose the wanted options and colors, and insert them in <strong>PS1</strong>.</p>
-
-<h4 id="toc_15">Example</h4>
-
-<div><pre><code class="language-bash">PS1=&quot;\[$(tput setaf 2)\]\u\[$(tput sgr0)\] at \[$(tput setaf 3)\]\h\[$(tput sgr0)\] in \[$(tput setaf 166)\]\W\[$(tput sgr0)\]\n\d, \t $ &quot;;
-export PS1;</code></pre></div>
-
-<p>or, for cleaner</p>
-
-<div><pre><code class="language-bash">PS1=&quot;\[$(tput setaf 2)\]\u\[$(tput sgr0)\] at &quot;;
-PS1+=&quot;\[$(tput setaf 3)\]\h\[$(tput sgr0)\] in &quot;;
-PS1+=&quot;\[$(tput setaf 166)\]\W\[$(tput sgr0)\]\n&quot;;
-PS1+=&quot;\d, \t $ &quot;;
-export PS1;</code></pre></div>
-
-<p>or whether</p>
-
-<div><pre><code class="language-bash">white=$(tput setaf 15);
-green=$(tput setaf 2);
-orange=$(tput setaf 166);
-yellow=$(tput setaf 3);
-reset=$(tput sgr0);
-
-PS1=&quot;\[$green\]\u\[$white\] at &quot;;
-PS1+=&quot;\[$yellow\]\h\[$white\] in &quot;;
-PS1+=&quot;\[$orange\]\W\[$reset\]\n&quot;;
-PS1+=&quot;\d, \t $ &quot;;
-export PS1;</code></pre></div>
-
-<p><strong>This is the result:</strong><br><br>
-<img src="../img/Personnalized%20prompt.png" alt="Result" title="Personnalized prompt"></p>
-
-<h4 id="toc_16">Colors</h4>
-
-<p>The colors used are from the <em>Chart of the 256 colors</em> available in an Xterm with color support.<br><br>
-<a href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">See the chart</a></p>
-
-<h4 id="toc_17">Options</h4>
-
-<div><pre><code class="language-bash">    \a     an ASCII bell character (07)
-    \d     the date in &quot;Weekday Month Date&quot; format (e.g., &quot;Tue May 26&quot;)
-    \D{format}
-           the format is passed to strftime(3) and the result is inserted into the prompt string; an empty format results in a locale-
-           specific time representation.  The braces are required
-    \e     an ASCII escape character (033)
-    \h     the hostname up to the first &#39;.&#39;
-    \H     the hostname
-    \j     the number of jobs currently managed by the shell
-    \l     the basename of the shell&#39;s terminal device name
-    \n     newline
-    \r     carriage return
-    \s     the name of the shell, the basename of $0 (the portion following the final slash)
-    \t     the current time in 24-hour HH:MM:SS format
-    \T     the current time in 12-hour HH:MM:SS format
-    \@     the current time in 12-hour am/pm format
-    \A     the current time in 24-hour HH:MM format
-    \u     the username of the current user
-    \v     the version of bash (e.g., 2.00)
-    \V     the release of bash, version + patch level (e.g., 2.00.0)
-    \w     the current working directory, with $HOME abbreviated with a tilde (uses the value of the PROMPT_DIRTRIM variable)
-    \W     the basename of the current working directory, with $HOME abbreviated with a tilde
-    \!     the history number of this command
-    \#     the command number of this command
-    \$     if the effective UID is 0, a #, otherwise a $
-    \nnn   the character corresponding to the octal number nnn
-    \\     a backslash
-    \[     begin a sequence of non-printing characters, which could be used to embed a terminal control sequence into the prompt
-    \]     end a sequence of non-printing characters</code></pre></div>
+<div><pre><code class="language-bash">java be/heh/ex/Main</code></pre></div>
 
 <hr>
 
@@ -477,6 +323,14 @@ var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScop
 
 <script type="text/javascript">
 !function(e){var t={variable:[{pattern:/\$?\(\([\w\W]+?\)\)/,inside:{variable:[{pattern:/(^\$\(\([\w\W]+)\)\)/,lookbehind:!0},/^\$\(\(/],number:/\b-?(?:0x[\dA-Fa-f]+|\d*\.?\d+(?:[Ee]-?\d+)?)\b/,operator:/--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,punctuation:/\(\(?|\)\)?|,|;/}},{pattern:/\$\([^)]+\)|`[^`]+`/,inside:{variable:/^\$\(|^`|\)$|`$/}},/\$(?:[a-z0-9_#\?\*!@]+|\{[^}]+\})/i]};e.languages.bash={shebang:{pattern:/^#!\s*\/bin\/bash|^#!\s*\/bin\/sh/,alias:"important"},comment:{pattern:/(^|[^"{\\])#.*/,lookbehind:!0},string:[{pattern:/((?:^|[^<])<<\s*)(?:"|')?(\w+?)(?:"|')?\s*\r?\n(?:[\s\S])*?\r?\n\2/g,lookbehind:!0,inside:t},{pattern:/(["'])(?:\\\\|\\?[^\\])*?\1/g,inside:t}],variable:t.variable,"function":{pattern:/(^|\s|;|\||&)(?:alias|apropos|apt-get|aptitude|aspell|awk|basename|bash|bc|bg|builtin|bzip2|cal|cat|cd|cfdisk|chgrp|chmod|chown|chroot|chkconfig|cksum|clear|cmp|comm|command|cp|cron|crontab|csplit|cut|date|dc|dd|ddrescue|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|enable|env|ethtool|eval|exec|expand|expect|export|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|getopts|git|grep|groupadd|groupdel|groupmod|groups|gzip|hash|head|help|hg|history|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|jobs|join|kill|killall|less|link|ln|locate|logname|logout|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|make|man|mkdir|mkfifo|mkisofs|mknod|more|most|mount|mtools|mtr|mv|mmv|nano|netstat|nice|nl|nohup|notify-send|nslookup|open|op|passwd|paste|pathchk|ping|pkill|popd|pr|printcap|printenv|printf|ps|pushd|pv|pwd|quota|quotacheck|quotactl|ram|rar|rcp|read|readarray|readonly|reboot|rename|renice|remsync|rev|rm|rmdir|rsync|screen|scp|sdiff|sed|seq|service|sftp|shift|shopt|shutdown|sleep|slocate|sort|source|split|ssh|stat|strace|su|sudo|sum|suspend|sync|tail|tar|tee|test|time|timeout|times|touch|top|traceroute|trap|tr|tsort|tty|type|ulimit|umask|umount|unalias|uname|unexpand|uniq|units|unrar|unshar|uptime|useradd|userdel|usermod|users|uuencode|uudecode|v|vdir|vi|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yes|zip)(?=$|\s|;|\||&)/,lookbehind:!0},keyword:{pattern:/(^|\s|;|\||&)(?:let|:|\.|if|then|else|elif|fi|for|break|continue|while|in|case|function|select|do|done|until|echo|exit|return|set|declare)(?=$|\s|;|\||&)/,lookbehind:!0},"boolean":{pattern:/(^|\s|;|\||&)(?:true|false)(?=$|\s|;|\||&)/,lookbehind:!0},operator:/&&?|\|\|?|==?|!=?|<<<?|>>|<=?|>=?|=~/,punctuation:/\$?\(\(?|\)\)?|\.\.|[{}[\];]/};var a=t.variable[1].inside;a["function"]=e.languages.bash["function"],a.keyword=e.languages.bash.keyword,a.boolean=e.languages.bash.boolean,a.operator=e.languages.bash.operator,a.punctuation=e.languages.bash.punctuation}(Prism);
+</script>
+
+<script type="text/javascript">
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\w\W]*?\*\//,lookbehind:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0}],string:{pattern:/(["'])(\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/((?:\b(?:class|interface|extends|implements|trait|instanceof|new)\s+)|(?:catch\s+\())[a-z0-9_\.\\]+/i,lookbehind:!0,inside:{punctuation:/(\.|\\)/}},keyword:/\b(if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,"boolean":/\b(true|false)\b/,"function":/[a-z0-9_]+(?=\()/i,number:/\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,operator:/--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,punctuation:/[{}[\];(),.:]/};
+</script>
+
+<script type="text/javascript">
+Prism.languages.java=Prism.languages.extend("clike",{keyword:/\b(abstract|continue|for|new|switch|assert|default|goto|package|synchronized|boolean|do|if|private|this|break|double|implements|protected|throw|byte|else|import|public|throws|case|enum|instanceof|return|transient|catch|extends|int|short|try|char|final|interface|static|void|class|finally|long|strictfp|volatile|const|float|native|super|while)\b/,number:/\b0b[01]+\b|\b0x[\da-f]*\.?[\da-fp\-]+\b|\b\d*\.?\d+(?:e[+-]?\d+)?[df]?\b/i,operator:{pattern:/(^|[^.])(?:\+[+=]?|-[-=]?|!=?|<<?=?|>>?>?=?|==?|&[&=]?|\|[|=]?|\*=?|\/=?|%=?|\^=?|[?:~])/m,lookbehind:!0}}),Prism.languages.insertBefore("java","function",{annotation:{alias:"punctuation",pattern:/(^|[^.])@\w+/,lookbehind:!0}});
 </script>
 
 <script type="text/javascript">
