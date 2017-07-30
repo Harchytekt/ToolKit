@@ -331,7 +331,7 @@ div.prism-show-language > div.prism-show-language-label {
 </ul>
 
 <div><pre><code class="language-none">Switch&gt; enable
-Switch# 
+Switch#
 Switch# disable
 Switch&gt; </code></pre></div>
 
@@ -399,7 +399,7 @@ Proceed with reload? [confirm]</code></pre></div>
 <h3 id="toc_9">Save config from running config (RAM) to starting config (NVRAM)</h3>
 
 <div><pre><code class="language-none">Switch# copy running-config starting-config
-Destination filename [startup-config]? 
+Destination filename [startup-config]?
 Building configuration...
 [OK]
 Switch#</code></pre></div>
@@ -449,7 +449,7 @@ Config file         : flash:/config.text
 Private Config file : flash:/private-config.text
 Enable Break        : no
 Manual Boot         : no
-HELPER path-list    : 
+HELPER path-list    :
 Auto upgrade        : yes
 NVRAM/Config file
       buffer size:   65536</code></pre></div>
@@ -467,7 +467,7 @@ Switch# !* Used to copy files from flash to tftp server</code></pre></div>
 
 <div><pre><code class="language-none">Switch# copy run tftp:
 Address or name of remote host []? 192.168.10.2
-Destination filename [Switch-confg]? 
+Destination filename [Switch-confg]?
 
 Writing running-config....!!
 [OK - 623 bytes]
@@ -477,10 +477,10 @@ Switch#</code></pre></div>
 
 <h5 id="toc_20">Save the IOS <em>(file.bin)</em> on a tftp.</h5>
 
-<div><pre><code class="language-none">Switch# copy flash: tftp: 
+<div><pre><code class="language-none">Switch# copy flash: tftp:
 Source filename []? c2960-lanbase-mz.122-25.FX.bin
 Address or name of remote host []? 192.168.10.2
-Destination filename [c2960-lanbase-mz.122-25.FX.bin]? 
+Destination filename [c2960-lanbase-mz.122-25.FX.bin]?
 
 Writing c2960-lanbase
 mz122-25.FX.bin....!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -500,10 +500,10 @@ Switch# copy tftp: run</code></pre></div>
 
 <h5 id="toc_22">Download IOS from a server <em>(for an update or a reset)</em></h5>
 
-<div><pre><code class="language-none">Switch# copy tftp: flash: 
+<div><pre><code class="language-none">Switch# copy tftp: flash:
 Address or name of remote host []? 192.168.10.2
 Source filename []? c2960-lanbase-mz.122-25.FX.bin
-Destination filename [c2960-lanbase-mz.122-25.FX.bin]? 
+Destination filename [c2960-lanbase-mz.122-25.FX.bin]?
 %Warning:There is a file already existing with this name
 Do you want to over write? [confirm]
 
@@ -593,8 +593,8 @@ Directory of flash:/
 
 <hr>
 
-<p><center>ToolKit © 2017</center><br>
-<center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center></p>
+<center>ToolKit © 2017</center>
+<center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center>
 
 
 
