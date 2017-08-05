@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>encryption</title>
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+<!-- For old IEs -->
+<link rel="shortcut icon" href="../img/favicons/favicon.ico" />
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../img/favicons/favicon.ico">
+<!-- For Safari's Pinned Tab -->
+<link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#F0893D">
+<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/favicons/favicon-152.png">
+<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/favicons/favicon-144.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/favicons/favicon-120.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/favicons/favicon-114.png">
+<!-- For iPhone 6+ -->
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="../img/favicons/favicon-180.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/favicons/favicon-72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="../img/favicons/favicon-57.png">
+<!-- For Old Chrome -->
+<link rel="icon" href="../img/favicons/favicon-32.png" sizes="32x32">
+<!-- For IE10 Metro -->
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="../img/favicons/favicon-144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- Chrome for Android -->
+<link rel="manifest" href="../img/favicons/manifest.json">
+<link rel="icon" sizes="192x192" href="../img/favicons/favicon-192.png">
+
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">openssl</h1>
+
+<p><center><a href="../index.html">Home</a></center></p>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">openssl</a>
+<ul>
+<li>
+<a href="#toc_1">Encrypt and decrypt files</a>
+<ul>
+<li>
+<a href="#toc_2">Encryption</a>
+</li>
+<li>
+<a href="#toc_3">Decryption</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="toc_1">Encrypt and decrypt files</h2>
+
+<h3 id="toc_2">Encryption</h3>
+
+<div><pre><code class="language-bash">openssl enc -aes-256-cbc -e -in fileToEncrypt -out encryptedFile</code></pre></div>
+
+<blockquote>
+<p>The password will be ask twice for safety.</p>
+</blockquote>
+
+<h3 id="toc_3">Decryption</h3>
+
+<div><pre><code class="language-bash">openssl enc -aes-256-cbc -d -in encryptedFile -out fileToEncrypt</code></pre></div>
+
+<blockquote>
+<p>The password will be ask.</p>
+</blockquote>
+
+<hr>
+
+<p><center>ToolKit © 2017</center><center><a href="http://alexandre-ducobu.esy.es/En">About</a></center></p>
+
+
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+
+</html>
