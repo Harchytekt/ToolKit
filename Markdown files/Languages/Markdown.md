@@ -7,6 +7,7 @@
 
 * **Format:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Markdown</div></div>
 ```
 > Blockquotes are very handy in email to emulate reply text.
 > This line is part of the same quote.
@@ -30,9 +31,12 @@ Quote break.
 ###Normal code
 > To insert code you just have to type this:
 
+<div class="prism-show-language"><div class="prism-show-language-label">Markdown</div></div>
+```
+	```language
+		your code here
 	```
-	your code here
-	```
+```
 
 ###Highlighted code
 > To insert highlighted code, you have to add the language name after the first **```**.  
@@ -40,12 +44,15 @@ Quote break.
 
 * **Format:**
 
-		```python
+<div class="prism-show-language"><div class="prism-show-language-label">Markdown</div></div>
+```
+	```python
 		def facto(x):
 			if (x == 0 or x == 1):
 				return 1
 			return x * facto(x - 1)
-		```
+	```
+```
 * **Result:**  
 
 ```python
@@ -65,6 +72,7 @@ Quote break.
 
 * **Format:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Markdown</div></div>
 ```
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
@@ -86,6 +94,7 @@ Quote break.
 
 * **Format:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Markdown</div></div>
 ```
 Markdown | Less | Pretty
 --- | --- | ---
