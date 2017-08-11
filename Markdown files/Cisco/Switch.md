@@ -172,7 +172,7 @@ Switch(config-if)# no shutdown
 Switch(config-if)# end
 ```
 
-###Show the different VLAN activated and the liked ports
+###Show the different VLAN activated and the linked ports
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
