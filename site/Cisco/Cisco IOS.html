@@ -160,6 +160,8 @@
 <li>Remote access<br></li>
 </ul>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch&gt; </code></pre></div>
 
 <h3 id="toc_3">Privileged Mode</h3>
@@ -173,8 +175,10 @@
 <strong>RQ:</strong> <em>to access the User Mode, you can use the <strong>disable</strong> command</em></li>
 </ul>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch&gt; enable
-Switch#
+Switch# 
 Switch# disable
 Switch&gt; </code></pre></div>
 
@@ -185,6 +189,8 @@ Switch&gt; </code></pre></div>
 <li>Access to the configuration</li>
 <li>Starting point for the other modes</li>
 </ul>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# configure terminal
 Switch(config)#
@@ -203,6 +209,8 @@ Switch#</code></pre></div>
 <strong>RQ:</strong> <em>to exit the current mode, use <strong>exit</strong>. To return to the privileged mode, use <strong>end</strong>.</em></li>
 </ul>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# exit
 Switch(config)# line console 0
@@ -214,6 +222,8 @@ Switch#</code></pre></div>
 <h3 id="toc_7">Get help</h3>
 
 <p><em>Enter <strong>?</strong> into the CLI</em></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch&gt; ?
 Exec commands:
@@ -236,18 +246,24 @@ Switch&gt;</code></pre></div>
 
 <p><em>For instance, to verify the new config</em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# reload
 Proceed with reload? [confirm]</code></pre></div>
 
 <h3 id="toc_9">Save config from running config (RAM) to starting config (NVRAM)</h3>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# copy running-config starting-config
-Destination filename [startup-config]?
+Destination filename [startup-config]? 
 Building configuration...
 [OK]
 Switch#</code></pre></div>
 
 <h3 id="toc_10">Reset the config</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# copy starting-config running-config</code></pre></div>
 
@@ -255,25 +271,37 @@ Switch#</code></pre></div>
 
 <p><em>The same goes for the <strong>starting-config</strong></em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# show running-config</code></pre></div>
 
 <h3 id="toc_12">Show history of executed commands</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show history</code></pre></div>
 
 <h3 id="toc_13">Display the MAC address table</h3>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# show ip mac-addres-table</code></pre></div>
 
 <p><strong>or</strong></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show ip mac addres-table</code></pre></div>
 
 <h3 id="toc_14">Execute configuration commands from the terminal</h3>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# configure terminal</code></pre></div>
 
 <h3 id="toc_15">Erase all the config files</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# write erase
 Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]
@@ -286,13 +314,15 @@ Switch# reload</code></pre></div>
 
 <p><strong>RQ:</strong> <em>For IOS 15, the command is <strong>show bootvar</strong>.</em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# show boot
 BOOT path-list      : c2960-lanbasek9-mz.150-2.SE4.bin
 Config file         : flash:/config.text
 Private Config file : flash:/private-config.text
 Enable Break        : no
 Manual Boot         : no
-HELPER path-list    :
+HELPER path-list    : 
 Auto upgrade        : yes
 NVRAM/Config file
       buffer size:   65536</code></pre></div>
@@ -301,6 +331,8 @@ NVRAM/Config file
 
 <h4 id="toc_18">Copy</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# copy flash: tftp:
 Switch# !* Used to copy files from flash to tftp server</code></pre></div>
 
@@ -308,9 +340,11 @@ Switch# !* Used to copy files from flash to tftp server</code></pre></div>
 
 <h5 id="toc_19">Save the running configuration on a tftp.</h5>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# copy run tftp:
 Address or name of remote host []? 192.168.10.2
-Destination filename [Switch-confg]?
+Destination filename [Switch-confg]? 
 
 Writing running-config....!!
 [OK - 623 bytes]
@@ -320,10 +354,12 @@ Switch#</code></pre></div>
 
 <h5 id="toc_20">Save the IOS <em>(file.bin)</em> on a tftp.</h5>
 
-<div><pre><code class="language-none">Switch# copy flash: tftp:
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
+<div><pre><code class="language-none">Switch# copy flash: tftp: 
 Source filename []? c2960-lanbase-mz.122-25.FX.bin
 Address or name of remote host []? 192.168.10.2
-Destination filename [c2960-lanbase-mz.122-25.FX.bin]?
+Destination filename [c2960-lanbase-mz.122-25.FX.bin]? 
 
 Writing c2960-lanbase
 mz122-25.FX.bin....!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -335,6 +371,8 @@ Switch#</code></pre></div>
 
 <h4 id="toc_21">Restore</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# copy tftp: flash:
 Switch# !* Used to restore file to flash from tftp server
 Switch# copy tftp: run</code></pre></div>
@@ -343,10 +381,12 @@ Switch# copy tftp: run</code></pre></div>
 
 <h5 id="toc_22">Download IOS from a server <em>(for an update or a reset)</em></h5>
 
-<div><pre><code class="language-none">Switch# copy tftp: flash:
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
+<div><pre><code class="language-none">Switch# copy tftp: flash: 
 Address or name of remote host []? 192.168.10.2
 Source filename []? c2960-lanbase-mz.122-25.FX.bin
-Destination filename [c2960-lanbase-mz.122-25.FX.bin]?
+Destination filename [c2960-lanbase-mz.122-25.FX.bin]? 
 %Warning:There is a file already existing with this name
 Do you want to over write? [confirm]
 
@@ -361,6 +401,8 @@ Switch#</code></pre></div>
 
 <h3 id="toc_23">Use another IOS file from the flash</h3>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# boot system c2960-lanbase-mz.122-25.FX.bin
 Switch(config)# exit
 Switch# copy running-config starting-config
@@ -369,6 +411,8 @@ Switch# reload</code></pre></div>
 <h3 id="toc_24">Show Cisco IOS version</h3>
 
 <p><strong>Also shows</strong> <em>uptime of router, how the router started, where system was loaded from, the interfaces the POST found, and the configuration register.</em></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show version
 Cisco IOS Software, C2960 Software (C2960-LANBASE-M), Version 12.2(25)FX, RELEASE SOFTWARE (fc1)
@@ -417,6 +461,8 @@ Configuration register is 0xF</code></pre></div>
 
 <h3 id="toc_25">List the content of the flash (or a directory)</h3>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# dir flash:
 Directory of flash:/
 
@@ -436,8 +482,7 @@ Directory of flash:/
 
 <hr>
 
-<center>ToolKit © 2017</center>
-<center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center>
+<p><center>ToolKit © 2017</center><center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center></p>
 
 
 

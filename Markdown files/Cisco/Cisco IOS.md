@@ -16,6 +16,7 @@ _Also known as **User EXEC Mode**_
 - Limited access to the configuration
 - Remote access  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> 
 ```
@@ -28,6 +29,7 @@ _Also known as **Privileged EXEC Mode**_
 - Debugging and test  
 **RQ:** _to access the User Mode, you can use the **disable** command_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> enable
 Switch# 
@@ -41,6 +43,7 @@ Switch>
 - Access to the configuration
 - Starting point for the other modes
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# configure terminal
 Switch(config)#
@@ -57,6 +60,7 @@ _As **interface** or **subinterface** Configuration Mode_
 - Configuration of a service or a specific interface  
 **RQ:** _to exit the current mode, use **exit**. To return to the privileged mode, use **end**._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# exit
@@ -70,6 +74,7 @@ Switch#
 ###Get help
 _Enter **?** into the CLI_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> ?
 Exec commands:
@@ -92,6 +97,7 @@ Switch>
 ###Restart the device
 _For instance, to verify the new config_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# reload
 Proceed with reload? [confirm]
@@ -99,6 +105,7 @@ Proceed with reload? [confirm]
 
 ###Save config from running config (RAM) to starting config (NVRAM)
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy running-config starting-config
 Destination filename [startup-config]? 
@@ -109,6 +116,7 @@ Switch#
 
 ###Reset the config
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy starting-config running-config
 ```
@@ -116,36 +124,42 @@ Switch# copy starting-config running-config
 ###Details the running configuration file (RAM)
 _The same goes for the **starting-config**_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show running-config
 ```
 
 ###Show history of executed commands
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show history
 ```
 
 ###Display the MAC address table
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show ip mac-addres-table
 ```
 
 **or**
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show ip mac addres-table
 ```
 
 ###Execute configuration commands from the terminal
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# configure terminal
 ```
 
 ###Erase all the config files
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# write erase
 Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]
@@ -159,6 +173,7 @@ Switch# reload
 
 **RQ:** _For IOS 15, the command is **show bootvar**._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show boot
 BOOT path-list      : c2960-lanbasek9-mz.150-2.SE4.bin
@@ -176,6 +191,7 @@ NVRAM/Config file
 
 ####Copy
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy flash: tftp:
 Switch# !* Used to copy files from flash to tftp server
@@ -184,6 +200,7 @@ Switch# !* Used to copy files from flash to tftp server
 
 #####Save the running configuration on a tftp.  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy run tftp:
 Address or name of remote host []? 192.168.10.2
@@ -198,6 +215,7 @@ Switch#
 
 #####Save the IOS _(file.bin)_ on a tftp.  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy flash: tftp: 
 Source filename []? c2960-lanbase-mz.122-25.FX.bin
@@ -215,6 +233,7 @@ Switch#
 
 ####Restore
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy tftp: flash:
 Switch# !* Used to restore file to flash from tftp server
@@ -225,6 +244,7 @@ Switch# copy tftp: run
 
 #####Download IOS from a server _(for an update or a reset)_  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# copy tftp: flash: 
 Address or name of remote host []? 192.168.10.2
@@ -245,6 +265,7 @@ Switch#
 
 ###Use another IOS file from the flash
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# boot system c2960-lanbase-mz.122-25.FX.bin
 Switch(config)# exit
@@ -255,6 +276,7 @@ Switch# reload
 ###Show Cisco IOS version
 **Also shows** _uptime of router, how the router started, where system was loaded from, the interfaces the POST found, and the configuration register._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show version
 Cisco IOS Software, C2960 Software (C2960-LANBASE-M), Version 12.2(25)FX, RELEASE SOFTWARE (fc1)
@@ -302,6 +324,7 @@ Configuration register is 0xF
 
 ###List the content of the flash (or a directory)
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# dir flash:
 Directory of flash:/

@@ -146,11 +146,15 @@
 
 <h2 id="toc_1">Configure hostname</h2>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# configure terminal
 Switch(config)# hostname S1
 S1(config)# exit</code></pre></div>
 
 <h2 id="toc_2">Set privileged mode password</h2>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch&gt; enable
 Switch# configure terminal
@@ -158,6 +162,8 @@ Switch(config)# enable password class
 Switch(config)# exit</code></pre></div>
 
 <h2 id="toc_3">Set encrypted privileged mode password</h2>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch&gt; enable
 Switch# configure terminal
@@ -167,6 +173,8 @@ Switch(config)# exit</code></pre></div>
 <h2 id="toc_4">Set password for console access</h2>
 
 <p><em>Restricted access to the console port.</em></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# line console 0
 Switch(config-line)# password cisco
@@ -178,6 +186,8 @@ Switch(config-line)# login !* Impose the use of the password</code></pre></div>
 
 <p><em>Password must be set to access device through telnet.</em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# line vty 0 4 !* or 0 15
 Switch(config-line)# password cisco
 Switch(config-line)# logging synchronous
@@ -186,15 +196,21 @@ Switch(config-line)# login !* Impose the use of the password</code></pre></div>
 
 <h2 id="toc_6">Set encryption for plain text password such as enable and line</h2>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# service password-encryption</code></pre></div>
 
 <h2 id="toc_7">Set a banner</h2>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# banner motd # Your message #</code></pre></div>
 
 <h2 id="toc_8">Set date and time</h2>
 
 <p><strong>RQ:</strong> <em>it <strong>won&#39;t</strong> be saved with the config !!!</em></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# clock set 12:06:30 29 November 2016
 Switch# show clock
@@ -204,6 +220,8 @@ Switch#</code></pre></div>
 <h2 id="toc_9">Prevent unwanted DNS lookups</h2>
 
 <p><em>Disables the default behavior of the device of attempting to <strong>resolve the invalid command into an IP address</strong>.</em>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# no ip domain-lookup</code></pre></div>
 
@@ -219,17 +237,21 @@ Switch#</code></pre></div>
 <li>SSH not supported</li>
 </ul>
 
-<div><pre><code class="language-none">Switch&gt; show ip ssh
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
+<div><pre><code class="language-none">Switch&gt; show ip ssh 
                 ^
 % Invalid input detected at &#39;^&#39; marker.
-
+    
 Switch&gt;</code></pre></div>
 
 <ul>
 <li>SSH disabled/not configured (but supported)</li>
 </ul>
 
-<div><pre><code class="language-none">Switch&gt; show ip ssh
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
+<div><pre><code class="language-none">Switch&gt; show ip ssh 
 SSH Disabled - version 1.99
 %Please create RSA keys (of atleast 768 bits size) to enable SSH v2.
 Authentication timeout: 120 secs; Authentication retries: 3
@@ -238,6 +260,8 @@ Switch&gt;</code></pre></div>
 <ul>
 <li>SSH enabled<br></li>
 </ul>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch&gt; show ip ssh
 SSH Enabled - version 1.99
@@ -248,21 +272,31 @@ Switch&gt;</code></pre></div>
 
 <h4 id="toc_13">Configuration of the IP domain name</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# ip domain-name myDomain</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# ip domain-name CCNA-Lab.com</code></pre></div>
 
 <h4 id="toc_14">Creation of the username and the password for authentification</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# username myName (privilege 0-15) secret myPass</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# username admin privilege 15 secret sshadmin</code></pre></div>
 
 <h4 id="toc_15">SSH protocole activation on the VTY lines (required)</h4>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# line vty 0 15
 Switch(config-line)# transport input ssh
@@ -271,6 +305,8 @@ Switch(config-line)# login local</code></pre></div>
 <h4 id="toc_16">RSA Encryption Key generation</h4>
 
 <p><em>Here we&#39;ll choose a modulus  of 1024 bits</em></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# crypto key generate rsa
 The name for the keys will be: S1.CCNA-Lab.com
@@ -285,23 +321,33 @@ Switch(config)#</code></pre></div>
 
 <h4 id="toc_17">To make sure that the SSH version 2 is used</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# ip ssh version 2</code></pre></div>
 
 <h4 id="toc_18">Change authentication timeout</h4>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# ip ssh time-out 75</code></pre></div>
 
 <h4 id="toc_19">Change authentication retries</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# ip ssh authentication-retries 2</code></pre></div>
 
 <h3 id="toc_20">Display the SSH configuration</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show ip ssh
 SSH Enabled - version 2.0
 Authentication timeout: 75 secs; Authentication retries: 2</code></pre></div>
 
 <h3 id="toc_21">Verify the SSH conections towards the peripheral</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show ssh
 %No SSHv2 server connections running.
@@ -311,15 +357,19 @@ Authentication timeout: 75 secs; Authentication retries: 2</code></pre></div>
 
 <p><strong>Format</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">SSH -l username IPAddress</code></pre></div>
 
 <p><strong>Example:</strong></p>
 
 <p><em>The used password is <strong>sshadmin</strong>.</em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">C:\&gt;SSH -l admin 172.16.99.11
 Open
-Password:
+Password: 
 
 
 
@@ -333,6 +383,8 @@ C:\&gt;</code></pre></div>
 
 <h2 id="toc_23">Get a summary of the interfaces</h2>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# show ip interface brief</code></pre></div>
 
 <h2 id="toc_24">Activate the full duplex mode on interface</h2>
@@ -343,6 +395,8 @@ C:\&gt;</code></pre></div>
 <li>duplex {full | half | auto}</li>
 <li>no duplex</li>
 </ul>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# duplex full
@@ -358,6 +412,8 @@ Switch(config-if)# end</code></pre></div>
 <li>1000 <em>(1000 Mbps or 1 Gbps)</em></li>
 </ul>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# speed 100
 Switch(config-if)# !* the speed is 100 Mbps
@@ -366,6 +422,8 @@ Switch(config-if)# end</code></pre></div>
 <h2 id="toc_26">Activate auto-MDIX</h2>
 
 <p><em>RQ:</em> <em>To use this option, the speed and the duplex have to be <strong>auto</strong>.</em></p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# duplex auto
@@ -379,6 +437,8 @@ Switch(config-if)# end</code></pre></div>
 
 <p><em>The MAC address is <strong>0060.3e71.9902</strong>.</em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch# show interfaces GigabitEthernet 0/1
 GigabitEthernet0/1 is up, line protocol is up (connected)
   Hardware is CN Gigabit Ethernet, address is 0060.3e71.9902 (bia 0060.3e71.9902)
@@ -389,7 +449,7 @@ GigabitEthernet0/1 is up, line protocol is up (connected)
   Keepalive set (10 sec)
   Full-duplex, 100Mb/s, media type is RJ45
   output flow-control is unsupported, input flow-control is unsupported
-  ARP type: ARPA, ARP Timeout 04:00:00,
+  ARP type: ARPA, ARP Timeout 04:00:00, 
   Last input 00:00:08, output 00:00:05, output hang never
   Last clearing of &quot;show interface&quot; counters never
   Input queue: 0/75/0 (size/max/drops); Total output drops: 0
@@ -420,8 +480,7 @@ Switch#</code></pre></div>
 
 <hr>
 
-<center>ToolKit © 2017</center>
-<center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center>
+<p><center>ToolKit © 2017</center><center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center></p>
 
 
 

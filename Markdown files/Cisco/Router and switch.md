@@ -5,6 +5,7 @@
 
 ##Configure hostname
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# configure terminal
 Switch(config)# hostname S1
@@ -13,6 +14,7 @@ S1(config)# exit
 
 ##Set privileged mode password
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> enable
 Switch# configure terminal
@@ -22,6 +24,7 @@ Switch(config)# exit
 
 ##Set encrypted privileged mode password
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> enable
 Switch# configure terminal
@@ -32,6 +35,7 @@ Switch(config)# exit
 ##Set password for console access
 _Restricted access to the console port._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# line console 0
 Switch(config-line)# password cisco
@@ -43,6 +47,7 @@ Switch(config-line)# login !* Impose the use of the password
 ##Set password for virtual terminal (telnet) access
 _Password must be set to access device through telnet._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# line vty 0 4 !* or 0 15
 Switch(config-line)# password cisco
@@ -53,12 +58,14 @@ Switch(config-line)# login !* Impose the use of the password
 
 ##Set encryption for plain text password such as enable and line
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# service password-encryption
 ```
 
 ##Set a banner
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# banner motd # Your message #
 ```
@@ -66,6 +73,7 @@ Switch(config)# banner motd # Your message #
 ##Set date and time
 **RQ:** _it **won't** be saved with the config !!!_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# clock set 12:06:30 29 November 2016
 Switch# show clock
@@ -76,6 +84,7 @@ Switch#
 ##Prevent unwanted DNS lookups
 _Disables the default behavior of the device of attempting to **resolve the invalid command into an IP address**._  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# no ip domain-lookup
 ```
@@ -90,6 +99,7 @@ _This command is accessible from the **User** and **Privileged Modes**._
 
 * SSH not supported
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> show ip ssh 
                 ^
@@ -100,6 +110,7 @@ Switch>
 
 * SSH disabled/not configured (but supported)
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> show ip ssh 
 SSH Disabled - version 1.99
@@ -110,6 +121,7 @@ Switch>
 
 * SSH enabled  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch> show ip ssh
 SSH Enabled - version 1.99
@@ -121,30 +133,35 @@ Switch>
 
 ####Configuration of the IP domain name
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip domain-name myDomain
 ```
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip domain-name CCNA-Lab.com
 ```
 
 ####Creation of the username and the password for authentification
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# username myName (privilege 0-15) secret myPass
 ```
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# username admin privilege 15 secret sshadmin
 ```
 
 ####SSH protocole activation on the VTY lines (required)
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# line vty 0 15
 Switch(config-line)# transport input ssh
@@ -155,6 +172,7 @@ Switch(config-line)# login local
 
 _Here we'll choose a modulus  of 1024 bits_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# crypto key generate rsa
 The name for the keys will be: S1.CCNA-Lab.com
@@ -170,24 +188,28 @@ Switch(config)#
 
 ####To make sure that the SSH version 2 is used
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip ssh version 2
 ```
 
 ####Change authentication timeout
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip ssh time-out 75
 ```
 
 ####Change authentication retries
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip ssh authentication-retries 2
 ```
 
 ###Display the SSH configuration
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show ip ssh
 SSH Enabled - version 2.0
@@ -196,6 +218,7 @@ Authentication timeout: 75 secs; Authentication retries: 2
 
 ###Verify the SSH conections towards the peripheral
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show ssh
 %No SSHv2 server connections running.
@@ -206,6 +229,7 @@ Switch# show ssh
 
 **Format**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 SSH -l username IPAddress
 ```
@@ -214,6 +238,7 @@ SSH -l username IPAddress
 
 _The used password is **sshadmin**._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 C:\>SSH -l admin 172.16.99.11
 Open
@@ -232,6 +257,7 @@ C:\>
 
 ##Get a summary of the interfaces
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show ip interface brief
 ```
@@ -243,6 +269,7 @@ Switch# show ip interface brief
 * duplex {full | half | auto}
 * no duplex
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# duplex full
@@ -257,6 +284,7 @@ Switch(config-if)# end
 * 100 _(100 Mbps)_  
 * 1000 _(1000 Mbps or 1 Gbps)_
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# speed 100
@@ -268,6 +296,7 @@ Switch(config-if)# end
 
 *RQ:* _To use this option, the speed and the duplex have to be **auto**._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface FastEthernet 0/1
 Switch(config-if)# duplex auto
@@ -281,6 +310,7 @@ Switch(config-if)# end
 
 _The MAC address is **0060.3e71.9902**._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show interfaces GigabitEthernet 0/1
 GigabitEthernet0/1 is up, line protocol is up (connected)

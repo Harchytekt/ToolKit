@@ -39,7 +39,6 @@
 <link rel="icon" sizes="192x192" href="../img/favicons/favicon-192.png">
 
 
-
 </head>
 
 <body>
@@ -114,60 +113,74 @@
 <a href="#toc_17">Display the MAC address table</a>
 </li>
 <li>
-<a href="#toc_18">Port security</a>
+<a href="#toc_18">          Mac Address Table</a>
+</li>
+<li>
+<a href="#toc_19">Port security</a>
 <ul>
 <li>
-<a href="#toc_19">Activate the port security</a>
+<a href="#toc_20">Activate the port security</a>
 <ul>
 <li>
-<a href="#toc_20">Choose the interface</a>
+<a href="#toc_21">Choose the interface</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_21">Set the number of authorized MAC addresses</a>
+<a href="#toc_22">Set the number of authorized MAC addresses</a>
 </li>
 <li>
-<a href="#toc_22">Set the violation action type</a>
+<a href="#toc_23">Set the violation action type</a>
 <ul>
 <li>
-<a href="#toc_23">shutdown</a>
+<a href="#toc_24">shutdown</a>
 </li>
 <li>
-<a href="#toc_24">protect</a>
+<a href="#toc_25">protect</a>
 </li>
 <li>
-<a href="#toc_25">restrict</a>
+<a href="#toc_26">restrict</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_26">Configure an interface to save the MAC addresses dynamically learned</a>
+<a href="#toc_27">Configure an interface to save the MAC addresses dynamically learned</a>
 <ul>
 <li>
-<a href="#toc_27">Default</a>
+<a href="#toc_28">Default</a>
 </li>
 <li>
-<a href="#toc_28">The secure MAC addresses can be manually set</a>
+<a href="#toc_29">The secure MAC addresses can be manually set</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_29">Delete the <em><strong>Error Disabled</strong></em> of an interface</a>
+<a href="#toc_30">Delete the <em><strong>Error Disabled</strong></em> of an interface</a>
 </li>
 <li>
-<a href="#toc_30">Verify the port security (display the secure MAC addresses)</a>
-</li>
-<li>
-<a href="#toc_31">Display port security of an interface</a>
-</li>
-<li>
-<a href="#toc_32">Display the Secure MAC Address Table</a>
+<a href="#toc_31">Verify the port security (display the secure MAC addresses)</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_33">Additional source</a>
+<a href="#toc_32">               (Count)       (Count)        (Count)</a>
+<ul>
+<li>
+<a href="#toc_33">Display port security of an interface</a>
+</li>
+<li>
+<a href="#toc_34">Display the Secure MAC Address Table</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="#toc_35">            Secure Mac Address Table</a>
+</li>
+<li>
+<a href="#toc_36">99      0090.2B03.5B13      SecureConfigured    FastEthernet0/6     -</a>
+</li>
+<li>
+<a href="#toc_37">Additional source</a>
 </li>
 </ul>
 </li>
@@ -176,6 +189,8 @@
 
 <h2 id="toc_1">Configure an IP address and a subnet mask</h2>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface vlan 1
 Switch(config-if)# ip address 192.168.10.1 255.255.255.0
 Switch(config-if)#description Link to VLAN 1
@@ -183,11 +198,15 @@ Switch(config-if) no shutdown</code></pre></div>
 
 <h2 id="toc_2">Configure a default gateway address</h2>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# ip default-gateway 192.168.10.254</code></pre></div>
 
 <h2 id="toc_3">Shutdown unused interfaces (FastEthernet and GigabitEthernet)</h2>
 
 <h3 id="toc_4">Per interface</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/3
 Switch(config-if)#shutdown
@@ -197,6 +216,8 @@ Switch(config-if)#exit
 Switch(config)#</code></pre></div>
 
 <h3 id="toc_5">Per range of interfaces</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface range FastEthernet 0/4 - FastEthernet 0/24
 Switch(config)# !* interface range FastEthernet 0/4 - 24
@@ -216,11 +237,15 @@ Switch#</code></pre></div>
 
 <p><strong>Format</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# vlan ID
 Switch(config-vlan)# name vlanName
 Switch(config-vlan)# exit</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# vlan 99
 Switch(config-vlan)# name Management
@@ -230,12 +255,16 @@ Switch(config-vlan)# exit</code></pre></div>
 
 <p><strong>Format</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface interfaceID
 Switch(config-if)# switchport mode access
 Switch(config-if)# switchport access vlan ID
 Switch(config-if)# exit</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface Fa 0/5
 Switch(config-if)# switchport mode access
@@ -252,27 +281,37 @@ Switch(config-if)# exit</code></pre></div>
 
 <p><strong>Format</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# no vlan ID</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# no vlan 99</code></pre></div>
 
 <h3 id="toc_10">Delete a port from a VLAN</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface Fa 0/5
 Switch(config-if)# no switchport access vlan</code></pre></div>
 
 <h3 id="toc_11">Activate a trunk link (to be configured on each end)</h3>
 
-<p><strong>WARNING</strong> <em>Never use <strong>VLAN 1</strong> as native.</em>  </p>
+<p>⚠️<strong>WARNING</strong> <em>Never use <strong>VLAN 1</strong> as native.</em>  ⚠️</p>
 
+<blockquote>
 <ul>
 <li><em>The native VLAN has to be the same on each end</em><br></li>
 <li><em>By default, all VLANs are allowed. To filter the VLANs, use <strong>allowed</strong>.</em></li>
 </ul>
+</blockquote>
 
 <p><strong>Format</strong>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface interfaceID
 Switch(config-if)# switchport mode trunk
@@ -281,6 +320,8 @@ Switch(config-if)# switchport trunk allowed vlan ID1,ID2,ID3
 Switch(config-if)# end</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface Fa 0/5
 Switch(config-if)# switchport mode trunk
@@ -291,6 +332,8 @@ Switch(config-if)# end</code></pre></div>
 
 <p><strong>Format</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface vlan ID
 Switch(config-if)# ip address IPAddress subnetMask
 Switch(config-if)# no shutdown
@@ -298,12 +341,16 @@ Switch(config-if)# end</code></pre></div>
 
 <p><strong>Example:</strong>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface vlan 99
 Switch(config-if)# ip address 192.168.10.1 255.255.255.0
 Switch(config-if)# no shutdown
 Switch(config-if)# end</code></pre></div>
 
 <h3 id="toc_13">Show the different VLAN activated and the liked ports</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch#show vlan brief
 
@@ -326,6 +373,8 @@ Switch#</code></pre></div>
 
 <h4 id="toc_15">Set the FastEthernet 0/1 interface as trustworthy/reliable (for the VLAN ID1 et ID2)</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# ip dhcp snooping
 Switch(config)# ip dhcp snooping vlan ID1,ID2
 Switch(config)# interface FastEthernet 0/1
@@ -336,6 +385,8 @@ Switch(config-if)# ip dhcp snooping trust</code></pre></div>
 <p><em>The range is <strong>1 to 2048</strong>. It&#39;s recommended to trust not more than <strong>100</strong> packets per second.</em><br><br>
 <em>On the other hand, the limit should be increased if the port is a trunk port assigned to more than one VLAN on which DHCP snooping is enabled.</em></p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# ip dhcp snooping
 Switch(config)# ip dhcp snooping vlan ID1,ID2
 Switch(config)# interface FastEthernet 0/1
@@ -343,6 +394,8 @@ Switch(config-if)# ip dhcp snooping trust
 Switch(config-if)# ip dhcp snooping limit rate </code></pre></div>
 
 <h2 id="toc_17">Display the MAC address table</h2>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show mac-address-table 
           Mac Address Table
@@ -359,9 +412,14 @@ S1#</code></pre></div>
 
 <h3 id="toc_19">Activate the port security</h3>
 
-<p><strong>WARNING</strong><br><br>
-<em>Without the following command, none of this will work !!!</em><br><br>
+<p>⚠️<strong>WARNING</strong> ⚠️   </p>
+
+<blockquote>
+<p><em>Without the following command, none of this will work !!!</em><br><br>
 <strong>RQ:</strong> <em>It sets the maximal number of MAC addresses to <strong>1</strong>  and the violation action type to <strong>shutdown</strong>.</em>  </p>
+</blockquote>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config-if)# switchport port-security</code></pre></div>
 
@@ -369,12 +427,16 @@ S1#</code></pre></div>
 
 <p><em>We choose the interface, shut it down and activate the port security on it.</em>   </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface interfaceID
 Switch(config-if)# shutdown
 Switch(config-if)# switchport port-security</code></pre></div>
 
 <p><em>Then we activate the security for the MAC address of the chosen interface<br><br>
 (from <a href="Router%20and%20switch.html#shINT">show interfaces interfaceID</a>).</em>  </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config-if)# switchport port-security mac-address macAddress
 Switch(config-if)# no shutdown
@@ -384,11 +446,15 @@ Switch(config-if)# end</code></pre></div>
 
 <p><em>The default value is <strong>1</strong> and the maximum number of addresses is <strong>3072</strong>.</em>  </p>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config-if)# switchport port-security maximum value</code></pre></div>
 
 <h3 id="toc_22">Set the violation action type</h3>
 
 <p><em>The default type is <strong>shutdwon</strong>  but there are three of them.</em> </p>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config-if)# switchport port-security violation type</code></pre></div>
 
@@ -408,15 +474,21 @@ Switch(config-if)# end</code></pre></div>
 
 <h4 id="toc_27">Default</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface interfaceID
 Switch(config-if)# switchport port-security mac-address sticky</code></pre></div>
 
 <h4 id="toc_28">The secure MAC addresses can be manually set</h4>
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
 <div><pre><code class="language-none">Switch(config)# interface interfaceID
 Switch(config-if)# switchport port-security mac-address sticky macAddress</code></pre></div>
 
 <h3 id="toc_29">Delete the <em><strong>Error Disabled</strong></em> of an interface</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# configure terminal
 Switch(config)# interface FastEthernet 0/5
@@ -424,6 +496,8 @@ Switch(config-if)# shutdown
 Switch(config-if)# no shutdown</code></pre></div>
 
 <h3 id="toc_30">Verify the port security (display the secure MAC addresses)</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show port-security
 Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
@@ -435,6 +509,8 @@ Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
 Switch#</code></pre></div>
 
 <h3 id="toc_31">Display port security of an interface</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show port-security interface FastEthernet 0/5
 Port Security              : Enabled
@@ -453,6 +529,8 @@ Security Violation Count   : 0
 Switch#</code></pre></div>
 
 <h3 id="toc_32">Display the Secure MAC Address Table</h3>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show port-security address 
             Secure Mac Address Table

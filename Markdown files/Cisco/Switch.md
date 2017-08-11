@@ -5,6 +5,7 @@
 
 ##Configure an IP address and a subnet mask
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface vlan 1
 Switch(config-if)# ip address 192.168.10.1 255.255.255.0
@@ -14,6 +15,7 @@ Switch(config-if) no shutdown
 
 ##Configure a default gateway address
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip default-gateway 192.168.10.254
 ```
@@ -22,6 +24,7 @@ Switch(config)# ip default-gateway 192.168.10.254
 
 ###Per interface
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface FastEthernet 0/3
 Switch(config-if)#shutdown
@@ -33,6 +36,7 @@ Switch(config)#
 
 ###Per range of interfaces
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface range FastEthernet 0/4 - FastEthernet 0/24
 Switch(config)# !* interface range FastEthernet 0/4 - 24
@@ -53,6 +57,7 @@ Switch#
 
 **Format**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# vlan ID
 Switch(config-vlan)# name vlanName
@@ -61,6 +66,7 @@ Switch(config-vlan)# exit
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# vlan 99
 Switch(config-vlan)# name Management
@@ -71,6 +77,7 @@ Switch(config-vlan)# exit
 
 **Format**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface interfaceID
 Switch(config-if)# switchport mode access
@@ -80,6 +87,7 @@ Switch(config-if)# exit
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface Fa 0/5
 Switch(config-if)# switchport mode access
@@ -94,18 +102,21 @@ Switch(config-if)# exit
 
 **Format**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# no vlan ID
 ```
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# no vlan 99
 ```
 
 ###Delete a port from a VLAN
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface Fa 0/5
 Switch(config-if)# no switchport access vlan
@@ -113,13 +124,14 @@ Switch(config-if)# no switchport access vlan
 
 ###Activate a trunk link (to be configured on each end)
 
-**WARNING** _Never use **VLAN 1** as native._  
+⚠️**WARNING** _Never use **VLAN 1** as native._  ⚠️
  
-- _The native VLAN has to be the same on each end_  
-- _By default, all VLANs are allowed. To filter the VLANs, use **allowed**._
+> - _The native VLAN has to be the same on each end_  
+> - _By default, all VLANs are allowed. To filter the VLANs, use **allowed**._
 
 **Format**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface interfaceID
 Switch(config-if)# switchport mode trunk
@@ -130,6 +142,7 @@ Switch(config-if)# end
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface Fa 0/5
 Switch(config-if)# switchport mode trunk
@@ -141,6 +154,7 @@ Switch(config-if)# end
 
 **Format**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface vlan ID
 Switch(config-if)# ip address IPAddress subnetMask
@@ -150,6 +164,7 @@ Switch(config-if)# end
 
 **Example:**  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface vlan 99
 Switch(config-if)# ip address 192.168.10.1 255.255.255.0
@@ -159,6 +174,7 @@ Switch(config-if)# end
 
 ###Show the different VLAN activated and the liked ports
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch#show vlan brief
 
@@ -182,6 +198,7 @@ Switch#
 
 #### Set the FastEthernet 0/1 interface as trustworthy/reliable (for the VLAN ID1 et ID2)
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip dhcp snooping
 Switch(config)# ip dhcp snooping vlan ID1,ID2
@@ -194,6 +211,7 @@ Switch(config-if)# ip dhcp snooping trust
 _The range is **1 to 2048**. It's recommended to trust not more than **100** packets per second._  
 _On the other hand, the limit should be increased if the port is a trunk port assigned to more than one VLAN on which DHCP snooping is enabled._
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip dhcp snooping
 Switch(config)# ip dhcp snooping vlan ID1,ID2
@@ -204,6 +222,7 @@ Switch(config-if)# ip dhcp snooping limit rate
 
 ##Display the MAC address table
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show mac-address-table 
           Mac Address Table
@@ -221,11 +240,12 @@ S1#
 
 ###Activate the port security
 
-**WARNING**  
-_Without the following command, none of this will work !!!_  
-**RQ:** _It sets the maximal number of MAC addresses to **1**  and the violation action type to **shutdown**._  
+⚠️**WARNING** ⚠️   
+> _Without the following command, none of this will work !!!_  
+> **RQ:** _It sets the maximal number of MAC addresses to **1**  and the violation action type to **shutdown**._  
 
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config-if)# switchport port-security
 ```
@@ -234,6 +254,7 @@ Switch(config-if)# switchport port-security
 
 _We choose the interface, shut it down and activate the port security on it._   
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface interfaceID
 Switch(config-if)# shutdown
@@ -243,6 +264,7 @@ Switch(config-if)# switchport port-security
 _Then we activate the security for the MAC address of the chosen interface  
 (from [show interfaces interfaceID](Router and switch.html#shINT))._  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config-if)# switchport port-security mac-address macAddress
 Switch(config-if)# no shutdown
@@ -253,6 +275,7 @@ Switch(config-if)# end
 
 _The default value is **1** and the maximum number of addresses is **3072**._  
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config-if)# switchport port-security maximum value
 ```
@@ -261,6 +284,7 @@ Switch(config-if)# switchport port-security maximum value
 
 _The default type is **shutdwon**  but there are three of them._ 
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config-if)# switchport port-security violation type
 ``` 
@@ -282,6 +306,7 @@ When the secure MAC addresses number reaches the authorized limit on the port, p
 
 ####Default
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface interfaceID
 Switch(config-if)# switchport port-security mac-address sticky
@@ -289,6 +314,7 @@ Switch(config-if)# switchport port-security mac-address sticky
 
 ####The secure MAC addresses can be manually set
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# interface interfaceID
 Switch(config-if)# switchport port-security mac-address sticky macAddress
@@ -296,6 +322,7 @@ Switch(config-if)# switchport port-security mac-address sticky macAddress
 
 ###Delete the _**Error Disabled**_ of an interface
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# configure terminalSwitch(config)# interface FastEthernet 0/5
 Switch(config-if)# shutdown
@@ -304,6 +331,7 @@ Switch(config-if)# no shutdown
 
 ###Verify the port security (display the secure MAC addresses)
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show port-security
 Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
@@ -317,6 +345,7 @@ Switch#
 
 ###Display port security of an interface
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show port-security interface FastEthernet 0/5
 Port Security              : Enabled
@@ -337,6 +366,7 @@ Switch#
 
 ###Display the Secure MAC Address Table
 
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show port-security address 
 			Secure Mac Address Table
