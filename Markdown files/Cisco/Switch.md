@@ -9,8 +9,8 @@
 ```
 Switch(config)# interface vlan 1
 Switch(config-if)# ip address 192.168.10.1 255.255.255.0
-Switch(config-if)#description Link to VLAN 1
-Switch(config-if) no shutdown
+Switch(config-if)# description Link to VLAN 1
+Switch(config-if)# no shutdown
 ```
 
 ##Configure a default gateway address
