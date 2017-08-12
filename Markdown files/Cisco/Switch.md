@@ -233,7 +233,7 @@ Vlan    Mac Address       Type        Ports
 
   99    0060.3e71.9902    STATIC      Fa0/5
   99    0090.2b03.5b13    STATIC      Fa0/6
-S1#
+Switch#
 ```
 
 ##Port security
