@@ -1,9 +1,9 @@
-#Switch and Router
+# Switch and Router
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Configure hostname
+## Configure hostname
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -12,7 +12,16 @@ Switch(config)# hostname S1
 S1(config)# exit
 ```
 
-##Set privileged mode password
+## Set the minimal length for all passwords
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+```
+Switch# configure terminal
+Switch(config)# security passwords min-length 10
+Switch(config)# !* for a 10 password length
+```
+
+## Set privileged mode password
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -22,7 +31,7 @@ Switch(config)# enable password class
 Switch(config)# exit
 ```
 
-##Set encrypted privileged mode password
+## Set encrypted privileged mode password
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -32,7 +41,7 @@ Switch(config)# enable secret class
 Switch(config)# exit
 ```
 
-##Set password for console access
+## Set password for console access
 _Restricted access to the console port._
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
@@ -44,7 +53,7 @@ Switch(config-line)# !* Prevent console messages from aborting commands
 Switch(config-line)# login !* Impose the use of the password
 ```
 
-##Set password for virtual terminal (telnet) access
+## Set password for virtual terminal (telnet) access
 _Password must be set to access device through telnet._
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
@@ -56,21 +65,21 @@ Switch(config-line)# !* Prevent console messages from aborting commands
 Switch(config-line)# login !* Impose the use of the password
 ```
 
-##Set encryption for plain text password such as enable and line
+## Set encryption for plain text password such as enable and line
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# service password-encryption
 ```
 
-##Set a banner
+## Set a banner
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# banner motd # Your message #
 ```
 
-##Set date and time
+## Set date and time
 **RQ:** _it **won't** be saved with the config !!!_
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
@@ -81,7 +90,7 @@ Switch# show clock
 Switch#
 ```
 
-##Prevent unwanted DNS lookups
+## Prevent unwanted DNS lookups
 _Disables the default behavior of the device of attempting to **resolve the invalid command into an IP address**._  
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
@@ -89,11 +98,11 @@ _Disables the default behavior of the device of attempting to **resolve the inva
 Switch(config)# no ip domain-lookup
 ```
 
-##Configure SSH
+## Configure SSH
 
 To use SSH, IOS has to be a **'K9'** version. That means that the cryptography is taken over.  
 
-###Checking SSH support:  
+### Checking SSH support:  
 
 _This command is accessible from the **User** and **Privileged Modes**._
 
@@ -129,9 +138,9 @@ Authentication timeout: 75 secs; Authentication retries: 2
 Switch>
 ```
 
-###Configuration
+### Configuration
 
-####Configuration of the IP domain name
+####  Configuration of the IP domain name
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -145,7 +154,7 @@ Switch(config)# ip domain-name myDomain
 Switch(config)# ip domain-name CCNA-Lab.com
 ```
 
-####Creation of the username and the password for authentification
+####  Creation of the username and the password for authentification
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -159,7 +168,7 @@ Switch(config)# username myName (privilege 0-15) secret myPass
 Switch(config)# username admin privilege 15 secret sshadmin
 ```
 
-####SSH protocole activation on the VTY lines (required)
+####  SSH protocole activation on the VTY lines (required)
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -168,7 +177,7 @@ Switch(config-line)# transport input ssh
 Switch(config-line)# login local
 ```
 
-####RSA Encryption Key generation
+####  RSA Encryption Key generation
 
 _Here we'll choose a modulus  of 1024 bits_
 
@@ -186,28 +195,28 @@ How many bits in the modulus [512]: 1024
 Switch(config)#
 ```
 
-####To make sure that the SSH version 2 is used
+####  To make sure that the SSH version 2 is used
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip ssh version 2
 ```
 
-####Change authentication timeout
+####  Change authentication timeout
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip ssh time-out 75
 ```
 
-####Change authentication retries
+####  Change authentication retries
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# ip ssh authentication-retries 2
 ```
 
-###Display the SSH configuration
+### Display the SSH configuration
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -216,7 +225,7 @@ SSH Enabled - version 2.0
 Authentication timeout: 75 secs; Authentication retries: 2
 ```
 
-###Verify the SSH conections towards the peripheral
+### Verify the SSH conections towards the peripheral
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
@@ -225,7 +234,7 @@ Switch# show ssh
 %No SSHv1 server connections running.
 ```
 
-###Access the device from a PC through a SHH connection
+### Access the device from a PC through a SHH connection
 
 **Format**  
 
@@ -255,14 +264,14 @@ S1>exit
 C:\>
 ```
 
-##Get a summary of the interfaces
+## Get a summary of the interfaces
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch# show ip interface brief
 ```
 
-##Activate the full duplex mode on interface
+## Activate the full duplex mode on interface
 
 **Options:**  
 
@@ -276,7 +285,7 @@ Switch(config-if)# duplex full
 Switch(config-if)# end
 ``` 
 
-##Set the speed of an interface
+## Set the speed of an interface
 
 **Options:**  
 
@@ -292,7 +301,7 @@ Switch(config-if)# !* the speed is 100 Mbps
 Switch(config-if)# end
 ```
 
-##Activate auto-MDIX
+## Activate auto-MDIX
 
 *RQ:* _To use this option, the speed and the duplex have to be **auto**._
 
@@ -306,7 +315,7 @@ Switch(config-if)# end
 ```
 
 <a name="shINT"></a>
-##Get the informations of an interface (like its MAC address)
+## Get the informations of an interface (like its MAC address)
 
 _The MAC address is **0060.3e71.9902**._
 
@@ -345,7 +354,7 @@ GigabitEthernet0/1 is up, line protocol is up (connected)
 Switch#
 ```
 
-##Additional source
+## Additional source
 * [pantz.org](http://www.pantz.org/software/ios/ioscommands.html)  
 * [Cisco.com](http://www.cisco.com)
 

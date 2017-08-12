@@ -160,27 +160,16 @@
 <li>
 <a href="#toc_31">Verify the port security (display the secure MAC addresses)</a>
 </li>
-</ul>
+<li>
+<a href="#toc_32">Display port security of an interface</a>
 </li>
 <li>
-<a href="#toc_32">               (Count)       (Count)        (Count)</a>
-<ul>
-<li>
-<a href="#toc_33">Display port security of an interface</a>
-</li>
-<li>
-<a href="#toc_34">Display the Secure MAC Address Table</a>
+<a href="#toc_33">Display the Secure MAC Address Table</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_35">            Secure Mac Address Table</a>
-</li>
-<li>
-<a href="#toc_36">99      0090.2B03.5B13      SecureConfigured    FastEthernet0/6     -</a>
-</li>
-<li>
-<a href="#toc_37">Additional source</a>
+<a href="#toc_34">Additional source</a>
 </li>
 </ul>
 </li>
@@ -209,10 +198,10 @@ Switch(config-if)# no shutdown</code></pre></div>
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# interface FastEthernet 0/3
-Switch(config-if)#shutdown
+Switch(config-if)# shutdown
 
 %LINK-5-CHANGED: Interface FastEthernet0/3, changed state to administratively down
-Switch(config-if)#exit
+Switch(config-if)# exit
 Switch(config)#</code></pre></div>
 
 <h3 id="toc_5">Per range of interfaces</h3>
@@ -502,10 +491,10 @@ Switch(config-if)# no shutdown</code></pre></div>
 <div><pre><code class="language-none">Switch# show port-security
 Secure Port MaxSecureAddr CurrentAddr SecurityViolation Security Action
                (Count)       (Count)        (Count)
---------------------------------------------------------------------
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
         Fa0/5        1          1                 0         Shutdown
         Fa0/6        1          1                 0         Shutdown
-----------------------------------------------------------------------
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 Switch#</code></pre></div>
 
 <h3 id="toc_31">Display port security of an interface</h3>
@@ -534,13 +523,13 @@ Switch#</code></pre></div>
 
 <div><pre><code class="language-none">Switch# show port-security address 
             Secure Mac Address Table
----------------------------------------------------------------------------------
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 Vlan    Mac Address         Type                          Ports     Remaining Age
                                                                     (mins)
-----    -----------         ----                          -----     -------------
+−−−−    −−−−−−−−−−−         −−−−                          −−−−−     −−−−−−−−−−−−−
 99      0060.3E71.9902      SecureConfigured    FastEthernet0/5     -
 99      0090.2B03.5B13      SecureConfigured    FastEthernet0/6     -
----------------------------------------------------------------------------------
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 Total Addresses in System (excluding one mac per port)     : 0
 Max Addresses limit in System (excluding one mac per port) : 1024
 Switch#</code></pre></div>

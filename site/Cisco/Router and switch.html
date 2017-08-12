@@ -55,89 +55,92 @@
 <a href="#toc_1">Configure hostname</a>
 </li>
 <li>
-<a href="#toc_2">Set privileged mode password</a>
+<a href="#toc_2">Set the minimal length for all passwords</a>
 </li>
 <li>
-<a href="#toc_3">Set encrypted privileged mode password</a>
+<a href="#toc_3">Set privileged mode password</a>
 </li>
 <li>
-<a href="#toc_4">Set password for console access</a>
+<a href="#toc_4">Set encrypted privileged mode password</a>
 </li>
 <li>
-<a href="#toc_5">Set password for virtual terminal (telnet) access</a>
+<a href="#toc_5">Set password for console access</a>
 </li>
 <li>
-<a href="#toc_6">Set encryption for plain text password such as enable and line</a>
+<a href="#toc_6">Set password for virtual terminal (telnet) access</a>
 </li>
 <li>
-<a href="#toc_7">Set a banner</a>
+<a href="#toc_7">Set encryption for plain text password such as enable and line</a>
 </li>
 <li>
-<a href="#toc_8">Set date and time</a>
+<a href="#toc_8">Set a banner</a>
 </li>
 <li>
-<a href="#toc_9">Prevent unwanted DNS lookups</a>
+<a href="#toc_9">Set date and time</a>
 </li>
 <li>
-<a href="#toc_10">Configure SSH</a>
+<a href="#toc_10">Prevent unwanted DNS lookups</a>
+</li>
+<li>
+<a href="#toc_11">Configure SSH</a>
 <ul>
 <li>
-<a href="#toc_11">Checking SSH support:</a>
+<a href="#toc_12">Checking SSH support:</a>
 </li>
 <li>
-<a href="#toc_12">Configuration</a>
+<a href="#toc_13">Configuration</a>
 <ul>
 <li>
-<a href="#toc_13">Configuration of the IP domain name</a>
+<a href="#toc_14">Configuration of the IP domain name</a>
 </li>
 <li>
-<a href="#toc_14">Creation of the username and the password for authentification</a>
+<a href="#toc_15">Creation of the username and the password for authentification</a>
 </li>
 <li>
-<a href="#toc_15">SSH protocole activation on the VTY lines (required)</a>
+<a href="#toc_16">SSH protocole activation on the VTY lines (required)</a>
 </li>
 <li>
-<a href="#toc_16">RSA Encryption Key generation</a>
+<a href="#toc_17">RSA Encryption Key generation</a>
 </li>
 <li>
-<a href="#toc_17">To make sure that the SSH version 2 is used</a>
+<a href="#toc_18">To make sure that the SSH version 2 is used</a>
 </li>
 <li>
-<a href="#toc_18">Change authentication timeout</a>
+<a href="#toc_19">Change authentication timeout</a>
 </li>
 <li>
-<a href="#toc_19">Change authentication retries</a>
+<a href="#toc_20">Change authentication retries</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_20">Display the SSH configuration</a>
+<a href="#toc_21">Display the SSH configuration</a>
 </li>
 <li>
-<a href="#toc_21">Verify the SSH conections towards the peripheral</a>
+<a href="#toc_22">Verify the SSH conections towards the peripheral</a>
 </li>
 <li>
-<a href="#toc_22">Access the device from a PC through a SHH connection</a>
+<a href="#toc_23">Access the device from a PC through a SHH connection</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="#toc_23">Get a summary of the interfaces</a>
+<a href="#toc_24">Get a summary of the interfaces</a>
 </li>
 <li>
-<a href="#toc_24">Activate the full duplex mode on interface</a>
+<a href="#toc_25">Activate the full duplex mode on interface</a>
 </li>
 <li>
-<a href="#toc_25">Set the speed of an interface</a>
+<a href="#toc_26">Set the speed of an interface</a>
 </li>
 <li>
-<a href="#toc_26">Activate auto-MDIX</a>
+<a href="#toc_27">Activate auto-MDIX</a>
 </li>
 <li>
-<a href="#toc_27">Get the informations of an interface (like its MAC address)</a>
+<a href="#toc_28">Get the informations of an interface (like its MAC address)</a>
 </li>
 <li>
-<a href="#toc_28">Additional source</a>
+<a href="#toc_29">Additional source</a>
 </li>
 </ul>
 </li>
@@ -152,7 +155,15 @@
 Switch(config)# hostname S1
 S1(config)# exit</code></pre></div>
 
-<h2 id="toc_2">Set privileged mode password</h2>
+<h2 id="toc_2">Set the minimal length for all passwords</h2>
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+
+<div><pre><code class="language-none">Switch# configure terminal
+Switch(config)# security passwords min-length 10
+Switch(config)# !* for a 10 password length</code></pre></div>
+
+<h2 id="toc_3">Set privileged mode password</h2>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -161,7 +172,7 @@ Switch# configure terminal
 Switch(config)# enable password class
 Switch(config)# exit</code></pre></div>
 
-<h2 id="toc_3">Set encrypted privileged mode password</h2>
+<h2 id="toc_4">Set encrypted privileged mode password</h2>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -170,7 +181,7 @@ Switch# configure terminal
 Switch(config)# enable secret class
 Switch(config)# exit</code></pre></div>
 
-<h2 id="toc_4">Set password for console access</h2>
+<h2 id="toc_5">Set password for console access</h2>
 
 <p><em>Restricted access to the console port.</em></p>
 
@@ -182,7 +193,7 @@ Switch(config-line)# logging synchronous
 Switch(config-line)# !* Prevent console messages from aborting commands
 Switch(config-line)# login !* Impose the use of the password</code></pre></div>
 
-<h2 id="toc_5">Set password for virtual terminal (telnet) access</h2>
+<h2 id="toc_6">Set password for virtual terminal (telnet) access</h2>
 
 <p><em>Password must be set to access device through telnet.</em></p>
 
@@ -194,19 +205,19 @@ Switch(config-line)# logging synchronous
 Switch(config-line)# !* Prevent console messages from aborting commands
 Switch(config-line)# login !* Impose the use of the password</code></pre></div>
 
-<h2 id="toc_6">Set encryption for plain text password such as enable and line</h2>
+<h2 id="toc_7">Set encryption for plain text password such as enable and line</h2>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# service password-encryption</code></pre></div>
 
-<h2 id="toc_7">Set a banner</h2>
+<h2 id="toc_8">Set a banner</h2>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# banner motd # Your message #</code></pre></div>
 
-<h2 id="toc_8">Set date and time</h2>
+<h2 id="toc_9">Set date and time</h2>
 
 <p><strong>RQ:</strong> <em>it <strong>won&#39;t</strong> be saved with the config !!!</em></p>
 
@@ -217,7 +228,7 @@ Switch# show clock
 12:6:33.623 UTC Tue Nov 29 2016
 Switch#</code></pre></div>
 
-<h2 id="toc_9">Prevent unwanted DNS lookups</h2>
+<h2 id="toc_10">Prevent unwanted DNS lookups</h2>
 
 <p><em>Disables the default behavior of the device of attempting to <strong>resolve the invalid command into an IP address</strong>.</em>  </p>
 
@@ -225,11 +236,11 @@ Switch#</code></pre></div>
 
 <div><pre><code class="language-none">Switch(config)# no ip domain-lookup</code></pre></div>
 
-<h2 id="toc_10">Configure SSH</h2>
+<h2 id="toc_11">Configure SSH</h2>
 
 <p>To use SSH, IOS has to be a <strong>&#39;K9&#39;</strong> version. That means that the cryptography is taken over.  </p>
 
-<h3 id="toc_11">Checking SSH support:</h3>
+<h3 id="toc_12">Checking SSH support:</h3>
 
 <p><em>This command is accessible from the <strong>User</strong> and <strong>Privileged Modes</strong>.</em></p>
 
@@ -268,9 +279,9 @@ SSH Enabled - version 1.99
 Authentication timeout: 75 secs; Authentication retries: 2
 Switch&gt;</code></pre></div>
 
-<h3 id="toc_12">Configuration</h3>
+<h3 id="toc_13">Configuration</h3>
 
-<h4 id="toc_13">Configuration of the IP domain name</h4>
+<h4 id="toc_14">Configuration of the IP domain name</h4>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -282,7 +293,7 @@ Switch&gt;</code></pre></div>
 
 <div><pre><code class="language-none">Switch(config)# ip domain-name CCNA-Lab.com</code></pre></div>
 
-<h4 id="toc_14">Creation of the username and the password for authentification</h4>
+<h4 id="toc_15">Creation of the username and the password for authentification</h4>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -294,7 +305,7 @@ Switch&gt;</code></pre></div>
 
 <div><pre><code class="language-none">Switch(config)# username admin privilege 15 secret sshadmin</code></pre></div>
 
-<h4 id="toc_15">SSH protocole activation on the VTY lines (required)</h4>
+<h4 id="toc_16">SSH protocole activation on the VTY lines (required)</h4>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -302,7 +313,7 @@ Switch&gt;</code></pre></div>
 Switch(config-line)# transport input ssh
 Switch(config-line)# login local</code></pre></div>
 
-<h4 id="toc_16">RSA Encryption Key generation</h4>
+<h4 id="toc_17">RSA Encryption Key generation</h4>
 
 <p><em>Here we&#39;ll choose a modulus  of 1024 bits</em></p>
 
@@ -319,25 +330,25 @@ How many bits in the modulus [512]: 1024
 
 Switch(config)#</code></pre></div>
 
-<h4 id="toc_17">To make sure that the SSH version 2 is used</h4>
+<h4 id="toc_18">To make sure that the SSH version 2 is used</h4>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# ip ssh version 2</code></pre></div>
 
-<h4 id="toc_18">Change authentication timeout</h4>
+<h4 id="toc_19">Change authentication timeout</h4>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# ip ssh time-out 75</code></pre></div>
 
-<h4 id="toc_19">Change authentication retries</h4>
+<h4 id="toc_20">Change authentication retries</h4>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch(config)# ip ssh authentication-retries 2</code></pre></div>
 
-<h3 id="toc_20">Display the SSH configuration</h3>
+<h3 id="toc_21">Display the SSH configuration</h3>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -345,7 +356,7 @@ Switch(config)#</code></pre></div>
 SSH Enabled - version 2.0
 Authentication timeout: 75 secs; Authentication retries: 2</code></pre></div>
 
-<h3 id="toc_21">Verify the SSH conections towards the peripheral</h3>
+<h3 id="toc_22">Verify the SSH conections towards the peripheral</h3>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
@@ -353,7 +364,7 @@ Authentication timeout: 75 secs; Authentication retries: 2</code></pre></div>
 %No SSHv2 server connections running.
 %No SSHv1 server connections running.</code></pre></div>
 
-<h3 id="toc_22">Access the device from a PC through a SHH connection</h3>
+<h3 id="toc_23">Access the device from a PC through a SHH connection</h3>
 
 <p><strong>Format</strong>  </p>
 
@@ -381,13 +392,13 @@ S1&gt;exit
 [Connection to 172.16.99.11 closed by foreign host]
 C:\&gt;</code></pre></div>
 
-<h2 id="toc_23">Get a summary of the interfaces</h2>
+<h2 id="toc_24">Get a summary of the interfaces</h2>
 
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 
 <div><pre><code class="language-none">Switch# show ip interface brief</code></pre></div>
 
-<h2 id="toc_24">Activate the full duplex mode on interface</h2>
+<h2 id="toc_25">Activate the full duplex mode on interface</h2>
 
 <p><strong>Options:</strong>  </p>
 
@@ -402,7 +413,7 @@ C:\&gt;</code></pre></div>
 Switch(config-if)# duplex full
 Switch(config-if)# end</code></pre></div>
 
-<h2 id="toc_25">Set the speed of an interface</h2>
+<h2 id="toc_26">Set the speed of an interface</h2>
 
 <p><strong>Options:</strong>  </p>
 
@@ -419,7 +430,7 @@ Switch(config-if)# speed 100
 Switch(config-if)# !* the speed is 100 Mbps
 Switch(config-if)# end</code></pre></div>
 
-<h2 id="toc_26">Activate auto-MDIX</h2>
+<h2 id="toc_27">Activate auto-MDIX</h2>
 
 <p><em>RQ:</em> <em>To use this option, the speed and the duplex have to be <strong>auto</strong>.</em></p>
 
@@ -433,7 +444,7 @@ Switch(config-if)# end</code></pre></div>
 
 <p><a name="shINT"></a></p>
 
-<h2 id="toc_27">Get the informations of an interface (like its MAC address)</h2>
+<h2 id="toc_28">Get the informations of an interface (like its MAC address)</h2>
 
 <p><em>The MAC address is <strong>0060.3e71.9902</strong>.</em></p>
 
@@ -471,7 +482,7 @@ GigabitEthernet0/1 is up, line protocol is up (connected)
 
 Switch#</code></pre></div>
 
-<h2 id="toc_28">Additional source</h2>
+<h2 id="toc_29">Additional source</h2>
 
 <ul>
 <li><a href="http://www.pantz.org/software/ios/ioscommands.html">pantz.org</a><br></li>
