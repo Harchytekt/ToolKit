@@ -74,9 +74,28 @@ Switch(config)# service password-encryption
 
 ## Set a banner
 
+**Format**  
+
 <div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
 ```
 Switch(config)# banner motd # Your message #
+```
+
+**Example:**  
+
+<div class="prism-show-language"><div class="prism-show-language-label">Cisco IOS</div></div>
+```
+Switch(config)# banner motd #
+Enter TEXT message.  End with the character '#'.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@                                                  @
+@             This is a secure network !           @
+@               No access authorized !             @
+@                                                  @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#
+
+Switch(config)#
 ```
 
 ## Set date and time
