@@ -1,9 +1,9 @@
-#openssl
+#Security
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Encrypt and decrypt files
+##Encrypt and decrypt files _(OpenSSL)_
 
 ### Encryption
 

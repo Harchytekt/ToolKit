@@ -23,10 +23,10 @@
 	* [Configure Terminal](UNIX/Configure%20Terminal.html)
 	* macOS
 		* [Clone SD Card macOS](UNIX/Clone%20SD%20Card%20macOS.html)
-		* [Encryption](UNIX/Encryption.html)
 		* [Homebrew](UNIX/Homebrew.html)
 		* [Maintenance](UNIX/Maintenance.html)
 		* [Script macOS installation](UNIX/Script%20macOS%20installation.html)
+		* [Security](UNIX/Security.html)
 	* [Linux administration (UNIX Terminal)](UNIX/Linux%20administration%20(UNIX%20Terminal).html)
 * [Windows Server](WinServ/Windows%20Server.html)
 
