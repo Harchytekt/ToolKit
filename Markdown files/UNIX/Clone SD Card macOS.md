@@ -13,7 +13,7 @@ Open Terminal and enter the following command to locate your SD Card:
 diskutil list
 ```
 
-![List](../img/diskutil_list.png "List")
+![List](../img/macOS/diskutil_list.png "List")
 
 3. Cloning Your SD Card
 Whether your RPi SD Card is all set up as you want it, or you just want to make an incremental clone before installing some software, backing up your SD Card could save you time in the long run.
