@@ -159,6 +159,7 @@ export PS1;
 ```
 
 **This is the result:**  
+
 ![Result](../img/Personnalized prompt.png "Personnalized prompt")
 
 #### Colors

@@ -28,7 +28,7 @@ sudo dd if=/dev/disk3 of=~/Desktop/raspberrypi.dmg
 
 The copying process may take some time and will take longer for larger capacity SD Cards. To give you an idea the process to backup an 16GB SD Card took 36 minutes 32.
 
-##Additional source
+## Additional source
 * [computers.tutsplus.com](https://computers.tutsplus.com/articles/how-to-clone-raspberry-pi-sd-cards-using-the-command-line-in-os-x--mac-59911)
 
 
