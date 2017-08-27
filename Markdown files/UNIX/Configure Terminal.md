@@ -120,7 +120,7 @@ PS1="\h:\W \u$ ";
 export PS1;
 ```
 
-![Default prompt](../img/Default prompt.png "Default prompt")
+![Default prompt](../img/DefaultPrompt.png "Default prompt")
 
 ### Personnalize prompt
 Choose the wanted options and colors, and insert them in **PS1**.
@@ -160,8 +160,7 @@ export PS1;
 
 **This is the result:**  
 
-![Result](../img/Personnalized prompt.png "Personnalized prompt")
-
+![Result](../img/PersonnalizedPrompt.png "Personnalized prompt")
 #### Colors
 
 The colors used are from the _Chart of the 256 colors_ available in an Xterm with color support.  
