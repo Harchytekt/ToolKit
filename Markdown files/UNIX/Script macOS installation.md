@@ -1,9 +1,9 @@
-#Script macOS installation
+# Script macOS installation
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Add an user to the sudoers file
+## Add an user to the sudoers file
 
 > Log in as an Administrator  
 > 
@@ -39,9 +39,9 @@ alexandre       ALL = (ALL) ALL
   
 > Hit the : key (colon) and then type “wq” followed by the Return key to save changes and exit vi   
 
-##Personnalize Terminal
+## Personnalize Terminal
 
-###The template
+### The template
 
 > 1. Launch Terminal, go to Preferences and choose the **Pro** profile at launch (_General tab_).  
 > 2. In Profiles, choose **Pro**.  
@@ -51,7 +51,7 @@ alexandre       ALL = (ALL) ALL
 
 ![The Terminal Preferences](../img/macOS/Terminal-Pref.png "The Terminal Preferences")
 
-###The prompt
+### The prompt
 > See [the appropriate page](Configure Terminal.html).  
 
 > You can simply use the [bash files from my GitHub](https://github.com/Harchytekt/myconfig/tree/master/bash_files).  
@@ -66,7 +66,7 @@ cp Desktop/bash_profile.sh .bash_profile
 > **Warning** Some things aren't installed yet.  
 > If you choose to use these files at this time, you'll have install the _git tools_.
 
-##Install the software
+## Install the software
 > Set the **execution** right to the [script from GitHub](https://github.com/Harchytekt/myconfig/tree/master/installation%20script).
 
 ```bash

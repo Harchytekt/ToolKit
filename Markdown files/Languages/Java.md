@@ -1,19 +1,19 @@
-#Java
+# Java
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Compilation
+## Compilation
 
-###Create jar (IntelliJ IDEA)
+### Create jar (IntelliJ IDEA)
 
 File | Project Structure | Artifacts then you should press alt+insert or click the plus icon and create new artifact choose --> jar --> From modules with dependencies.
 
 Next goto Build | Build artifacts --> choose your artifact.
 
-###With libraries
+### With libraries
 
-####For UNIX
+#### For UNIX
 
 If you have these 3 libraries :
 
@@ -35,7 +35,7 @@ javac -cp ".:lib1.jar:lib2.jar:lib3.jar" sourcefile.jar
 java -cp ".:lib1.jar:lib2.jar:lib3.jar" sourcefile.jar
 ```
 
-####For Windows
+#### For Windows
 
 You just have to replace **:** by **;**.
 
@@ -51,9 +51,9 @@ javac -cp ".;.\be\isims\coo\tp5\ex2\lib\libClock.jar" .\be\isims\coo\tp5\ex2\Clo
 java -cp ".;.\be\isims\coo\tp5\ex2\lib\libClock.jar" be.isims.coo.tp5.ex2.ClockTest
 ```
 
-##Strings
+## Strings
 
-###Interpolation
+### Interpolation
 
 If you're using Java 5 or higher, you can use _String.format_:
 
@@ -63,7 +63,7 @@ urlString += String.format("u1=%s;u2=%s;u3=%s;u4=%s;", u1, u2, u3, u4);
 
 > See [Formatter](http://download.oracle.com/javase/6/docs/api/java/util/Formatter.html) for details.
 
-##Packages
+## Packages
 
 > To compile code from a package, for example be.heh.ex, you have to do:
 

@@ -1,16 +1,16 @@
-#Windows Server
+# Windows Server
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##DNS
+## DNS
 
 _On **each** PC, go to **CMD** and type **ncpa.cpl**.  
 Go to Propreties, IPv4 and choose an IPv4 address.  
 For the primary zone, we choose **192.168.42.1** (Mask: 255.255.255.224 + Gateway: 192.168.42.30)  
 Preferred DNS server: **192.168.42.1**, the second is for the secondary zone **192.168.42.2**._
 
-###Primary Zone
+### Primary Zone
 
 **Machine name: _SRV164170_**
 
@@ -47,7 +47,7 @@ _If we want to create an alias (www) pointing on the principal server:_
 - In the new primary zone, **New alias (CNAME)**
 - Name: **www**, FQDN: **srv164170.ducobu.lan.**
 
-###Secondary Zone
+### Secondary Zone
 
 **Machine name: _SRV164171_**
 
@@ -132,7 +132,7 @@ C:\Users\Administrator>
 
 _To do the same with the GUI, just do a right click on the **ducobu.lan** zone of the secondary server > **Transfert from Master**._
 
-###Delegation zone
+### Delegation zone
 
 1.
 
@@ -173,11 +173,11 @@ Name:    www.delegation.ducobu.lan
 C:\Users\Administrator>
 ```
 
-##DHCP
+## DHCP
 
 _Todo_
 
-##Active Directory
+## Active Directory
 
 _Todo_
 

@@ -1,9 +1,9 @@
-#Markdown
+# Markdown
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Insert blockquotes
+## Insert blockquotes
 
 * **Format:**  
 
@@ -26,9 +26,9 @@ Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
 
-##Insert code
+## Insert code
 
-###Normal code
+### Normal code
 > To insert code you just have to type this:
 
 <div class="prism-show-language"><div class="prism-show-language-label">Markdown</div></div>
@@ -38,7 +38,7 @@ Quote break.
 	```
 ```
 
-###Highlighted code
+### Highlighted code
 > To insert highlighted code, you have to add the language name after the first **```**.  
 > [List of the supported languages](https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown)
 
@@ -62,11 +62,11 @@ Quote break.
 		return x * facto(x - 1)
 ```
 
-##Make a table of content
+## Make a table of content
 
 > It's pretty simple, all you have to do is to type ```[TOC]``` wherever you want to have it.
 
-##Make an array
+## Make an array
 
 > Colons can be used to align columns.
 
@@ -109,7 +109,7 @@ Markdown | Less | Pretty
 *Still* | `renders` | **nicely**
 1 | 2 | 3
 
-##Help
+## Help
 
 [Help](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 

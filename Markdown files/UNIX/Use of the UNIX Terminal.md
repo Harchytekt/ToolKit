@@ -1,12 +1,12 @@
-#Use of the UNIX Terminal (macOS)
+# Use of the UNIX Terminal (macOS)
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Open a file in an app
+## Open a file in an app
 > There's a command for that: ```open```.
 
-###Open it in the default app
+### Open it in the default app
 > This is the simplest way: you just have to type the filename.
 
 - Format:  
@@ -21,7 +21,7 @@ open myFile.ext
 open Main.java
 ```
 
-###Open it in a chosen app
+### Open it in a chosen app
 > You just have to add the name of the app preceded by **-a**.  
 
 > Note: you have the choice to type the filename **before or after** the " _-a myApp_ ".
@@ -40,7 +40,7 @@ open -a myApp myFile.ext
 open Main.java -a atom
 ```
 
-###Alias
+### Alias
 > You can create an alias to go faster.
 
 **Example:**

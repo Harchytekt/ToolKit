@@ -1,15 +1,15 @@
-#SQL
+# SQL
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Syntax
+## Syntax
 
 - **[] :** _Désigne une option_  
 - **| :** _Désigne un choix (ou)_  
 - **{} :** _Désigne une liste d'éléments à choisir_
 
-###Comment
+### Comment
 
 _Insert a comment line is easy: you only have to add **--** before your comment._
 
@@ -17,18 +17,18 @@ _Insert a comment line is easy: you only have to add **--** before your comment.
 -- This is a comment line
 ```
 
-###Naming Convention
+### Naming Convention
 _**From **_
 
 > When having logical noun/verb **language separations**, component names will
 be separated by the **underscore** character to indicate the separation.
 
-####Column
+#### Column
 
 > **e.g.** _A column storing a user’s date of birth would be named **date\_of\_birth** and  
 a column storing time elapsed in seconds would be named **time\_elapsed\_in\_seconds**._
 
-####Table
+#### Table
 
 > Table names will be defined in the plural. This is because a table is itself
 a collection of **1 or more row entities** (plural), and this naming convention
@@ -39,7 +39,7 @@ would be named **customer\_location\_addresses** (rather than **customer\_locati
 
 **RQ:** _The name of a table can begin with a **capital letter**._
 
-####Primary key
+#### Primary key
 
 **Format**
 
@@ -57,7 +57,7 @@ CONSTRAINT pk_Clients PRIMARY KEY (numéro_client),
 );
 ```
 
-####Foreign key
+#### Foreign key
 
 **Format**
 
@@ -77,7 +77,7 @@ CONSTRAINT fk_commandes_numéro_client_clients FOREIGN KEY (numéro_client) REFE
 );
 ```
 
-####Check
+#### Check
 
 **Format**
 
@@ -95,9 +95,9 @@ CONSTRAINT ck_quantité_stock CHECK(quantité_stock >= 0),
 );
 ```
 
-##Create Database
+## Create Database
 
-###Format
+### Format
 
 ```sql
 CREATE DATABASE [IF NOT EXISTS] db_name
@@ -105,7 +105,7 @@ CREATE DATABASE [IF NOT EXISTS] db_name
 [DEFAULT] COLLATE [=] collation;
 ```
 
-###Example
+### Example
 
 ```sql
 CREATE DATABASE IF NOT EXISTS Parc
@@ -113,9 +113,9 @@ CHARACTER SET utf8
 COLLATE utf8_general_ci;
 ```
 
-##Create Table
+## Create Table
 
-###Format
+### Format
 
 ```sql
 CREATE TABLE [IF NOT EXISTS] tbl_name (
@@ -123,7 +123,7 @@ CREATE TABLE [IF NOT EXISTS] tbl_name (
 ) [table_options] [partition_options];
 ```
 
-###Example
+### Example
 
 ```sql
 CREATE TABLE IF NOT EXISTS Clients (
@@ -137,11 +137,11 @@ CREATE TABLE IF NOT EXISTS Clients (
 ENGINE = INNODB;
 ```
 
-##Queries
+## Queries
 
-###Simple
+### Simple
 
-####Format
+#### Format
 
 ```sql
 SELECT column_name, function(column_name)
@@ -149,9 +149,9 @@ FROM table_name
 WHERE condition;
 ```
 
-####Examples
+#### Examples
 
-#####Display one or several column_names
+##### Display one or several column_names
 
 ```sql
 SELECT numéro_client, nom
@@ -167,7 +167,7 @@ D063|MERCIER
 F011|PONCELET
 K729|NEUMAN
 
-#####Display all column_names
+##### Display all column_names
 
 <!-- **RQ:** _On peut utiliser **=**, mais ce n'est pas fonctionnel avec **NULL** au contraire de **<=>**._ -->
 
@@ -185,9 +185,9 @@ D063|MERCIER|Toulouse|NULL|-2250.00
 F011|PONCELET|Toulouse|B2|0.00
 K729|NEUMAN|Toulouse|NULL|0.00
 
-###Conditions
+### Conditions
 
-####First - equality
+#### First - equality
 
 Operator|Use
 ---|---
@@ -205,7 +205,7 @@ Operator|Use
 
 ⇒ We'll use **<=>** instead of **=**.
 
-####IN
+#### IN
 
 > This condition is used for a search into a list.  
 > **RQ:** _When the search item isn't in the list, week-end can use **NOT IN**._
@@ -218,7 +218,7 @@ FROM Clients
 WHERE catégorie IN ('C1',  'C2', 'C3');
 ```
 
-####BETWEEN
+#### BETWEEN
 
 > This condition is used for a search in a range, instead of using **<=** and **>=**.   
 > **RQ:** _To exclude a range, use **NOT BETWEEN**._
@@ -229,7 +229,7 @@ FROM Clients
 WHERE compte BETWEEN 1000 AND 4000;
 ```
 
-####LIKE
+#### LIKE
 
 How to search for strings ?  
 Using **LIKE** is the solution, there are two _jokers_:  
@@ -249,7 +249,7 @@ WHERE column_name LIKE 'name%';
 
 **EXAMPLES**
 
-#####Search for one and only char after the input
+##### Search for one and only char after the input
 
 ```sql
 SELECT numéro_client
@@ -260,7 +260,7 @@ WHERE catégorie LIKE 'B_';
 The results could be: **B1** or **Bd**.  
 They couldn't be: **xB**, **B** or **B12**.
 
-#####Search for a string containing the input
+##### Search for a string containing the input
 
 ```sql
 SELECT numéro_produit
@@ -271,9 +271,9 @@ WHERE Libelle LIKE '%SAPIN%';
 The results could be: **Boite en SAPIN** or **SAPIN verni**.  
 They couldn't be: **Boite en Sapin** or **S A P I N verni**.
 
-###DISTINCT keyword
+### DISTINCT keyword
 
-####Format
+#### Format
 
 **RQ:** _Le mot clé doit se trouver à l'**intérieur** de la fonction._
 
@@ -283,9 +283,9 @@ FROM table_name
 WHERE condition;
 ```
 
-####Examples
+#### Examples
 
-#####Without DISTINCT
+##### Without DISTINCT
 
 ```sql
 SELECT localité
@@ -301,7 +301,7 @@ WHERE catégorie <=> 'C1';
 |Namur|
 |Namur|
 
-#####With DISTINCT
+##### With DISTINCT
 
 ```sql
 SELECT DISTINCT localité
@@ -314,7 +314,7 @@ WHERE catégorie <=> 'C1';
 |Namur|
 |Poitiers|
 
-###Alias - _AS_
+### Alias - _AS_
 
 **Example**
 
@@ -329,7 +329,7 @@ Produit|Valeur_TVA
 CS264|67788
 PH222|37770.6
 
-###GROUP BY
+### GROUP BY
 
 > To group several results from a same column and use it with an aggregation function.  
 > An advantage of using **GROUP BY** is the **automatic sorting** of the values.
@@ -377,7 +377,7 @@ Toulouse|5
 
 _Displays the sorted grouped values and the linked count values._
 
-###ORDER BY
+### ORDER BY
 
 <!-- **WARNiNG**  
 _This command has to be used on **grouped** column(s) or on an **aggregation function** as **alias**._  
@@ -411,7 +411,7 @@ PS222|185|1220
 CS464|220|450
 PH222|230|782
 
-###HAVING
+### HAVING
 
 > **HAVING** is like **WHERE** but it filters using functions like **SUM, COUNT, AVG,…**.  
 > It allows to select the chosen column, by **grouping** the identical values of the column, and to respect the **condition**.
@@ -442,14 +442,14 @@ Namur|4
 Poitiers|3
 Toulouse|5
 
-###WHERE VS HAVING
+### WHERE VS HAVING
 
 _In addition to working with functions, there is another difference between **WHERE** and **HAVING**:_  
 
 - _**WHERE** makes a selection on the rows_  
 - _**Having** makes it on the groups_
 
-###Reading order
+### Reading order
 
 This is an example of the reading order of a more complex query:
 
@@ -463,13 +463,13 @@ This is an example of the reading order of a more complex query:
 6: ORDER BY column_name
 ```
 
-##Joins
+## Joins
 
 > An SQL JOIN clause is used to combine rows from two or more tables, based on a common field between them.  
 
 > The most common type of join is: **SQL INNER JOIN (simple join)**. An SQL INNER JOIN returns all rows from multiple tables where the join condition is met.
 
-##Set operations
+## Set operations
 
 Imagine you have 2 tables (**T1** and **T2**):
 
@@ -482,7 +482,7 @@ Num||Num
 12||12
 12||49
 
-###Union
+### Union
 
 > The UNION operator is used to combine the result-set of two or more SELECT statements.  
 
@@ -510,7 +510,7 @@ The result is:
 |93|
 |49|
 
-###Intersection
+### Intersection
 
 > The intersection is used to return the results of two or more SELECT statements.  
 
@@ -537,7 +537,7 @@ The result is:
 |12|
 |34|
 
-###Difference
+### Difference
 
 > The difference is used to return all rows in the first SELECT statement that are not returned by the second SELECT statement.  
 
@@ -563,7 +563,7 @@ The result is:
 |:---:|
 |27|
 
-###Cartesian product
+### Cartesian product
 
 > Returns the Cartesian product of the sets of records from the two or more joined tables.  
 > Thus, it equates to an inner join where the join-condition always evaluates to True or where the join-condition is absent from the statement.  
@@ -593,13 +593,13 @@ The result is:
 |…|
 |12 ⏤ 49|
 
-##Subqueries
+## Subqueries
 
 > We use **subqueries** when we want a response from several tables.  
 > For instance, we want the **numéro_commande** from the **Client**s living in **Namur**.  
 > ⇒ **numéro_commande** is from _Commande_ and **Namur** is from _Client_.  
 
-###Format of a simple subquery
+### Format of a simple subquery
 _The query will be:_
 
 ```sql
@@ -613,9 +613,9 @@ _Where the **inner** query is named **subquery**._
 
 **RQ:** _The reading direction is **bottom-up**._
 
-##Functions
+## Functions
 
-###Aggregation functions
+### Aggregation functions
 
 There a five functions:  
 
@@ -629,7 +629,7 @@ There a five functions:
 
 - **SUM()**: calculates the sum of a set of records
 
-###Functions on strings
+### Functions on strings
 
 **RQ:** _The strings can be values from a column as **catégorie
 
@@ -638,14 +638,14 @@ There a five functions:
 - **SUBSTRING(string FROM position FOR length)**: the opposite of CONCAT(), it's used to truncate a string
 **Example:** SUBSTRING('A1' FROM 1 TO 1) → 'A'
 
-##Stored procedures
+## Stored procedures
 
 > A stored procedure is actually **a series of SQL statements** identified by a **name**.  
 > When a stored procedure is created, it is stored in the database that is being used, in the same way as a table for example.  
 
 > Once the procedure is created, it can be **called** by name. The instructions of the procedure are then executed.
 
-###Create a stored procedure
+### Create a stored procedure
 
 ```sql
 DELIMITER |
@@ -658,25 +658,25 @@ END|
 DELIMITER ;
 ```
 
-###Call a stored procedure
+### Call a stored procedure
 
 ```sql
 CALL my_procedure([parameter1 [, parameter2,…]);
 ```
 
-###Delete a prodecure
+### Delete a prodecure
 
 ```sql
 DROP PROCEDURE IF EXISTS my_procedure;
 ```
 
-###Modify a procedure
+### Modify a procedure
 
 ```sql
 ALTER PROCEDURE IF EXISTS my_procedure;
 ```
 
-###DELIMITER
+### DELIMITER
 
 > The delimiter has to be change by the **DELIMITER** command.  
 
@@ -690,7 +690,7 @@ DELIMITER |
 
 _In this case, the delimiter is now **|**. That means that **;** has no meaning anymore._
 
-###BEGIN - END
+### BEGIN - END
 
 > These two keywords are used to **delimit one instruction block** which can contain more than one instruction.
 
@@ -702,12 +702,12 @@ BEGIN
 END|
 ```
 
-###Parameters
+### Parameters
 
 **RQ:** _The name of a parameter has to begin by **p\_**.  
 Example: **p\_client**._
 
-####Format
+#### Format
 
 ```sql
 CREATE PROCEDURE my_procedure(SENSE p_param_name TYPE)
@@ -716,24 +716,24 @@ CREATE PROCEDURE my_procedure(SENSE p_param_name TYPE)
 
 _There're three senses of parameters:_  
 
-####IN
+#### IN
 
 > It is an **incoming** parameter.  
 > That is to say that it is a parameter whose **value is supplied to the stored procedure**. This value will be used during the procedure (for a calculation or a selection for example).   
 
 > **RQ:** _It is the **default sense**. That means that if no sense is given, it'll be this one who will be used._
 
-####OUT
+#### OUT
 
 > It is an **outgoing** parameter whose **value will be established during the procedure** and which can then be used outside of this procedure.
 
-####INOUT
+#### INOUT
 
 > Such a parameter will be used during the procedure, may see its value changed by it, and will then be usable outside.
 
-###Example of stored procedure
+### Example of stored procedure
 
-####Procedure
+#### Procedure
 
 ```sql
 DELIMITER |
@@ -747,13 +747,13 @@ END |
 DELIMITER ;
 ```
 
-####Call
+#### Call
 
 ```sql
 CALL get_nb_clients_by_location (3);
 ```
 
-####Result
+#### Result
 
 localité|nombreClients
 ---|---
@@ -761,9 +761,9 @@ Namur|4
 Poitiers|3
 Toulouse|5
 
-##Trigger
+## Trigger
 
-###Create a trigger
+### Create a trigger
 
 ```sql
 CREATE TRIGGER trigger_name {BEFORE|AFTER} {INSERT|UPDATE|DELETE}
@@ -771,11 +771,11 @@ ON table_name FOR EACH ROW
 trigger_body;
 ```
 
-###Body
+### Body
 
 > The body of a trigger has the **same format** as a **stored procedure**.
 
-###Events
+### Events
 
 _There are **three** different events which can trigger the execution of the instructions of a trigger:_  
 
@@ -786,32 +786,32 @@ _There are **three** different events which can trigger the execution of the ins
 > A trigger is activated by **only one of the three** events.  
 > But there can be **several different** triggers (one for each event).
 
-###Execution time
+### Execution time
 
 _When a trigger is activated, its instructions can be executed at **two different times**:_
  
 - _Either just before the trigger event occurs:_ **BEFORE**_;_
 - _or just after:_ **AFTER**.
 
-###Convention
+### Convention
 
-####Rule on the number of triggers
+#### Rule on the number of triggers
 
 > **There can be only one trigger per combination.**  
 > _That means that it can be only one **BEFORE UPDATE** per table._
 
 > **RQ:** _Since there are **two** possibilities for the **execution time**, and **three** for the trigger **event**, we have a maximum of **six triggers per table**._
 
-####Naming convention
+#### Naming convention
 
 _A trigger has an **execution time**, an **event** and a **table name**.  
 Thus, a trigger is unique and it can have an unique name:_
 
 trigger_name = **time\_event\_table\_name**
 
-###OLD & NEW
+### OLD & NEW
 
-###Example
+### Example
 
 ```sql
 DELIMITER |
@@ -823,9 +823,9 @@ ON Clients FOR EACH ROW
 DELIMITER ;
 ```
 
-##Database
+## Database
 
-###Clients
+### Clients
 
 numéro_client|nom|localité|catégorie|compte
 ---|---|---|---|---
@@ -846,7 +846,7 @@ L422|FRANCK|Namur|C1|0.00
 S127|VANDERKA|Namur|C1|-4580.00
 S712|GUILLAUME|Paris|B1|0.00
 
-###Commandes
+### Commandes
 
 numéro_commande|numéro_client|date_commande
 ---|---|---
@@ -858,7 +858,7 @@ numéro_commande|numéro_client|date_commande
 30186|C400|2009-01-02
 30188|B512|2009-01-02
 
-###Produits
+### Produits
 
 numéro_produit|prix|quantité_stock
 ---|---|---
@@ -870,7 +870,7 @@ PA60|95|134
 PH222|230|782
 PS222|185|1220
 
-###Details
+### Details
 
 numéro_commande|numéro_produit|quantité_commande
 ---|---|---
@@ -889,7 +889,7 @@ numéro_commande|numéro_produit|quantité_commande
 30188|PA60|70
 30188|PH222|92
 
-##Additional source 
+## Additional source 
 * [sql.sh](http://sql.sh/cours)  
 * [w3schools.com](http://www.w3schools.com/SQL/default.asp)  
 * [Les Hazlewood](http://leshazlewood.com/software-engineering/sql-style-guide/)  

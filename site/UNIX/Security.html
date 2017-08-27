@@ -62,6 +62,20 @@
 </li>
 </ul>
 </li>
+<li>
+<a href="#toc_4">Set a Firmware Password <em>(OS X 10.9 or higher)</em></a>
+<ul>
+<li>
+<a href="#toc_5">What is a Firmware Password and why use one ?</a>
+</li>
+<li>
+<a href="#toc_6">Setting the Firmware Password</a>
+</li>
+<li>
+<a href="#toc_7">When and where will it appear ?</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -84,6 +98,41 @@
 <blockquote>
 <p>The password will be ask.</p>
 </blockquote>
+
+<h2 id="toc_4">Set a Firmware Password <em>(OS X 10.9 or higher)</em></h2>
+
+<h3 id="toc_5">What is a Firmware Password and why use one ?</h3>
+
+<p>A firmware password offers an advanced level of protection : it is a lower level layer of security that is set on the actual Mac logicboards firmware, rather than at the software layer like <strong><em>FileVault</em></strong> encryption or the standard login password.  </p>
+
+<p>The result of setting an firmware password is that your Mac can&#39;t be booted from an external boot volume, single user mode, or target disk mode, and it also prevents resetting of PRAM and the ability to boot into Safe Mode <em>(e.g. to reset an user password)</em>, without logging in through the firmware password first.<br>
+This effectively prevents a wide variety of methods that could potentially be used to compromise a Mac.</p>
+
+<h3 id="toc_6">Setting the Firmware Password</h3>
+
+<p>Setting a firmware password is rather simple :</p>
+
+<ol>
+<li>Reboot the Mac, and hold down <strong>Command(⌘)-R</strong> to boot into <em>Recovery Mode</em>.</li>
+<li>On the menu bar of the utilities window, choose <strong>Utilities &gt; Firmware Password Utility</strong>.</li>
+<li>Click <strong>Turn on Firmware Password…</strong></li>
+<li>Enter your Firmware Password in the provided fields, and click <strong>Set Password</strong>.<br>
+⚠️ <strong>Do not forget your password</strong>, you&#39;d have to take an appointment with an Apple Store. ⚠️</li>
+<li>Now, quit the <em>Firmware Password Utility</em>, then choose <strong>Apple() menu &gt; Restart</strong>.</li>
+</ol>
+
+<h3 id="toc_7">When and where will it appear ?</h3>
+
+<p>On regular restart or boot of your Mac, nothing will change.<br>
+It&#39;s only when attempting to boot from alternate methods that you&#39;ll have to enter it.</p>
+
+<p>You&#39;re using one of these methods when you attempt to boot from an <em>Mac OS X installer drive</em>, an <em>external boot volume</em>, <em>Recovery Mode</em>, <em>Single User Mode</em>, <em>Verbose Mode</em>, <em>Target Disk Mode</em>, <em>resetting the PRAM</em>, or any other alternative booting approach.</p>
+
+<p><img src="../img/macOS/firmwarePasswordScreen.jpg" alt="Firmware Password Screen" title="The Firmware Password Screen"></p>
+
+<p>As you can see, there are no hints or details provided on the screen.</p>
+
+<p>An incorrect firmware password does nothing and offers no indication of login failure except that the Mac won&#39;t boot.</p>
 
 <hr>
 

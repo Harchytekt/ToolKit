@@ -1,15 +1,15 @@
-#Configure Terminal (UNIX)
+# Configure Terminal (UNIX)
 <center>[Home](../index.html)</center>
 
 [TOC]
 
-##Use an updated **_.bash\*_** file
+## Use an updated **_.bash\*_** file
 
-###First method
+### First method
 
 Close and re-open the Terminal.app (or other).
 
-###Second method (fastest)
+### Second method (fastest)
 
 Use this command:
 
@@ -25,15 +25,15 @@ source ~/.bash_file
 source ~/.bash_profile
 ```
 
-##Aliases
+## Aliases
 
 [Source](https://doc.ubuntu-fr.org/alias)
 
-###Create files
+### Create files
 
 Create **_.bash\_aliases_** in **~**.
 
-###Link _.bash\_aliases_
+### Link _.bash\_aliases_
 
 Open **_.bash\_profile_** and add:
 
@@ -43,7 +43,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 ```
 
-###Create an alias
+### Create an alias
 
 Open **_.bash\_aliases_** and add:
 
@@ -59,7 +59,7 @@ alias my_alias='myCommand'
 alias agu='sudo apt-get update'
 ```
 
-####Create a function to use parameters
+#### Create a function to use parameters
 
 - Format:
 
@@ -88,17 +88,17 @@ javaParam() {
 alias java=javaParam
 ```
 
-###List all the aliases
+### List all the aliases
 
 ```bash
 alias
 ```
 
-##Custom aliases
+## Custom aliases
 
-###Scripts
+### Scripts
 
-####about
+#### about
 
 **This is what the script does:**  
 ![The about script](../img/about.png "The about script")
@@ -111,7 +111,7 @@ alias about='./.MyScripts/about'
 
 > _The script is available on my [GitHub](https://github.com/Harchytekt/about)._
 
-##Personnalize terminal
+## Personnalize terminal
 
 _The default prompt on macOS is:_  
 
@@ -122,10 +122,10 @@ export PS1;
 
 ![Default prompt](../img/Default prompt.png "Default prompt")
 
-###Personnalize prompt
+### Personnalize prompt
 Choose the wanted options and colors, and insert them in **PS1**.
 
-####Example
+#### Example
 
 ```bash
 PS1="\[$(tput setaf 2)\]\u\[$(tput sgr0)\] at \[$(tput setaf 3)\]\h\[$(tput sgr0)\] in \[$(tput setaf 166)\]\W\[$(tput sgr0)\]\n\d, \t $ ";
@@ -161,12 +161,12 @@ export PS1;
 **This is the result:**  
 ![Result](../img/Personnalized prompt.png "Personnalized prompt")
 
-####Colors
+#### Colors
 
 The colors used are from the _Chart of the 256 colors_ available in an Xterm with color support.  
 [See the chart](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
 
-####Options
+#### Options
 
 ```bash
 	\a     an ASCII bell character (07)
