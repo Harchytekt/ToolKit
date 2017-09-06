@@ -101,7 +101,7 @@ alias
 #### about
 
 **This is what the script does:**  
-![The about script](../img/about.png "The about script")
+![The about script](../img/UNIX/about.png "The about script")
 
 > It's located at ~/.MyScripts/about
 
@@ -120,7 +120,7 @@ PS1="\h:\W \u$ ";
 export PS1;
 ```
 
-![Default prompt](../img/DefaultPrompt.png "Default prompt")
+![Default prompt](../img/UNIX/DefaultPrompt.png "Default prompt")
 
 ### Personnalize prompt
 Choose the wanted options and colors, and insert them in **PS1**.
@@ -160,7 +160,7 @@ export PS1;
 
 **This is the result:**  
 
-![Result](../img/PersonnalizedPrompt.png "Personnalized prompt")
+![Result](../img/UNIX/PersonnalizedPrompt.png "Personnalized prompt")
 #### Colors
 
 The colors used are from the _Chart of the 256 colors_ available in an Xterm with color support.  

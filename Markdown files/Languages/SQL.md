@@ -490,7 +490,7 @@ Num||Num
 
 > The mathematical notation is: **T1 ∪ T2**
 
-![The union](../img/Union.svg "The union")
+![The union](../img/Languages/Union.svg "The union")
 
 The MySQL code will be:  
 
@@ -518,7 +518,7 @@ The result is:
 
 > The mathematical notation is: **T1 ∩ T2**
 
-![The Intersection](../img/Intersection.svg "The Intersection")
+![The Intersection](../img/Languages/Intersection.svg "The Intersection")
 
 The MySQL code will be:  
 
@@ -545,7 +545,7 @@ The result is:
 
 > The mathematical notation is: **T1 − T2**
 
-![The Difference](../img/Difference.svg "The Difference")
+![The Difference](../img/Languages/Difference.svg "The Difference")
 
 The MySQL code will be: 
 
@@ -570,7 +570,7 @@ The result is:
 
 > The mathematical notation is: **T1 × T2**
 
-![The Cartesian product](../img/CartesianProduct.png "The Cartesian product")
+![The Cartesian product](../img/Languages/CartesianProduct.png "The Cartesian product")
 
 The MySQL code will be:  
 

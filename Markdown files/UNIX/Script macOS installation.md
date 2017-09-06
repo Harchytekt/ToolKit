@@ -49,7 +49,7 @@ alexandre       ALL = (ALL) ALL
 
 > Now, you should have this:  
 
-![The Terminal Preferences](../img/macOS/Terminal-Pref.png "The Terminal Preferences")
+![The Terminal Preferences](../img/UNIX/macOS/Terminal-Pref.png "The Terminal Preferences")
 
 ### The prompt
 > See [the appropriate page](Configure Terminal.html).  

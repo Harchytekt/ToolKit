@@ -38,7 +38,7 @@ diskutil resetUserPermissions / `id -u`
 ### OnyX's startup
 At OnyX's startup, it suggest to verify the structure of the Mac's startup disk:  
 
-![Check Disk Structure](../img/macOS/Onyx-CheckDiskStructure.png "Check Disk Structure")
+![Check Disk Structure](../img/UNIX/macOS/Onyx-CheckDiskStructure.png "Check Disk Structure")
 
 > You have the possibility to deactivate this verification, through **Preferences** > **Advanced**.
 
