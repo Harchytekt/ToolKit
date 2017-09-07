@@ -55,6 +55,10 @@ As you can see, there are no hints or details provided on the screen.
 
 An incorrect firmware password does nothing and offers no indication of login failure except that the Mac won't boot.
 
+## Additional source
+* [support.apple.com](https://support.apple.com/en-us/HT204455)
+
+
 
 ***
 
