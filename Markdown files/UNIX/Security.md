@@ -11,7 +11,7 @@
 openssl enc -aes-256-cbc -e -in fileToEncrypt -out encryptedFile
 ```
 
-> The password will be ask twice for safety.
+> The password will be asked twice for safety.
 
 ### Decryption
 
@@ -19,7 +19,7 @@ openssl enc -aes-256-cbc -e -in fileToEncrypt -out encryptedFile
 openssl enc -aes-256-cbc -d -in encryptedFile -out fileToEncrypt
 ```
 
-> The password will be ask.
+> The password will be asked.
 
 
 ## Set a Firmware Password _(OS X 10.9 or higher)_
