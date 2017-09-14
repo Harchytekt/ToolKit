@@ -49,7 +49,7 @@ It's only when attempting to boot from alternate methods that you'll have to ent
 
 You're using one of these methods when you attempt to boot from an _Mac OS X installer drive_, an _external boot volume_, _Recovery Mode_, _Single User Mode_, _Verbose Mode_, _Target Disk Mode_, _resetting the PRAM_, or any other alternative booting approach.
 
-![Firmware Password Screen](../img/UNIX/macOS/firmwarePasswordScreen.jpg "The Firmware Password Screen")
+<img src="../img/UNIX/macOS/firmwarePasswordScreen.jpg" alt="Firmware Password Screen" title="The Firmware Password Screen" style="box-shadow: -2px 2px 6px #bbb;">
 
 As you can see, there are no hints or details provided on the screen.
 
