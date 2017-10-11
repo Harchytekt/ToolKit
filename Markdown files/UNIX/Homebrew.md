@@ -155,7 +155,7 @@ brew pin package
 
 **Remarque:** _The unstop it, replace **pin** with **unpin**._
 
-## And now ? Install stuff !
+## And now? We install stuff!
 
 ### Ant
 > Apache Ant is a Java library and command-line tool whose mission is to drive processes described in build files as targets and extension points dependent upon each other. The main known usage of Ant is the build of Java applications. Ant supplies a number of built-in tasks allowing to compile, assemble, test and run Java applications.
