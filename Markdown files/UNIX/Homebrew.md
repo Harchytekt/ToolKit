@@ -86,6 +86,13 @@ brew cleanup
 brew doctor
 ```
 
+### Get informations
+> To have some infos on the package (version,…), you can use this line before intalling:
+
+```bash
+brew cask info packageName
+```
+
 ### Install package
 
 ```bash
@@ -240,7 +247,33 @@ export PATH=$GOPATH/bin:$PATH
 go get -u github.com/nishanths/license
 ```
 
-### [Mackup](https://github.com/lra/mackup)
+### [mas](https://github.com/mas-cli/mas)
+> A simple command line interface for the Mac App Store. Designed for scripting and automation.
+
+```bash
+brew install mas
+```
+
+### [Support to BPG](http://bellard.org/bpg/)
+
+> BPG(Better Portable Graphics) is a new image format. Its purpose is to replace the JPEG image format when quality or file size is an issue.
+
+```bash
+brew install libbpg
+```
+
+### Others
+
+#### [Awesome OS X Command Line](https://github.com/herrbischoff/awesome-osx-command-line)
+> Use your OS X terminal shell to do awesome things.
+
+#### [ m-cli](https://github.com/rgcr/m-cli)
+> 💥 Swiss Army Knife for macOS ! 
+
+#### [Mac CLI](https://github.com/guarinogabriel/Mac-CLI)
+>  macOS command line tools for developers – The ultimate tool to manage your Mac. It provides a huge set of command line commands that automatize the usage of your OS X system.
+
+#### [Mackup](https://github.com/lra/mackup)
 > Keep your application settings in sync (OS X/Linux)
 
 ```bash
@@ -255,28 +288,6 @@ mackup backup
 # Launch it and restore your files
 mackup restore
 ```
-
-### [Support to BPG](http://bellard.org/bpg/)
-
-> BPG(Better Portable Graphics) is a new image format. Its purpose is to replace the JPEG image format when quality or file size is an issue.
-
-```bash
-brew install libbpg
-```
-
-#### [QuickLook plugin for BPG](https://github.com/Nyx0uf/qlImageSize)
-> This is a QuickLook plugin for OS X 10.11+ to display the dimensions of an image and its file size in the title bar. It can also preview and generate Finder thumbnails for unsupported images formats like bpg and WebP.
-
-### Others
-
-#### [ m-cli](https://github.com/rgcr/m-cli)
-> 💥 Swiss Army Knife for macOS ! 
-
-#### [Mac CLI](https://github.com/guarinogabriel/Mac-CLI)
->  macOS command line tools for developers – The ultimate tool to manage your Mac. It provides a huge set of command line commands that automatize the usage of your OS X system.
-
-#### [Awesome OS X Command Line](https://github.com/herrbischoff/awesome-osx-command-line)
-> Use your OS X terminal shell to do awesome things.
 
 
 ***
