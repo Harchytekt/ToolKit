@@ -183,6 +183,13 @@ brew tap caskroom/cask
 
 #### [QuickLook plugins (with Cask)](https://github.com/sindresorhus/quick-look-plugins/blob/master/readme.md)  
 
+##### ProvisionQL
+> Preview iOS / macOS app and provision information
+
+```bash
+brew cask install provisionql
+```
+
 ##### QLColorCode
 > Preview source code files with syntax highlighting
 
@@ -204,11 +211,11 @@ brew cask install qlstephen
 brew cask install qlmarkdown
 ```
 
-##### ProvisionQL
-> Preview iOS / macOS app and provision information
+##### [QuickLook plugin for BPG](https://github.com/Nyx0uf/qlImageSize)
+>This is a QuickLook plugin for OS X 10.11+ to display the dimensions of an image and its file size in the title bar. It can also preview and generate Finder thumbnails for unsupported images formats like bpg and WebP.
 
 ```bash
-brew cask install provisionql
+brew cask install qlimagesize
 ```
 
 ### Clisp
