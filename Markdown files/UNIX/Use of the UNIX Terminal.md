@@ -51,4 +51,4 @@ alias idea="open -a 'IntelliJ IDEA'"
 
 ***
 
-<center>ToolKit © 2017</center><center><a href="http://alexandre-ducobu.esy.es/En">About</a> </center>
+<center>ToolKit © 2017</center><center><a href="https://alexandre-ducobu.com/En">About</a> </center>
