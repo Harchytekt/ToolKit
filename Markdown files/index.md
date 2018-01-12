@@ -27,10 +27,12 @@
 		* [Maintenance](UNIX/Maintenance.html)
 		* [Script macOS installation](UNIX/Script%20macOS%20installation.html)
 		* [Security](UNIX/Security.html)
+		* [Use FTP Through the macOS Terminal](UNIX/Use%20FTP%20Through%20the%20macOS%20Terminal.html)
+		* [Use of the UNIX Terminal _(macOS)_](UNIX/Use%20of%20the%20UNIX%20Terminal.html)
 	* [Linux administration (UNIX Terminal)](UNIX/Linux%20administration%20(UNIX%20Terminal).html)
 * [Windows Server](WinServ/Windows%20Server.html)
 
 
 ***
 
-<center>ToolKit © 2017</center><center><a href="https://alexandre-ducobu.com/En">About</a> </center>
+<center>ToolKit © <!--[if IE 8]>2017<![endif]--><!--[if !IE 8]> -->2017 <span id="currentYear"></span><!-- <![endif]--></center><center><a href="https://alexandre-ducobu.com/En">About</a> </center>
