@@ -183,5 +183,5 @@ By default, this log is automatically erased when you quit OnyX (you can change 
 
 ***
 
-<center>ToolKit © 2017</center><center><a href="https://alexandre-ducobu.com/En">About</a> </center>
+<center>ToolKit © <!--[if IE 8]>2017<![endif]--><!--[if !IE 8]> -->2017 <span id="currentYear"></span><!-- <![endif]--></center><center><a href="https://alexandre-ducobu.com/En">About</a> </center>
 

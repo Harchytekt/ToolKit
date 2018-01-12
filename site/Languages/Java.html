@@ -155,8 +155,7 @@ java -cp &quot;.;.\be\isims\coo\tp5\ex2\lib\libClock.jar&quot; be.isims.coo.tp5.
 
 <hr>
 
-<center>ToolKit © 2017</center>
-<center><a href="https://alexandre-ducobu.com/En">About</a> </center>
+<p><center>ToolKit © <!--[if IE 8]>2017<![endif]--><!--[if !IE 8]> -->2017 <span id="currentYear"></span><!-- <![endif]--></center><center><a href="https://alexandre-ducobu.com/En">About</a> </center></p>
 
 
 
@@ -201,5 +200,8 @@ if (typeof MathJaxListener !== 'undefined') {
 
 
 </body>
+<script>
+    document.getElementById('currentYear').innerHTML = " - " + (new Date()).getFullYear();
+</script>
 
 </html>
