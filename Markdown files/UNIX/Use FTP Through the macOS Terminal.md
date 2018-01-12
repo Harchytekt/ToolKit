@@ -92,6 +92,8 @@ put localFile remoteFile
 
 > To use commands on the local host, you'll have to add a _**!**_ before it.
 
+![Preview](../img/UNIX/macOS/FTP.png "Preview")
+
 
 ***
 
