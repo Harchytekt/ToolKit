@@ -5,6 +5,7 @@
 
 ## The connection
 You'll have to know the address for your server _(or its domain)_:
+
 ```bash
 ftp YourServerHere.com
 ```
