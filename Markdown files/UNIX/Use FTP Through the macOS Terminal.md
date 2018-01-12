@@ -23,7 +23,7 @@ The prompt is now ```ftp>```.
 
     - ```cd```, to change of directory
 
-    - ```quit```, to end your ftp session 
+    - ```quit``` or ```exit```, to end your ftp session 
 
 - The upload:
     - ```put```, to upload a file to the server
