@@ -90,7 +90,7 @@ The commands to create a file on the remote server are:
 put localFile remoteFile
 ```
 
-> To use commands on the local host, you'll have to add a _**!**_ before the command.
+> To use commands on the local host, you'll have to add a _**!**_ before it.
 
 
 ***
