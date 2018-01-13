@@ -29,6 +29,7 @@
 		* [Security](UNIX/Security.html)
 		* [Use FTP Through the macOS Terminal](UNIX/Use%20FTP%20Through%20the%20macOS%20Terminal.html)
 		* [Use of the UNIX Terminal _(macOS)_](UNIX/Use%20of%20the%20UNIX%20Terminal.html)
+		* [Vim Cheat Sheet](UNIX/Vim-%20Cheat%20Sheet.html)
 	* [Linux administration (UNIX Terminal)](UNIX/Linux%20administration%20(UNIX%20Terminal).html)
 * [Windows Server](WinServ/Windows%20Server.html)
 

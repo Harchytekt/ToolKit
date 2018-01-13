@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Vim- Cheat Sheet</title>
+<!-- CSS -->
+<link rel="stylesheet" href="../style.css">
+<!-- For old IEs -->
+<link rel="shortcut icon" href="../img/favicons/favicon.ico" />
+<!-- For new browsers - multisize ico  -->
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="../img/favicons/favicon.ico">
+<!-- For Safari's Pinned Tab -->
+<link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#F0893D">
+<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../img/favicons/favicon-152.png">
+<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/favicons/favicon-144.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../img/favicons/favicon-120.png">
+<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/favicons/favicon-114.png">
+<!-- For iPhone 6+ -->
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="../img/favicons/favicon-180.png">
+<!-- For first- and second-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/favicons/favicon-72.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed" href="../img/favicons/favicon-57.png">
+<!-- For Old Chrome -->
+<link rel="icon" href="../img/favicons/favicon-32.png" sizes="32x32">
+<!-- For IE10 Metro -->
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="../img/favicons/favicon-144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- Chrome for Android -->
+<link rel="manifest" href="../img/favicons/manifest.json">
+<link rel="icon" sizes="192x192" href="../img/favicons/favicon-192.png">
+
+
+</head>
+
+<body>
+
+<!--
+Author: Alexandre Ducobu
+Date: Ven 12 jan 2018 19:14:14 CET
+-->
+
+<h1 id="toc_0">Cheat Sheet for <em>(Neo)</em>vim</h1>
+
+<p><center><a href="../index.html">Home</a></center></p>
+
+<ul class="toc">
+<li>
+<a href="#toc_0">Cheat Sheet for <em>(Neo)</em>vim</a>
+<ul>
+<li>
+<a href="#toc_1">Move inside a file</a>
+</li>
+<li>
+<a href="#toc_2">Change display</a>
+</li>
+<li>
+<a href="#toc_3">Save and quit</a>
+</li>
+<li>
+<a href="#toc_4">Copy, Cut, Paste and Select</a>
+</li>
+<li>
+<a href="#toc_5">Search, etc.</a>
+</li>
+<li>
+<a href="#toc_6">Undo and Redo</a>
+</li>
+<li>
+<a href="#toc_7">Open and Create files from vim</a>
+</li>
+<li>
+<a href="#toc_8">Buffers</a>
+</li>
+<li>
+<a href="#toc_9">NERDTree</a>
+</li>
+<li>
+<a href="#toc_10">Other</a>
+</li>
+<li>
+<a href="#toc_11">Sources</a>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<blockquote>
+<p>To update your plugins <em>(if you&#39;re using the</em> Plug <em>manager)</em>, the command is <code>:PlugUpdate</code></p>
+</blockquote>
+
+<h2 id="toc_1">Move inside a file</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>G</code></td>
+<td>Jump to the last line of the file</td>
+</tr>
+<tr>
+<td><code>gg</code></td>
+<td>Jump to the first line of the file</td>
+</tr>
+<tr>
+<td><code>^^</code></td>
+<td>Jump to the start of the current line</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Jump to the end of the current line</td>
+</tr>
+<tr>
+<td><code>3j</code> or <code>:+3</code></td>
+<td>Jump by 3 lines down</td>
+</tr>
+<tr>
+<td><code>3G</code> or <code>:3</code></td>
+<td>Jump to the 3rd line</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_2">Change display</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>zR</code></td>
+<td>Open all folds</td>
+</tr>
+<tr>
+<td><code>zM</code></td>
+<td>Close all folds</td>
+</tr>
+<tr>
+<td><code>zA</code></td>
+<td>Toggle all folds at the cursor</td>
+</tr>
+<tr>
+<td><code>za</code></td>
+<td>Toggle the fold at the cursor</td>
+</tr>
+<tr>
+<td><code>:retab</code></td>
+<td>Adjust indent</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_3">Save and quit</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>:w</code></td>
+<td>Save file without leaving vim</td>
+</tr>
+<tr>
+<td><code>ZZ</code> or <code>:wq</code></td>
+<td>Save file while leaving vim</td>
+</tr>
+<tr>
+<td><code>ZQ</code> or <code>:q!</code></td>
+<td>Leave vim without saving file</td>
+</tr>
+<tr>
+<td><code>:bd</code> or <code>,bd</code></td>
+<td>Close file without leaving vim</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_4">Copy, Cut, Paste and Select</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>yy</code></td>
+<td>Copy the line at the cursor</td>
+</tr>
+<tr>
+<td><code>dd</code></td>
+<td>Cut the line at the cursor</td>
+</tr>
+<tr>
+<td><code>3yy</code></td>
+<td>Copy 3 lines from the line at the cursor</td>
+</tr>
+<tr>
+<td><code>3dd</code></td>
+<td>Cut 3 lines from the line at the cursor</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td>Paste starting from the next line of the cursor</td>
+</tr>
+<tr>
+<td><code>&quot;_dd</code></td>
+<td>Delete the line at the cursor <em>(cut it in void)</em></td>
+</tr>
+<tr>
+<td><code>&quot;_d3j</code></td>
+<td>Delete 3 lines down from the one at the cursor</td>
+</tr>
+<tr>
+<td><code>V3j</code></td>
+<td>Select 3 lines down from the one at the cursor</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_5">Search, etc.</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>/void</code></td>
+<td>Go to the first occurence of <em>&#39;void&#39;</em></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>Go to the next occurence of <em>&#39;void&#39;</em></td>
+</tr>
+<tr>
+<td><code>⇧ n</code></td>
+<td>Go to the previous occurence of <em>&#39;void&#39;</em></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_6">Undo and Redo</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>u</code></td>
+<td>Undo the last change <em>(can be used multiple times)</em></td>
+</tr>
+<tr>
+<td><code>⌃ r</code></td>
+<td>Redo the changes</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_7">Open and Create files from vim</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Descritpion</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>:e main.java</code></td>
+<td>Open the <em>&#39;main.java&#39;</em> from the current directory</td>
+</tr>
+<tr>
+<td><code>:new README.md</code></td>
+<td>Create the <em>&#39;README.md&#39;</em> file in the current directory</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_8">Buffers</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>:e</code> or <code>:new</code>`</td>
+<td>Create a buffer</td>
+</tr>
+<tr>
+<td><code>:badd file</code></td>
+<td>Create a buffer for <em>&#39;file&#39;</em> without opening it</td>
+</tr>
+<tr>
+<td><code>:ls</code>, <code>:buffers</code> or <code>:files</code></td>
+<td>List of all the existing buffers</td>
+</tr>
+<tr>
+<td><code>:ls!</code>, <code>:buffers!</code> or <code>:files!</code></td>
+<td>List all the buffers including unlisted buffers</td>
+</tr>
+<tr>
+<td><code>:bd file</code> or <code>:4bd</code></td>
+<td>Close the 4th buffer or the one for the <em>&#39;file&#39;</em></td>
+</tr>
+<tr>
+<td><code>:bd file1 file2 file3</code> or <code>:3,5bd</code></td>
+<td>Close multiple buffers <em>(here 3)</em></td>
+</tr>
+<tr>
+<td><code>:bunload</code></td>
+<td>Hide the buffer but leave it in the buffer list</td>
+</tr>
+<tr>
+<td><code>:b file</code> or <code>:b 3</code></td>
+<td>Open the buffer from the list <em>(completion with</em> ⇥ <em>works)</em></td>
+</tr>
+<tr>
+<td><code>:split file</code></td>
+<td>Split window horizontally and load <em>&#39;file&#39;</em></td>
+</tr>
+<tr>
+<td><code>:vsplit file</code></td>
+<td>Split window vertically and load <em>&#39;file&#39;</em></td>
+</tr>
+<tr>
+<td><code>:⌃ w h</code></td>
+<td>Go to the buffer at the <strong>left</strong> <em>(works with h, j, k and l)</em></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_9">NERDTree</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>⌃ n</code></td>
+<td>Toggle the NERDTree</td>
+</tr>
+<tr>
+<td><code>m</code></td>
+<td>Bring up the NERDTree Filesystem Menu</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>Add a child node</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>To create a new file, you have to <em>Open NERDTree</em> and <em>Enter its Filesystem Menu</em>.<br><br>
+Then <em>Add a new child node</em> and finally <em>Enter the file/directory name</em>.</p>
+</blockquote>
+
+<h2 id="toc_10">Other</h2>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>,tm</code></td>
+<td>Toggle the <em>table</em>mode_ <em>(has to be deactivated to save the file)</em></td>
+</tr>
+<tr>
+<td><code>!!date</code></td>
+<td>Write the current date and time at the next line from the cursor</td>
+</tr>
+<tr>
+<td><code>!!date v+3d</code></td>
+<td>Write the date and time in 3 days at the newt line from the cursor</td>
+</tr>
+<tr>
+<td><code>!!date v-3d</code></td>
+<td>Write the date and time 3 days ago at the newt line from the cursor</td>
+</tr>
+<tr>
+<td><code>nvim -d file1 file2</code></td>
+<td>Open two files in vim to compare them</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="toc_11">Sources</h2>
+
+<ul>
+<li><a href="https://duckduckgo.com/?q=vim+cheat+sheet&amp;t=osx&amp;iax=cheatsheet&amp;ia=cheatsheet#">DuckDuckGo&#39;s cheat sheet</a></li>
+<li><a href="http://vim.wikia.com">Wikia vim blog</a>
+
+<ul>
+<li><a href="http://vim.wikia.com/wiki/Moving_around">Wikia <em>(Moving around)</em></a></li>
+<li><a href="http://vim.wikia.com/wiki/Vim_buffer_FAQ">Wikia <em>(Buffers)</em></a></li>
+</ul></li>
+<li><a href="https://www.cs.oberlin.edu/%7Ekuperman/help/vim/windows.html">Buffers</a></li>
+</ul>
+
+<p><img src="../img/UNIX/macOS/Vim.png" alt="CheatSheet" title="Cheat Sheet"></p>
+
+<hr>
+
+<p><center>ToolKit © <!--[if IE 8]>2017<![endif]--><!--[if !IE 8]> -->2017 <span id="currentYear"></span><!-- <![endif]--></center><center><a href="https://alexandre-ducobu.com/En">About</a> </center></p>
+
+
+
+<script type="text/javascript">
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(){var e=/\blang(?:uage)?-(\w+)\b/i,t=0,n=_self.Prism={util:{encode:function(e){return e instanceof a?new a(e.type,n.util.encode(e.content),e.alias):"Array"===n.util.type(e)?e.map(n.util.encode):e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1]},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function(e){var t=n.util.type(e);switch(t){case"Object":var a={};for(var r in e)e.hasOwnProperty(r)&&(a[r]=n.util.clone(e[r]));return a;case"Array":return e.map&&e.map(function(e){return n.util.clone(e)})}return e}},languages:{extend:function(e,t){var a=n.util.clone(n.languages[e]);for(var r in t)a[r]=t[r];return a},insertBefore:function(e,t,a,r){r=r||n.languages;var l=r[e];if(2==arguments.length){a=arguments[1];for(var i in a)a.hasOwnProperty(i)&&(l[i]=a[i]);return l}var o={};for(var s in l)if(l.hasOwnProperty(s)){if(s==t)for(var i in a)a.hasOwnProperty(i)&&(o[i]=a[i]);o[s]=l[s]}return n.languages.DFS(n.languages,function(t,n){n===r[e]&&t!=e&&(this[t]=o)}),r[e]=o},DFS:function(e,t,a,r){r=r||{};for(var l in e)e.hasOwnProperty(l)&&(t.call(e,l,e[l],a||l),"Object"!==n.util.type(e[l])||r[n.util.objId(e[l])]?"Array"!==n.util.type(e[l])||r[n.util.objId(e[l])]||(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,l,r)):(r[n.util.objId(e[l])]=!0,n.languages.DFS(e[l],t,null,r)))}},plugins:{},highlightAll:function(e,t){var a={callback:t,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};n.hooks.run("before-highlightall",a);for(var r,l=a.elements||document.querySelectorAll(a.selector),i=0;r=l[i++];)n.highlightElement(r,e===!0,a.callback)},highlightElement:function(t,a,r){for(var l,i,o=t;o&&!e.test(o.className);)o=o.parentNode;o&&(l=(o.className.match(e)||[,""])[1],i=n.languages[l]),t.className=t.className.replace(e,"").replace(/\s+/g," ")+" language-"+l,o=t.parentNode,/pre/i.test(o.nodeName)&&(o.className=o.className.replace(e,"").replace(/\s+/g," ")+" language-"+l);var s=t.textContent,u={element:t,language:l,grammar:i,code:s};if(!s||!i)return n.hooks.run("complete",u),void 0;if(n.hooks.run("before-highlight",u),a&&_self.Worker){var c=new Worker(n.filename);c.onmessage=function(e){u.highlightedCode=e.data,n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(u.element),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},c.postMessage(JSON.stringify({language:u.language,code:u.code,immediateClose:!0}))}else u.highlightedCode=n.highlight(u.code,u.grammar,u.language),n.hooks.run("before-insert",u),u.element.innerHTML=u.highlightedCode,r&&r.call(t),n.hooks.run("after-highlight",u),n.hooks.run("complete",u)},highlight:function(e,t,r){var l=n.tokenize(e,t);return a.stringify(n.util.encode(l),r)},tokenize:function(e,t){var a=n.Token,r=[e],l=t.rest;if(l){for(var i in l)t[i]=l[i];delete t.rest}e:for(var i in t)if(t.hasOwnProperty(i)&&t[i]){var o=t[i];o="Array"===n.util.type(o)?o:[o];for(var s=0;s<o.length;++s){var u=o[s],c=u.inside,g=!!u.lookbehind,h=!!u.greedy,f=0,d=u.alias;u=u.pattern||u;for(var p=0;p<r.length;p++){var m=r[p];if(r.length>e.length)break e;if(!(m instanceof a)){u.lastIndex=0;var y=u.exec(m),v=1;if(!y&&h&&p!=r.length-1){var b=r[p+1].matchedStr||r[p+1],k=m+b;if(p<r.length-2&&(k+=r[p+2].matchedStr||r[p+2]),u.lastIndex=0,y=u.exec(k),!y)continue;var w=y.index+(g?y[1].length:0);if(w>=m.length)continue;var _=y.index+y[0].length,P=m.length+b.length;if(v=3,P>=_){if(r[p+1].greedy)continue;v=2,k=k.slice(0,P)}m=k}if(y){g&&(f=y[1].length);var w=y.index+f,y=y[0].slice(f),_=w+y.length,S=m.slice(0,w),O=m.slice(_),j=[p,v];S&&j.push(S);var A=new a(i,c?n.tokenize(y,c):y,d,y,h);j.push(A),O&&j.push(O),Array.prototype.splice.apply(r,j)}}}}}return r},hooks:{all:{},add:function(e,t){var a=n.hooks.all;a[e]=a[e]||[],a[e].push(t)},run:function(e,t){var a=n.hooks.all[e];if(a&&a.length)for(var r,l=0;r=a[l++];)r(t)}}},a=n.Token=function(e,t,n,a,r){this.type=e,this.content=t,this.alias=n,this.matchedStr=a||null,this.greedy=!!r};if(a.stringify=function(e,t,r){if("string"==typeof e)return e;if("Array"===n.util.type(e))return e.map(function(n){return a.stringify(n,t,e)}).join("");var l={type:e.type,content:a.stringify(e.content,t,r),tag:"span",classes:["token",e.type],attributes:{},language:t,parent:r};if("comment"==l.type&&(l.attributes.spellcheck="true"),e.alias){var i="Array"===n.util.type(e.alias)?e.alias:[e.alias];Array.prototype.push.apply(l.classes,i)}n.hooks.run("wrap",l);var o="";for(var s in l.attributes)o+=(o?" ":"")+s+'="'+(l.attributes[s]||"")+'"';return"<"+l.tag+' class="'+l.classes.join(" ")+'" '+o+">"+l.content+"</"+l.tag+">"},!_self.document)return _self.addEventListener?(_self.addEventListener("message",function(e){var t=JSON.parse(e.data),a=t.language,r=t.code,l=t.immediateClose;_self.postMessage(n.highlight(r,n.languages[a],a)),l&&_self.close()},!1),_self.Prism):_self.Prism;var r=document.currentScript||[].slice.call(document.getElementsByTagName("script")).pop();return r&&(n.filename=r.src,document.addEventListener&&!r.hasAttribute("data-manual")&&document.addEventListener("DOMContentLoaded",n.highlightAll)),_self.Prism}();"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+</script>
+
+<script type="text/javascript">
+!function(){if("undefined"!=typeof self&&self.Prism&&self.document){var e={html:"HTML",xml:"XML",svg:"SVG",mathml:"MathML",css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",asciidoc:"AsciiDoc",aspnet:"ASP.NET (C#)",autoit:"AutoIt",autohotkey:"AutoHotkey",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript","css-extras":"CSS Extras",fsharp:"F#",glsl:"GLSL",http:"HTTP",inform7:"Inform 7",json:"JSON",latex:"LaTeX",lolcode:"LOLCODE",matlab:"MATLAB",mel:"MEL",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",parigp:"PARI/GP",php:"PHP","php-extras":"PHP Extras",powershell:"PowerShell",jsx:"React JSX",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",typescript:"TypeScript",vhdl:"VHDL",vim:"vim",wiki:"Wiki markup",yaml:"YAML"};Prism.hooks.add("before-highlight",function(s){var a=s.element.parentNode;if(a&&/pre/i.test(a.nodeName)){var t,i,r=a.getAttribute("data-language")||e[s.language]||s.language.substring(0,1).toUpperCase()+s.language.substring(1),l=a.previousSibling;l&&/\s*\bprism-show-language\b\s*/.test(l.className)&&l.firstChild&&/\s*\bprism-show-language-label\b\s*/.test(l.firstChild.className)?i=l.firstChild:(t=document.createElement("div"),i=document.createElement("div"),i.className="prism-show-language-label",t.className="prism-show-language",t.appendChild(i),a.parentNode.insertBefore(t,a)),i.innerHTML=r}})}}();
+</script>
+
+<script type="text/x-mathjax-config">
+(function () {
+
+MathJax.Hub.Config({
+	'showProcessingMessages': false,
+	'messageStyle': 'none'
+});
+
+if (typeof MathJaxListener !== 'undefined') {
+	MathJax.Hub.Register.StartupHook('End', function () {
+		MathJaxListener.invokeCallbackForKey_('End');
+	});
+}
+
+})();
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+<script>
+    document.getElementById('currentYear').innerHTML = " - " + (new Date()).getFullYear();
+</script>
+
+</html>
