@@ -79,7 +79,7 @@ Date: Ven 12 jan 2018 19:14:14 CET
 
 | Command                                      | Description                                                   |
 |----------------------------------------------|---------------------------------------------------------------|
-| ```:e``` or ```:new````                      | Create a buffer                                               |
+| ```:e``` or ```:new```                       | Create a buffer                                               |
 | ```:badd file```                             | Create a buffer for _'file'_ without opening it               |
 | ```:ls```, ```:buffers``` or ```:files```    | List of all the existing buffers                              |
 | ```:ls!```, ```:buffers!``` or ```:files!``` | List all the buffers including unlisted buffers               |
