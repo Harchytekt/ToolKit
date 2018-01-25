@@ -8,10 +8,10 @@ Creation date: Mer 24 jan 2018 10:48:25 CET
 
 - [Managing Commits](Managing%20Commits.md)
 - [Managing Branches](Managing%20Branches.md)
-	- [Create a new branch](#newbranch)
-	- [Change branch](#changebranch)
-	- [Delete a branch](#deletebranch)
-	- [Merge two branches](#merge)
+    - [Create a new branch](#newbranch)
+    - [Change branch](#changebranch)
+    - [Delete a branch](#deletebranch)
+    - [Merge two branches](#merge)
 
 <a name="newbranch"></a>
 ### Create a new branch
