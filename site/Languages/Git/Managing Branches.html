@@ -53,8 +53,8 @@ Creation date: Mer 24 jan 2018 10:48:25 CET
 <p><center><a href="../../index.html">Home</a></center></p>
 
 <ul>
-<li><a href="Managing%20Commits.html">Managing Commits</a></li>
-<li><a href="Managing%20Branches.html">Managing Branches</a>
+<li><a href="Managing%20Commits.md">Managing Commits</a></li>
+<li><a href="Managing%20Branches.md">Managing Branches</a>
 
 <ul>
 <li><a href="#newbranch">Create a new branch</a></li>
@@ -68,12 +68,12 @@ Creation date: Mer 24 jan 2018 10:48:25 CET
 
 <h3 id="toc_1">Create a new branch</h3>
 
-<p>Create a new branch is easy.<br><br>
-There&#39;re two methods to create a branch.<br><br>
+<p>Create a new branch is easy.<br>
+There&#39;re two methods to create a branch.<br>
 I&#39;ll show you the easiest.  </p>
 
-<p>So, we want to create a branch to <strong>fix</strong> the <strong>logout</strong> of our site.<br><br>
-I&#39;ll name it <em><strong>fix/logout</strong></em>...  </p>
+<p>So, we want to create a branch to <strong>fix</strong> the <strong>logout</strong> of our site.<br>
+I&#39;ll name it <em><strong>fix/logout</strong></em>...</p>
 
 <blockquote>
 <p>You should have a <em>Branch Naming Convention</em></p>
@@ -81,7 +81,7 @@ I&#39;ll name it <em><strong>fix/logout</strong></em>...  </p>
 
 <div><pre><code class="language-none">git checkout -b fix/logout</code></pre></div>
 
-<p>We&#39;re now on the <em><strong>fix/logout</strong></em> branch!<br><br>
+<p>We&#39;re now on the <em><strong>fix/logout</strong></em> branch!<br>
 Push it the remote repo:  </p>
 
 <div><pre><code class="language-none">git push --set-upstream origin fix/logout</code></pre></div>
@@ -114,8 +114,7 @@ production-ready state.</li>
 
 <p>The asterisk shows us the branch we&#39;re currently on.</p>
 
-<p>Now that we know where we are, we can choose where we&#39;re going: I choose<br>
-<em><strong>feature/AddComments</strong></em>.  </p>
+<p>Now that we know where we are, we can choose where we&#39;re going: I choose <em><strong>feature/AddComments</strong></em>.  </p>
 
 <p>We only have to write this command:  </p>
 
@@ -127,11 +126,9 @@ production-ready state.</li>
 
 <h3 id="toc_3">Delete a branch</h3>
 
-<p>The deletion of branches is easy, but we have to be careful: a branch have to be<br>
-deleted locally <em>(on your PC)</em> and remotely <em>(e.g. on GitHub)</em>.  </p>
+<p>The deletion of branches is easy, but we have to be careful: a branch have to be deleted locally <em>(on your PC)</em> and remotely <em>(e.g. on GitHub)</em>.  </p>
 
-<p>We are on <em><strong>feature/AddComments</strong></em> and, for some reason, we abandon the<br>
-functionality. We should delete its branch then.  </p>
+<p>We are on <em><strong>feature/AddComments</strong></em> and, for some reason, we abandon the functionality. We should delete its branch then.  </p>
 
 <p>First, we have to change branch. Let&#39;s say we go to <em><strong>develop</strong></em>:  </p>
 
@@ -149,7 +146,7 @@ functionality. We should delete its branch then.  </p>
 
 <h3 id="toc_4">Merge two branches</h3>
 
-<p>So, we are on <em><strong>fix/logout</strong></em> and we have to merge it with <em><strong>develop</strong></em>.<br><br>
+<p>So, we are on <em><strong>fix/logout</strong></em> and we have to merge it with <em><strong>develop</strong></em>.<br>
 To do so, we have to:</p>
 
 <ol>
@@ -193,10 +190,10 @@ To do so, we have to:</p>
   feature/Unknown
   master</code></pre></div>
 
-<p>We&#39;re going to work on that <em>unknown</em> feature but we should rename it.<br><br>
+<p>We&#39;re going to work on that <em>unknown</em> feature but we should rename it.<br>
 Indeed the name isn&#39;t representative of our feature...  </p>
 
-<p>As we want to add articles to the site, let&#39;s call it <em><strong>feature/AddArticles</strong></em>.<br><br>
+<p>As we want to add articles to the site, let&#39;s call it <em><strong>feature/AddArticles</strong></em>.<br>
 Because we are on <em><strong>develop</strong></em>, the command is:  </p>
 
 <div><pre><code class="language-none">git branch -m feature/Unknown feature/AddArticles</code></pre></div>
@@ -251,6 +248,5 @@ if (typeof MathJaxListener !== 'undefined') {
 <script>
     document.getElementById('currentYear').innerHTML = " - " + (new Date()).getFullYear();
 </script>
-
 
 </html>

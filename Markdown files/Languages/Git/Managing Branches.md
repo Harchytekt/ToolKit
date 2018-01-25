@@ -16,19 +16,19 @@ Creation date: Mer 24 jan 2018 10:48:25 CET
 <a name="newbranch"></a>
 ### Create a new branch
 
-Create a new branch is easy.  
-There're two methods to create a branch.  
+Create a new branch is easy.
+There're two methods to create a branch.
 I'll show you the easiest.  
 
-So, we want to create a branch to **fix** the **logout** of our site.  
-I'll name it _**fix/logout**_...  
+So, we want to create a branch to **fix** the **logout** of our site.
+I'll name it _**fix/logout**_...
 > You should have a _Branch Naming Convention_
 
 ```
 git checkout -b fix/logout
 ```
 
-We're now on the _**fix/logout**_ branch!  
+We're now on the _**fix/logout**_ branch!
 Push it the remote repo:  
 
 ```
@@ -63,8 +63,7 @@ production-ready state.
 
 The asterisk shows us the branch we're currently on.
 
-Now that we know where we are, we can choose where we're going: I choose
-_**feature/AddComments**_.  
+Now that we know where we are, we can choose where we're going: I choose _**feature/AddComments**_.  
 
 We only have to write this command:  
 
@@ -78,11 +77,9 @@ And we are on the branch!
 <a name="deletebranch"></a>
 ### Delete a branch
 
-The deletion of branches is easy, but we have to be careful: a branch have to be
-deleted locally _(on your PC)_ and remotely _(e.g. on GitHub)_.  
+The deletion of branches is easy, but we have to be careful: a branch have to be deleted locally _(on your PC)_ and remotely _(e.g. on GitHub)_.  
 
-We are on _**feature/AddComments**_ and, for some reason, we abandon the
-functionality. We should delete its branch then.  
+We are on _**feature/AddComments**_ and, for some reason, we abandon the functionality. We should delete its branch then.  
 
 First, we have to change branch. Let's say we go to _**develop**_:  
 
@@ -106,7 +103,7 @@ git push origin -d feature/AddComments
 <a name="merge"></a>
 ### Merge two branches
 
-So, we are on _**fix/logout**_ and we have to merge it with _**develop**_.  
+So, we are on _**fix/logout**_ and we have to merge it with _**develop**_.
 To do so, we have to:
 
 1. return to _**develop**_  
@@ -152,10 +149,10 @@ $ git branch
   master
 ```
 
-We're going to work on that _unknown_ feature but we should rename it.  
+We're going to work on that _unknown_ feature but we should rename it.
 Indeed the name isn't representative of our feature...  
 
-As we want to add articles to the site, let's call it _**feature/AddArticles**_.  
+As we want to add articles to the site, let's call it _**feature/AddArticles**_.
 Because we are on _**develop**_, the command is:  
 
 ```
