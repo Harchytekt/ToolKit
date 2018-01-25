@@ -8,6 +8,7 @@
 	* DataBase
 		* [SQL](Languages/SQL.html)
 	* Git
+		* [Managing Branches](Languages/Git/Managing%20Branches.html)
 	* Programming
 		* C/C++
 		* C#
